@@ -7,3 +7,13 @@
   background-color: white;
   box-shadow: 0px 0px 16px #5fccff
 }
+
+.my-name {
+  margin-bottom: 0px;
+  margin-top: 16px;
+}
+
+.email-me-button {
+  position: fixed !important;
+}
+
