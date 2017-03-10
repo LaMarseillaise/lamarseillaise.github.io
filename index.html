@@ -6,48 +6,46 @@
 
     <title>Andur Carr</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+    <link rel="stylesheet" href="assets/stylesheets/normalize.css">
     <link rel="stylesheet" href="assets/stylesheets/main.css">
 
     <script src="https://use.fontawesome.com/fa96bf41ac.js"></script>
-    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
   </head>
-  <body ng-app="Andur">
-    <header layout="column" layout-align="center center" layout-fill>
-      <img src="https://pbs.twimg.com/profile_images/554791536274059265/r-qsR9zQ_400x400.jpeg" class="photo-of-self">
-      <h1 class="md-display-3 my-name">Andur Carr</h1>
-      <h3 class="md-headline">Full Stack Developer</h3>
+  <body>
+    <main>
+      <section id="introduction">
+        <img src="https://pbs.twimg.com/profile_images/554791536274059265/r-qsR9zQ_400x400.jpeg" id="portrait">
 
-      <div layout="row">
-        <md-button class="md-icon-button" aria-label="Twitter" target="_blank" href="https://twitter.com/lamarseillaisef">
-          <md-icon md-font-icon="fa-twitter" class="fa fa-2x"></md-icon>
-        </md-button>
+        <h1 id="name">
+          Andur Carr
+        </h1>
 
-        <md-button class="md-icon-button" aria-label="GitHub" target="_blank" href="https://github.com/lamarseillaise">
-          <md-icon md-font-icon="fa-github" class="fa fa-2x"></md-icon>
-        </md-button>
+        <h3 id="title">
+          Full Stack Developer
+        </h3>
 
-        <md-button class="md-icon-button" aria-label="Medium" target="_blank" href="https://medium.com/@lamarseillaise">
-          <md-icon md-font-icon="fa-medium" class="fa fa-2x"></md-icon>
-        </md-button>
+        <div id="social-button-bar">
+          <a class="social-button" aria-label="Twitter" target="_blank" href="https://twitter.com/lamarseillaisef">
+            <i class="fa fa-twitter"></i>
+          </a>
 
-        <md-button class="md-icon-button" aria-label="LinkedIn" target="_blank" href="https://www.linkedin.com/in/andur-carr-92663a5a">
-          <md-icon md-font-icon="fa-linkedin" class="fa fa-2x"></md-icon>
-        </md-button>
-      </div>
-    </header>
+          <a class="social-button" aria-label="GitHub" target="_blank" href="https://github.com/lamarseillaise">
+            <i class="fa fa-github"></i>
+          </a>
 
-    <md-button class="md-fab md-fab-bottom-right email-me-button" aria-label="email" target="_blank" href="mailto:carr.andur@gmail.com">
-      <md-icon>email</md-icon>
-    </md-button>
+          <a class="social-button" aria-label="Medium" target="_blank" href="https://medium.com/@lamarseillaise">
+            <i class="fa fa-medium"></i>
+          </a>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
-    <script src="assets/scripts/app.js"></script>
+          <a class="social-button" aria-label="LinkedIn" target="_blank" href="https://www.linkedin.com/in/andur-carr-92663a5a">
+            <i class="fa fa-linkedin"></i>
+          </a>
+        </div>
+      </section>
+
+      <a id="email-button" aria-label="email" target="_blank" href="mailto:carr.andur@gmail.com">
+        <i class="fa fa-envelope-o fa-hemiolia" aria-hidden="true"></i>
+      </a>
+    </main>
   </body>
 </html>
