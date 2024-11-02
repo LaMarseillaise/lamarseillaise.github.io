@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Three Card Monte</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: #2c3e50;
+            color: white;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .game-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cards {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            height: 180px;
+            position: relative;
+            width: 440px;
+        }
+
+        .card {
+            width: 120px;
+            height: 180px;
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.3s, left 0.5s ease;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 2px solid #fff;
+        }
+
+        .card-front {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transform: rotateY(180deg);
+        }
+
+        .card-back {
+            background-image: url("./assets/images/cards/card-back.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        #queen .card-front {
+            background-image: url('./assets/images/cards/queen-of-hearts.png');
+        }
+
+        #jack .card-front {
+            background-image: url('./assets/images/cards/jack-of-diamonds.png');
+        }
+
+        #king .card-front {
+            background-image: url('./assets/images/cards/king-of-clubs.png');
+        }
+
+        #joker .card-front {
+            background-image: url('./assets/images/cards/joker.png') !important;
+        }
+
+        button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background: #3498db;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            margin: 1rem;
+        }
+
+        button:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        button:hover:not(:disabled) {
+            background: #2980b9;
+        }
+
+        .score {
+            font-size: 1.2rem;
+            margin: 1rem;
+        }
+
+        .instructions {
+            color: #bdc3c7;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <p class="instructions">Find the Lady, double your coin!</p>
+        <div class="cards" id="cards">
+            <div class="card" id="jack" style="left: 0px">
+                <div class="card-face card-back"></div>
+                <div class="card-face card-front"></div>
+            </div>
+            <div class="card" id="queen" style="left: 160px">
+                <div class="card-face card-back"></div>
+                <div class="card-face card-front"></div>
+            </div>
+            <div class="card" id="king" style="left: 320px">
+                <div class="card-face card-back"></div>
+                <div class="card-face card-front"></div>
+            </div>
+        </div>
+        <button id="startGame">Shuffle!</button>
+    </div>
+
+    <script>
+        let wins = 0
+        let losses = 0
+        let queenLocation = 1
+        let shuffling = true
+
+        const cardsContainer = document.getElementById('cards')
+        const startButton = document.getElementById('startGame')
+
+        const cards = document.querySelectorAll('.card')
+
+        let queen = document.getElementById('queen')
+        let jack = document.getElementById('jack')
+        let king = document.getElementById('king')
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms))
+        }
+
+        function randomPosition() {
+            return Math.floor(Math.random() * 3)
+        }
+
+        function swapCards(card1, card2) {
+            const temp = card1.style.left
+            card1.style.left = card2.style.left
+            card2.style.left = temp
+        }
+
+        function resetCards() {
+            jack.style.left = '0px'
+            queen.style.left = '160px'
+            king.style.left = '320px'
+
+            cards.forEach((card, index) => card.classList.remove('flipped'))
+        }
+
+        async function showQueen() {
+            queen.classList.add('flipped')
+            await sleep(500)
+            queen.classList.remove('flipped')
+        }
+
+        async function shuffle(numShuffles = 12) {
+            shuffling = true
+            startButton.disabled = true
+
+            await showQueen()
+
+            for (let i = 0; i < numShuffles; i++) {
+                let j = randomPosition()
+                let k = randomPosition()
+                while (k === j) { k = randomPosition() }
+
+                swapCards(cards[j], cards[k])
+
+                // Add some randomness to the shuffle timing
+                await sleep(500 + Math.random() * 250)
+            }
+
+            shuffling = false
+            startButton.disabled = false
+        }
+
+        startButton.addEventListener('click', () => {
+            resetCards()
+            setTimeout(shuffle, 500)
+        })
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                if (shuffling) return
+
+                card.classList.add('flipped')
+                shuffling = true
+
+                setTimeout(() => {
+                    if (card === queen) {
+                        wins++
+                    } else {
+                        losses++
+                        queen.classList.add('flipped')
+                    }
+
+                    setTimeout(() => {
+                        resetCards()
+                        startButton.disabled = false
+                    }, 1500)
+                }, 500)
+            })
+        })
+    </script>
+</body>
