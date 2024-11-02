@@ -125,6 +125,7 @@
 <body>
     <div class="game-container">
         <p class="instructions">Find the Lady, double your coin!</p>
+        <div class="score">Score: <span id="wins">0</span> wins - <span id="losses">0</span> losses</div>
         <div class="cards" id="cards">
             <div class="card" id="jack" style="left: 0px">
                 <div class="card-face card-back"></div>
@@ -147,6 +148,9 @@
         let losses = 0
         let queenLocation = 1
         let shuffling = true
+
+        let wonLastGame = false
+        let cheat = wonLastGame
 
         const cardsContainer = document.getElementById('cards')
         const startButton = document.getElementById('startGame')
@@ -172,9 +176,13 @@
         }
 
         function resetCards() {
+            startButton.disabled = false
+
             jack.style.left = '0px'
             queen.style.left = '160px'
             king.style.left = '320px'
+
+            queen.id = 'queen'
 
             cards.forEach((card, index) => card.classList.remove('flipped'))
         }
@@ -202,6 +210,8 @@
                 await sleep(500 + Math.random() * 250)
             }
 
+            if(cheat) { queen.id = 'joker' }
+
             shuffling = false
             startButton.disabled = false
         }
@@ -219,16 +229,20 @@
                 shuffling = true
 
                 setTimeout(() => {
-                    if (card === queen) {
+                    if (card.id === 'queen') {
                         wins++
+                        document.getElementById('wins').textContent = wins
+
+                        cheat = wonLastGame
+                        wonLastGame = true
                     } else {
                         losses++
-                        queen.classList.add('flipped')
+                        document.getElementById('losses').textContent = losses
+                        wonLastGame = cheat
                     }
 
                     setTimeout(() => {
                         resetCards()
-                        startButton.disabled = false
                     }, 1500)
                 }, 500)
             })
