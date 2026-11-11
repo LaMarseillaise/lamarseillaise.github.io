@@ -1,43 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Andur Carr</title>
-
+    <meta name="description" content="Andur Carr is a software engineer in Eugene, Oregon, with experience in web applications, database performance, internal tools, and teaching.">
+    <meta name="theme-color" content="#eefaff">
+    <title>Andur Carr — Software Engineer</title>
     <link rel="stylesheet" href="assets/stylesheets/normalize.css">
     <link rel="stylesheet" href="assets/stylesheets/main.css">
-
-    <script src="https://use.fontawesome.com/fa96bf41ac.js"></script>
   </head>
   <body>
-    <main>
-      <section id="introduction" class="center full frame columns">
-        <img src="assets/images/andur.jpeg">
-
-        <h1>
-          Andur Carr
-        </h1>
-
-        <h3>
-          Full Stack Developer
-        </h3>
-
-        <div id="social-button-bar">
-          <a class="social-button" aria-label="GitHub" target="_blank" href="https://github.com/lamarseillaise">
-            <i class="fa fa-github"></i>
-          </a>
-
-          <a class="social-button" aria-label="LinkedIn" target="_blank" href="https://www.linkedin.com/in/andur-carr-92663a5a">
-            <i class="fa fa-linkedin"></i>
-          </a>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header page-width">
+      <a class="wordmark" href="#introduction" aria-label="Andur Carr, introduction">AC<span aria-hidden="true">.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#experience">Experience</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <section id="introduction" class="introduction page-width" aria-labelledby="name">
+        <div class="introduction-copy">
+          <p class="eyebrow">Software engineer · Eugene, Oregon</p>
+          <h1 id="name">Andur Carr</h1>
+          <p class="lead">I build web applications, improve database performance, and make internal tools easier to use.</p>
+          <p class="intro-detail">My background spans Ruby on Rails, SQL, React, and teaching software development. I'm interested in applying that experience to AI-related software and practical tools that help people do useful work.</p>
+          <a class="text-link" href="#experience">Explore my experience <span aria-hidden="true">↓</span></a>
+        </div>
+        <img class="portrait" src="assets/images/andur.jpeg" alt="Portrait of Andur Carr" width="240" height="240">
+      </section>
+      <section id="experience" class="experience page-width section-space" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <p class="eyebrow">Selected experience</p>
+          <h2 id="experience-title">Building, improving,<br class="wide-only"> and teaching.</h2>
+        </div>
+        <div class="experience-list">
+          <article class="experience-item">
+            <p class="organization">RepairPal</p>
+            <div>
+              <h3>Faster databases and more maintainable applications</h3>
+              <p>I've designed and optimized MySQL databases and refactored legacy application code across search, media, and routing. This work improved query performance, reduced server resource demands, and made the code easier to read.</p>
+              <p class="focus">MySQL · Performance · Refactoring</p>
+            </div>
+          </article>
+          <article class="experience-item">
+            <p class="organization">RepairPal</p>
+            <div>
+              <h3>Internal tools and business workflows</h3>
+              <p>I rebuilt the administration interface in React, improving page load times and reducing the time needed to create new pages. I also rebuilt the monetization pipeline to reduce recurring manual work across multiple teams.</p>
+              <p class="focus">React · Administration tools · Workflow improvements</p>
+            </div>
+          </article>
+          <article class="experience-item">
+            <p class="organization">Viking Education</p>
+            <div>
+              <h3>Teaching and building</h3>
+              <p>I taught and mentored aspiring software engineers while also building the software behind the program. My work included an AngularJS administration interface, curriculum-management improvements, Stripe subscription payments, and PostgreSQL performance improvements.</p>
+              <p class="focus">Mentorship · Internal tools · Payments · PostgreSQL</p>
+            </div>
+          </article>
         </div>
       </section>
-
-      <a id="email-button" aria-label="email" target="_blank" href="mailto:carr.andur@gmail.com">
-        <i class="fa fa-envelope fa-hemiolia" aria-hidden="true"></i>
-      </a>
+      <section id="about" class="about page-width section-space" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">A little background.</h2>
+        </div>
+        <div class="about-copy">
+          <p>I'm a software engineer based in Eugene, Oregon. I've worked at RepairPal since November 2018. Before that, I built landing and marketing pages for Walking the Sunlit Path and Prizm Labs, and worked as a developer and mentor at Viking Education.</p>
+          <p>I completed Viking Code School's full-stack web development program and hold a BA in Economics from the University of California San Diego.</p>
+        </div>
+      </section>
+      <section id="contact" class="contact" aria-labelledby="contact-title">
+        <div class="page-width contact-content">
+          <p class="eyebrow">Get in touch</p>
+          <h2 id="contact-title">Let's talk.</h2>
+          <p>For a conversation about software engineering, practical AI tools, or a project.</p>
+          <a class="email-link" href="mailto:carr.andur@gmail.com">carr.andur@gmail.com <span aria-hidden="true">↗</span></a>
+          <div class="profile-links">
+            <a href="https://github.com/lamarseillaise">GitHub <span aria-hidden="true">↗</span></a>
+            <a href="https://www.linkedin.com/in/andur-carr-92663a5a">LinkedIn <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
     </main>
+    <footer class="site-footer page-width">
+      <p>Andur Carr · Eugene, Oregon</p>
+      <a href="#introduction">Back to top <span aria-hidden="true">↑</span></a>
+    </footer>
   </body>
 </html>
