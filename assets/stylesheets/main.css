@@ -42,7 +42,7 @@ nav a:hover { text-decoration: underline; }
 .portrait { display: block; width: 240px; height: 240px; object-fit: cover; border-radius: 50%; border: 6px solid white; }
 .text-link { display: inline-flex; gap: 1rem; align-items: center; padding-block: 0.6rem; margin-top: 0.5rem; color: var(--accent); font-weight: 600; }
 .section-space { padding-block: 4rem; border-top: 1px solid var(--rule); }
-.experience, .about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr); gap: 4rem; }
+.experience, .projects, .about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr); gap: 4rem; }
 .experience-item { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 1.5rem; padding-block: 2rem; border-bottom: 1px solid var(--rule); }
 .experience-item:first-child { padding-top: 0; }
 .experience-item:last-child { border-bottom: 0; padding-bottom: 0; }
@@ -67,7 +67,7 @@ nav a:hover { text-decoration: underline; }
 @media (max-width: 900px) {
   .introduction { gap: 2.5rem; grid-template-columns: minmax(0, 1fr) 180px; padding-block: 4rem; }
   .portrait { width: 180px; height: 180px; }
-  .experience, .about { grid-template-columns: 1fr; gap: 2.5rem; }
+  .experience, .projects, .about { grid-template-columns: 1fr; gap: 2.5rem; }
   .wide-only { display: none; }
 }
 @media (max-width: 560px) {
@@ -88,7 +88,7 @@ nav a:hover { text-decoration: underline; }
   .site-header, .skip-link, .text-link, .site-footer { display: none; }
   .page-width { width: 100%; }
   .introduction, .section-space, .contact-content { padding-block: 1.5rem; }
-  .experience, .about { display: block; }
+  .experience, .projects, .about { display: block; }
   .section-heading { margin-bottom: 1.5rem; }
   .experience-item { break-inside: avoid; }
   .contact { background: white; color: black; }
