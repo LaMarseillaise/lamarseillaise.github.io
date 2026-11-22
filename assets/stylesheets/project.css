@@ -1,0 +1,11 @@
+.project-main { padding-block: 3rem 5rem; }
+.project-main h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); margin-bottom: 1.3rem; }
+.project-main h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+.project-intro { max-width: 45rem; color: var(--muted); font-size: 1.1rem; }
+.project-main button, .project-main input, .project-main select, .project-main textarea { font: inherit; }
+.project-main button, .project-main select { min-height: 44px; }
+.project-main button { cursor: pointer; }
+.project-main button:focus-visible, .project-main input:focus-visible, .project-main select:focus-visible, .project-main textarea:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.project-main .notes { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); max-width: 48rem; }
+.project-main code { overflow-wrap: anywhere; }
+.project-main .eyebrow { font-size: .85rem; }

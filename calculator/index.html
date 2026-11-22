@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculator · Andur Carr</title>
+  <meta name="description" content="A small, reusable calculator made with native Web Components and plain JavaScript.">
+  <link rel="stylesheet" href="../assets/stylesheets/main.css"><link rel="stylesheet" href="../assets/stylesheets/project.css">
+  <script type="module" src="calculator.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header page-width"><a class="wordmark" href="../">AC<span>.</span></a><a href="../#projects">All projects</a></header>
+  <main id="main" class="page-width project-main">
+    <p class="eyebrow">Small tools · Native web components</p>
+    <h1>A little arithmetic.</h1>
+    <p class="project-intro">A familiar desk calculator, rebuilt with the browser’s own components. No framework, build step, or server.</p>
+    <andur-calculator></andur-calculator>
+    <noscript>This calculator needs JavaScript enabled.</noscript>
+    <section class="notes" aria-labelledby="implementation"><h2 id="implementation">One element. Its own state.</h2>
+      <p>This is an adaptation of <a href="https://github.com/LaMarseillaise/calculator">my original React calculator</a>, made with AI assistance. The four-column keypad and basic operations carry over; the new version adds keyboard controls, clear, sign change, deletion, and explicit error handling.</p>
+      <p>Import <code>calculator/calculator.js</code> as a module, then add <code>&lt;andur-calculator&gt;&lt;/andur-calculator&gt;</code>. Each instance owns its state and uses Shadow DOM to keep its styles contained.</p>
+      <p>Operations run left to right: <code>2 + 3 × 4 = 20</code>. Equals completes the pending operation; pressing it again does not repeat it. Displayed results are rounded to 15 significant digits using JavaScript numbers; this is not a financial-precision calculator.</p>
+    </section>
+  </main>
+</body>
+</html>

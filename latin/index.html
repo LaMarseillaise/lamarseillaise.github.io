@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Latin, connected · Andur Carr</title>
+  <meta name="description" content="A Latin reading workspace: write your own translation and connect words by reference, agreement, subject, and object.">
+  <link rel="stylesheet" href="../assets/stylesheets/main.css"><link rel="stylesheet" href="../assets/stylesheets/project.css"><link rel="stylesheet" href="latin.css">
+  <script type="module" src="latin.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header page-width"><a class="wordmark" href="../">AC<span>.</span></a><a href="../#projects">All projects</a></header>
+  <main id="main" class="page-width project-main">
+    <p class="eyebrow">A reading notebook</p><h1>Latin, connected.</h1>
+    <p class="project-intro">Follow the relationships across a sentence. Write your own translation, then connect words that belong together.</p>
+    <p><a href="#latin-and-attention">How Latin connects to transformer attention</a></p>
+    <label for="passage">Choose a passage</label><select id="passage"></select>
+    <p id="source-note" class="source-note"></p><p><a id="source">Read the source text</a></p>
+    <div class="workspace">
+      <section class="reading" aria-labelledby="reading-title">
+        <h2 id="reading-title">Read &amp; connect</h2>
+        <p id="instructions">Choose a relationship, then select two words in order. Each word’s number identifies its position in the passage.</p>
+        <label for="relation">Relationship</label><select id="relation"></select><p id="relation-note"></p>
+        <div class="view-options"><label><input type="checkbox" id="show-links" checked> Show connections</label><button type="button" id="clear-selection">Clear selection</button></div>
+        <div id="passage-board"><svg id="lines" aria-hidden="true"></svg><div id="words" lang="la" aria-label="Latin passage"></div></div>
+        <p id="selection" role="status">Select a first word.</p>
+        <h3>Your connections</h3><p class="small">Colors identify relationship types. The list gives the same information without relying on color or lines. These are your annotations, not an automatic grammar analysis.</p>
+        <ul id="connections"></ul><p id="empty">No connections yet.</p>
+      </section>
+      <section class="translation" aria-labelledby="translation-title">
+        <h2 id="translation-title">Your translation</h2>
+        <label for="translation">Draft in your own words</label>
+        <textarea id="translation" rows="12" placeholder="Start your translation here…"></textarea>
+        <label for="notes">Reading notes</label><textarea id="notes" rows="5" placeholder="Questions, alternatives, or an interpretation to revisit…"></textarea>
+        <p id="save-status" role="status"></p>
+        <button type="button" id="export">Export this reading</button>
+        <p class="small">Drafts stay in this browser on this device. They are not sent anywhere or published on the site. Export a JSON copy to keep your work.</p>
+      </section>
+    </div>
+    <noscript>This reading workspace needs JavaScript enabled. The Latin source editions are available at <a href="https://www.thelatinlibrary.com/cicero/amic.shtml">The Latin Library</a> and <a href="https://www.drbo.org/lvb/chapter/01001.htm">DRBO</a>.</noscript>
+    <section class="notes"><h2>Reading across distance</h2><p>Words can agree or refer to the same thing while standing far apart. Subjects, verbs, and objects have a different kind of relationship: a grammatical role, rather than a shared referent. Keeping those connections separate makes room for both.</p><p>This first version is a personal reading workspace, built with AI assistance using plain JavaScript and SVG. No translations or grammatical solutions are supplied. The excerpts are public-domain Latin; source links identify the editions used.</p></section>
+    <section class="notes" aria-labelledby="latin-and-attention">
+      <h2 id="latin-and-attention">From Latin to transformer attention</h2>
+      <p>Studying Latin gave me an intuitive starting point for understanding attention in machine learning. A translation emerges from relationships across the sentence: an adjective may belong to a distant noun; an ending helps identify a subject or object; a pronoun sends the reader back to an earlier referent. The nearest word is not always the most relevant one.</p>
+      <p>A transformer also combines information across positions. In <em>self-attention</em>, each token’s representation produces a query, key, and value. Query–key comparisons produce scores; a softmax converts them into weights, which determine how value vectors are combined. Multiple heads and successive layers build contextual representations. Tokens may be word fragments, and positional information keeps word order available. A causal model restricts attention to earlier positions and the current one; an encoder can use context on both sides. See <a href="https://arxiv.org/html/1706.03762v7#S3.SS2">Vaswani et al., <cite>Attention Is All You Need</cite>, §3.2</a>.</p>
+      <p>The useful analogy is <strong>gathering context across distance</strong>. The lines in this notebook record explicit interpretations made by a reader. A model computes numerical attention weights using learned projections; those weights do not carry labels such as “subject,” “object,” or “same person.” A large weight is not a probability that two words share a referent, nor sufficient evidence of why the model gave an answer. <a href="https://aclanthology.org/N19-1357/">Jain and Wallace’s <cite>Attention is not Explanation</cite></a> examines this interpretability problem.</p>
+      <p>That distinction suggests a practical experiment: ask a model to propose grammatical links, then compare them with a reader’s annotations. Subject and object links are a dependency-parsing task; identifying expressions that refer to the same entity is a coreference task. Agreement can draw on morphology as well as syntax. These predictions should be checked separately rather than treated as a single measure of “understanding Latin.” The notebook currently records human annotations only.</p>
+    </section>
+  </main>
+</body>
+</html>

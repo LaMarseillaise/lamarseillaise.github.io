@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculator component isolation check</title>
+<script type="module" src="calculator.js"></script>
+<style>body { font: 16px system-ui; } button { background: red; } .pair { display: flex; flex-wrap: wrap; gap: 2rem; }</style>
+<h1>Component isolation check</h1>
+<p>Page styles should not turn the calculator buttons red. Each instance should retain its own value.</p>
+<label>Outside text input <input aria-label="Outside text input"></label>
+<div class="pair"><section aria-label="First calculator"><andur-calculator></andur-calculator></section><section aria-label="Second calculator"><andur-calculator></andur-calculator></section></div>
+<button id="reconnect">Remove and reinsert the first calculator</button>
+<h2>320-pixel layout checks</h2>
+<p>Both frames should fit without horizontal page scrolling.</p>
+<iframe title="Calculator at 320 pixels" src="./" width="320" height="800"></iframe>
+<iframe title="Latin notebook at 320 pixels" src="../latin/" width="320" height="800"></iframe>
+<script type="module">
+document.querySelector('#reconnect').addEventListener('click', () => {
+  const host = document.querySelector('andur-calculator');
+  const parent = host.parentElement; host.remove(); parent.append(host);
+});
+</script></html>
