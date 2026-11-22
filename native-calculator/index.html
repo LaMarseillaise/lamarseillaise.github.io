@@ -18,7 +18,7 @@
     <noscript>This calculator needs JavaScript enabled.</noscript>
     <section class="notes" aria-labelledby="implementation"><h2 id="implementation">One element. Its own state.</h2>
       <p>This is an adaptation of <a href="https://github.com/LaMarseillaise/calculator">my original React calculator</a>, made with AI assistance. The four-column keypad and basic operations carry over; the new version adds keyboard controls, clear, sign change, deletion, and explicit error handling.</p>
-      <p>Import <code>calculator/calculator.js</code> as a module, then add <code>&lt;andur-calculator&gt;&lt;/andur-calculator&gt;</code>. Each instance owns its state and uses Shadow DOM to keep its styles contained.</p>
+      <p>Import <code>native-calculator/calculator.js</code> as a module, then add <code>&lt;andur-calculator&gt;&lt;/andur-calculator&gt;</code>. Each instance owns its state and uses Shadow DOM to keep its styles contained.</p>
       <p>Operations run left to right: <code>2 + 3 × 4 = 20</code>. Equals completes the pending operation; pressing it again does not repeat it. Displayed results are rounded to 15 significant digits using JavaScript numbers; this is not a financial-precision calculator.</p>
     </section>
   </main>

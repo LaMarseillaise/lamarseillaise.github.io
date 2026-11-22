@@ -16,7 +16,7 @@ Serve the repository over HTTP (ES modules require it):
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-- `/calculator/`: native `<andur-calculator>` component, adapted from the original React project.
+- `/native-calculator/`: native `<andur-calculator>` component, adapted from the original React project.
 - `/latin/`: Latin reading drafts and user-authored word connections, saved only in the browser.
 
 See each project's README for provenance, behavior, and checks. Publishing is
