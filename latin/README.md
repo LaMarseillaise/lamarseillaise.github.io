@@ -30,7 +30,7 @@ Repeated identical links are ignored. Hover or focus a connection's list row
 to emphasize its endpoints; the textual list carries all information represented
 by the SVG lines and colors. Hide connections for unassisted reading.
 
-Translations, notes, and links are saved per passage in `localStorage`, under
+Translations, notes, links, and grammatical markup are saved per passage in `localStorage`, under
 `andur-latin-readings-v1`. They are local to this origin/browser, not synced,
 submitted, or published. An unavailable store produces a visible warning; JSON
 export remains usable. Export is a backup/interchange artifact; this iteration
@@ -53,6 +53,34 @@ warning/error log was empty. Temporary test drafts and connections were cleared
 through the UI. No actual translations were written. Storage-denial handling was
 reviewed in code but not simulated in the browser; no cross-browser/device audit
 or import round-trip is claimed.
+
+## Manual grammatical markup
+
+Choose **Mark grammar**, then a word. The modal editor accepts optional part of
+speech/form, number, declension class, case, gender, degree, conjugation class,
+person, tense, mood/infinitive, and morphological voice. Both field groups remain
+available for forms such as participles. Uncertainty and free-form alternative
+analyses are supported. Blank fields make no claims; no dictionary, automatic
+analysis, or sentence-role inference is included. **Connect words** retains the
+original two-word relationship workflow.
+
+Saved tags appear as compact badges, with full labels in the word's accessible
+name, tooltip, and editor. **Show grammar** hides badges without removing them.
+Cancel/Escape discard pending edits; Save and Remove affect only that word.
+Grammar is an additive `grammar` map keyed by the existing zero-based token index.
+Old readings without this property remain readable; existing translations, notes,
+and links are preserved. JSON exports now use version 2 and include this map.
+Invalid field values, out-of-range indices, and punctuation annotations are
+discarded on load. Notes are rendered as text, never HTML.
+
+Checks: `node latin/check.mjs`, `node latin/grammar-check.mjs`, and
+`node --check latin/latin.js`. Browser verification on November 22, 2026 covered
+nominal and verbal tags, partial/uncertain analyses, preservation of drafts and
+connections, reload persistence, passage isolation, hiding/showing tags,
+Cancel/Escape, removal, focus return, and downloaded JSON contents. The editor
+and page had no horizontal overflow at 320px; captured warnings/errors were empty.
+Temporary test annotations and drafts were removed. No new cross-browser or
+storage-denial simulation is claimed.
 
 ## Latin and transformers
 

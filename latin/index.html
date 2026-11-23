@@ -19,9 +19,10 @@
     <div class="workspace">
       <section class="reading" aria-labelledby="reading-title">
         <h2 id="reading-title">Read &amp; connect</h2>
+        <div class="reading-modes" role="group" aria-label="Reading tool"><button type="button" id="connect-mode" aria-pressed="true">Connect words</button><button type="button" id="grammar-mode" aria-pressed="false">Mark grammar</button></div>
         <p id="instructions">Choose a relationship, then select two words in order. Each word’s number identifies its position in the passage.</p>
-        <label for="relation">Relationship</label><select id="relation"></select><p id="relation-note"></p>
-        <div class="view-options"><label><input type="checkbox" id="show-links" checked> Show connections</label><button type="button" id="clear-selection">Clear selection</button></div>
+        <div id="connection-controls"><label for="relation">Relationship</label><select id="relation"></select><p id="relation-note"></p></div>
+        <div class="view-options"><label><input type="checkbox" id="show-links" checked> Show connections</label><label><input type="checkbox" id="show-grammar" checked> Show grammar</label><button type="button" id="clear-selection">Clear selection</button></div>
         <div id="passage-board"><svg id="lines" aria-hidden="true"></svg><div id="words" lang="la" aria-label="Latin passage"></div></div>
         <p id="selection" role="status">Select a first word.</p>
         <h3>Your connections</h3><p class="small">Colors identify relationship types. The list gives the same information without relying on color or lines. These are your annotations, not an automatic grammar analysis.</p>
@@ -37,6 +38,19 @@
         <p class="small">Drafts stay in this browser on this device. They are not sent anywhere or published on the site. Export a JSON copy to keep your work.</p>
       </section>
     </div>
+    <dialog id="grammar-dialog" aria-labelledby="grammar-title" aria-describedby="grammar-help">
+      <form id="grammar-form">
+        <h2 id="grammar-title">Mark grammar</h2>
+        <p id="grammar-help">Record your own analysis. Leave any field unmarked; partial analyses are welcome. Case and sentence role are separate—these tags do not create connections.</p>
+        <fieldset><legend>Word form</legend><div class="grammar-fields" id="grammar-general"></div></fieldset>
+        <fieldset><legend>Declension &amp; agreement</legend><div class="grammar-fields" id="grammar-nominal"></div></fieldset>
+        <fieldset><legend>Conjugation</legend><div class="grammar-fields" id="grammar-verbal"></div></fieldset>
+        <p class="small">Use whichever fields apply, including both groups for participles. Voice describes the form; you can note deponent usage or other distinctions below.</p>
+        <label class="uncertain"><input type="checkbox" id="grammar-uncertain"> Uncertain analysis</label>
+        <label for="grammar-note">Alternatives or your own notation</label><textarea id="grammar-note" rows="3" placeholder="Record an alternative, a question, or a distinction not covered above…"></textarea>
+        <div class="grammar-actions"><button type="submit">Save markup</button><button type="button" id="grammar-cancel">Cancel</button><button type="button" id="grammar-remove">Remove markup</button></div>
+      </form>
+    </dialog>
     <noscript>This reading workspace needs JavaScript enabled. Read the Latin sources: <a href="https://www.thelatinlibrary.com/cicero/amic.shtml">Cicero</a>, <a href="https://www.drbo.org/lvb/chapter/01001.htm">Genesis</a>, and <a href="https://www.drbo.org/lvb/chapter/11003.htm">Solomon’s judgment</a>.</noscript>
     <section class="notes"><h2>Reading across distance</h2><p>Words can agree or refer to the same thing while standing far apart. Subjects, verbs, and objects have a different kind of relationship: a grammatical role, rather than a shared referent. Keeping those connections separate makes room for both.</p><p>This first version is a personal reading workspace, built with AI assistance using plain JavaScript and SVG. No translations or grammatical solutions are supplied. The excerpts are public-domain Latin; source links identify the editions used.</p></section>
     <section class="notes" aria-labelledby="latin-and-attention">

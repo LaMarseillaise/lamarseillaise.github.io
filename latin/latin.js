@@ -1,8 +1,10 @@
 import { passages, relations, tokens, validConnection, connectionKey } from './passages.mjs';
+import { fields, cleanMarkup, cleanGrammar, describeMarkup } from './grammar.mjs';
 
 const $ = selector => document.querySelector(selector);
 const storageKey = 'andur-latin-readings-v1';
 let drafts = {}, current = passages[0], selected = null, active = null;
+let mode = 'connect', editingWord = null;
 let storageAvailable = true;
 try {
   const stored = JSON.parse(localStorage.getItem(storageKey) || '{}');
@@ -40,6 +42,7 @@ function loadPassage() {
     translation: typeof stored?.translation === 'string' ? stored.translation : '',
     notes: typeof stored?.notes === 'string' ? stored.notes : '',
     connections: Array.isArray(stored?.connections) ? stored.connections.filter(link => validConnection(link, count)) : [],
+    grammar: cleanGrammar(stored?.grammar, tokens(current)),
   };
   selected = null; active = null;
   $('#translation').value = draft().translation; $('#notes').value = draft().notes;
@@ -55,7 +58,8 @@ function loadPassage() {
     const number = textElement('small', String(index + 1)); number.setAttribute('aria-hidden', 'true');
     button.append(number); $('#words').append(button);
   });
-  $('#selection').textContent = 'Select a first word.';
+  resetSelection();
+  renderGrammar();
   $('#save-status').textContent = storageAvailable ? 'Drafts save in this browser as you write.' : 'Browser storage is unavailable. Export your reading before leaving.';
   renderConnections();
 }
@@ -63,13 +67,14 @@ function loadPassage() {
 function resetSelection() {
   selected = null;
   for (const button of $('#words').querySelectorAll('button')) button.setAttribute('aria-pressed', 'false');
-  $('#selection').textContent = 'Select a first word.';
+  $('#selection').textContent = mode === 'grammar' ? 'Select a word to mark its grammar.' : 'Select a first word.';
 }
 
 $('#words').addEventListener('click', event => {
   const button = event.target.closest('button[data-index]');
   if (!button) return;
   const index = Number(button.dataset.index);
+  if (mode === 'grammar') { openGrammar(index); return; }
   if (selected === null) {
     selected = index; button.setAttribute('aria-pressed', 'true');
     $('#selection').textContent = `Selected ${tokens(current)[index]} (word ${index + 1}). Select a second word.`;
@@ -82,6 +87,80 @@ $('#words').addEventListener('click', event => {
     $('#selection').textContent = duplicate ? 'That connection already exists.' : `${relations[link.type].label} connection added.`;
     save(); renderConnections();
   }
+});
+
+for (const [key, field] of Object.entries(fields)) {
+  const label = textElement('label', field.label);
+  label.htmlFor = `grammar-${key}`;
+  const select = document.createElement('select'); select.id = label.htmlFor;
+  const blank = textElement('option', 'Unmarked'); blank.value = ''; select.append(blank);
+  for (const [value, name] of field.options) {
+    const option = textElement('option', name); option.value = value; select.append(option);
+  }
+  const wrapper = document.createElement('div');
+  wrapper.append(label, select); $(`#grammar-${field.group}`).append(wrapper);
+}
+
+function setMode(next) {
+  mode = next; resetSelection();
+  $('#connect-mode').setAttribute('aria-pressed', String(mode === 'connect'));
+  $('#grammar-mode').setAttribute('aria-pressed', String(mode === 'grammar'));
+  $('#connection-controls').hidden = mode !== 'connect';
+  $('#clear-selection').hidden = mode !== 'connect';
+  $('#instructions').textContent = mode === 'grammar'
+    ? 'Select a word to add or edit your grammatical markup. A question mark marks uncertainty; open the word to read full labels and notes.'
+    : 'Choose a relationship, then select two words in order. Each word’s number identifies its position in the passage.';
+}
+$('#connect-mode').addEventListener('click', () => setMode('connect'));
+$('#grammar-mode').addEventListener('click', () => setMode('grammar'));
+
+function renderGrammar() {
+  const visible = $('#show-grammar').checked;
+  for (const button of $('#words').querySelectorAll('button')) {
+    const index = Number(button.dataset.index), markup = draft().grammar[index];
+    button.querySelector('.grammar-badge')?.remove();
+    const full = markup ? describeMarkup(markup) : '';
+    button.setAttribute('aria-label', `${tokens(current)[index]}, word ${index + 1}${visible && full ? `. ${full}` : ''}`);
+    button.removeAttribute('title');
+    if (visible && full) {
+      const badge = textElement('span', describeMarkup(markup, true));
+      badge.className = 'grammar-badge'; badge.lang = 'en'; badge.setAttribute('aria-hidden', 'true');
+      button.append(badge); button.title = full;
+    }
+  }
+  requestAnimationFrame(draw);
+}
+$('#show-grammar').addEventListener('change', renderGrammar);
+
+function openGrammar(index) {
+  editingWord = index;
+  const markup = draft().grammar[index] || {};
+  $('#grammar-title').textContent = `${tokens(current)[index]} · word ${index + 1}`;
+  for (const key of Object.keys(fields)) $(`#grammar-${key}`).value = markup[key] || '';
+  $('#grammar-uncertain').checked = markup.uncertain === true;
+  $('#grammar-note').value = markup.note || '';
+  $('#grammar-remove').disabled = !Object.keys(markup).length;
+  $('#grammar-dialog').showModal();
+}
+$('#grammar-form').addEventListener('submit', event => {
+  event.preventDefault();
+  const markup = cleanMarkup({
+    ...Object.fromEntries(Object.keys(fields).map(key => [key, $(`#grammar-${key}`).value])),
+    uncertain: $('#grammar-uncertain').checked, note: $('#grammar-note').value,
+  });
+  if (Object.keys(markup).length) draft().grammar[editingWord] = markup;
+  else delete draft().grammar[editingWord];
+  save(); renderGrammar(); $('#grammar-dialog').close();
+  $('#selection').textContent = `Markup saved for word ${editingWord + 1}.`;
+});
+$('#grammar-cancel').addEventListener('click', () => $('#grammar-dialog').close());
+$('#grammar-remove').addEventListener('click', () => {
+  delete draft().grammar[editingWord]; save(); renderGrammar(); $('#grammar-dialog').close();
+  $('#selection').textContent = `Markup removed from word ${editingWord + 1}.`;
+});
+$('#grammar-dialog').addEventListener('close', () => {
+  $(`#words [data-index="${editingWord}"]`)?.focus();
+  editingWord = null;
 });
 
 function describe(link) {
@@ -158,7 +237,7 @@ for (const field of ['translation', 'notes']) {
   $(`#${field}`).addEventListener('input', event => { draft()[field] = event.target.value; save(); });
 }
 $('#export').addEventListener('click', () => {
-  const data = { version: 1, passage: { id: current.id, title: current.title, text: current.text, source: current.source }, ...draft() };
+  const data = { version: 2, passage: { id: current.id, title: current.title, text: current.text, source: current.source }, ...draft() };
   const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }));
   const anchor = document.createElement('a'); anchor.href = url; anchor.download = `${current.id}-reading.json`;
   anchor.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
