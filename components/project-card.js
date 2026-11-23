@@ -1,7 +1,7 @@
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
-:host{display:block;min-width:0;height:100%;color:var(--ink,#16313d)}
+:host{display:block;position:relative;min-width:0;height:100%;color:var(--ink,#16313d)}
 article{height:100%;box-sizing:border-box;background:var(--card-background,#fff);border:1px solid var(--rule,#bfd6df);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
 .preview{background:#16313d;aspect-ratio:2/1;overflow:hidden}
 ::slotted(img){display:block;width:100%;height:100%;object-fit:cover}
@@ -13,6 +13,9 @@ article{height:100%;box-sizing:border-box;background:var(--card-background,#fff)
 .meta{margin-top:auto;padding-top:.5rem}
 ::slotted([slot=meta]){font:400 .875rem/1.6 system-ui;color:var(--muted,#425f6b)}
 ::slotted([slot=link]){display:block;padding:.7rem 0;font:600 1rem/1.5 system-ui;color:var(--accent,#14657b);text-underline-offset:.25em}
+::slotted([slot=link])::after{content:"";position:absolute;inset:0;z-index:1;border-radius:12px;cursor:pointer}
+::slotted([slot=link]:focus-visible){outline:none}
+::slotted([slot=link]:focus-visible)::after{outline:3px solid var(--accent,#14657b);outline-offset:-3px}
 </style><article><div class="preview"><slot name="preview"></slot></div><div class="copy"><slot name="category"></slot><slot name="heading"></slot><slot name="description"></slot><div class="meta"><slot name="meta"></slot></div><slot name="link"></slot></div></article>`;
 
 /** Presentation only. Content and links remain in the document for no-JS readers. */

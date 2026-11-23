@@ -20,7 +20,9 @@
 .editorial-note,.related-project{font-size:1rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:1.5rem;margin-top:2rem}
 .article-nav{max-width:43rem;border-top:1px solid var(--rule);padding:2rem 0 3rem}
 .article-nav a{display:inline-block;padding:.6rem 0}
-project-card:not(:defined){display:block;background:white;border:1px solid var(--rule);padding:1rem;border-radius:12px}
+project-card:not(:defined){display:block;position:relative;background:white;border:1px solid var(--rule);padding:1rem;border-radius:12px}
+project-card:not(:defined)>a[slot=link]::after{content:"";position:absolute;inset:0;border-radius:12px;cursor:pointer}
+project-card:not(:defined)>a[slot=link]:focus-visible::after{outline:3px solid var(--accent);outline-offset:-3px}
 project-card:not(:defined) img{display:block;width:100%;height:auto}
 project-card:not(:defined) h2,project-card:not(:defined) h3{margin-block:1rem;font-size:1.5rem}
 project-card:not(:defined) [slot=category]{color:var(--accent);margin-top:1rem}
