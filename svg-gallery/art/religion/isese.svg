@@ -1,0 +1,11 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Orisha</title>
+
+  <g id="orisha">
+    <circle cx="300" cy="300" r="280" fill="none" stroke="#000" stroke-width="30" />
+    <circle cx="300" cy="300" r="120" fill="none" stroke="#000" stroke-width="30" />
+
+    <rect x="285" y="30" width="30" height="540" fill="#000" />
+    <rect x="30" y="285" width="540" height="30" fill="#000" />
+  </g>
+</svg>

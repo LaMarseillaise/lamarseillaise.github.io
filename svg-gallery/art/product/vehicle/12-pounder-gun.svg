@@ -1,0 +1,77 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>12-pounder Gun</title>
+
+  <defs>
+    <mask id="hub-mask">
+      <rect x="-100" y="-100" width="200" height="200" fill="white" />
+      <circle cx="0" cy="0" r="10" fill="none" stroke="black" stroke-width="5" />
+    </mask>
+
+    <g id="spoke">
+      <line x1="-90" y1="0" x2="90" y2="0" stroke="#000" stroke-width="10" />
+    </g>
+
+    <g id="wheel" mask="url(#hub-mask)">
+      <circle cx="0" cy="0" r="90" fill="none" stroke="#000" stroke-width="10" />
+      <circle cx="0" cy="0" r="20" fill="#000" stroke="none" stroke-width="0" />
+      <use href="#spoke" transform="rotate(0)" />
+      <use href="#spoke" transform="rotate(30)" />
+      <use href="#spoke" transform="rotate(60)" />
+      <use href="#spoke" transform="rotate(90)" />
+      <use href="#spoke" transform="rotate(120)" />
+      <use href="#spoke" transform="rotate(150)" />
+    </g>
+  </defs>
+
+  <g transform="translate(300,300) scale(1.2)">
+    <use href="#wheel" transform="translate(0,90) rotate(15)" />
+
+    <!-- Cannon -->
+    <g transform="translate(15,35) rotate(-5) scale(1.15)">
+      <path fill="none" stroke="black" stroke-width="5" stroke-linecap="round" d="
+        M -100,-20
+        l 270,5
+        q 7.5,-5 15,0
+        h 3
+        v 30
+        h -3
+        q -7.5,5 -15,0
+        l -270,5
+        l -3,2
+        q -5,0 -10,-17.5 h -10 a 8,8 0,1,1 0,-10 h 10 q 5,-17.5 10,-17.5
+        l 3,2
+        z
+        M -100,-18 v 36
+        M 165,-18 v 36
+        M -25,-22 v 44
+        M 25,-22 v 44
+        M -15,-10 v -20 h 30 v 20
+      " />
+
+      <circle cx="0" cy="0" r="12" fill="none" stroke="black" stroke-width="8" />
+    </g>
+
+    <!-- Trail -->
+    <g transform="rotate(-25)">
+      <path fill="black" stroke="none" stroke-width="0" d="
+        M 15,35
+        h 10
+        a 15,15 0 0 1 15,15
+        v 20
+        a 15,15 0 0 1 -15,15
+        h -45
+        a 20,20 0 1 0 -40,0
+        h -150
+        c -45,0 -90,-45 -75,-60
+        c 15,-15 30,15 60,15
+        h 202
+        a 22.25,22.25 0 0 0 44,0
+        z
+      " />
+
+      <rect x="-225" y="15" width="60" height="20" fill="black" stroke="none" stroke-width="0" />
+    </g>
+  </g>
+
+  <text x="300" y="180" font-size="120" text-anchor="middle" fill="black" font-family="cursive">12</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Shangrak</title>
+
+  <defs>
+    <g id="beam">
+      <rect x="5" y="0" width="30" height="180" stroke="#000" fill="#000" />
+      <rect x="0" y="130" width="40" height="50" stroke="#000" fill="#000" rx="10" stroke-width="5" />
+    </g>
+
+    <g id="beam-row">
+      <use href="#beam" x="0" />
+      <use href="#beam" x="60" />
+      <use href="#beam" x="120" />
+    </g>
+
+    <rect id="tile" width="40" height="40" stroke="#000" fill="#000" />
+
+    <g id="tile-row">
+      <use href="#tile" x="0" />
+      <use href="#tile" x="55" />
+      <use href="#tile" x="110" />
+    </g>
+  </defs>
+
+  <g id="shangrak">
+    <circle cx="300" cy="300" r="270" fill="none" stroke="#000" stroke-width="30" />
+
+    <use href="#beam-row" x="220" y="30" transform="rotate(45, 300, 300)" />
+    <use href="#beam-row" x="220" y="30" transform="rotate(135, 300, 300)" />
+    <use href="#beam-row" x="220" y="30" transform="rotate(225, 300, 300)" />
+    <use href="#beam-row" x="220" y="30" transform="rotate(315, 300, 300)" />
+
+    <g transform="translate(225,225) rotate(45,75,75)">
+      <use href="#tile-row" y="0" />
+      <use href="#tile-row" y="55" />
+      <use href="#tile-row" y="110" />
+    </g>
+
+    <g transform="translate(270,60)">
+      <line x1="30" y1="0" x2="30" y2="90" stroke="#000" stroke-width="10" />
+      <line x1="30" y1="40" x2="0" y2="20" stroke="#000" stroke-width="10" />
+    </g>
+
+    <g transform="translate(295,450)">
+      <path d="M 30 30 L 0 0 L 0 90" stroke="#000" stroke-width="10" fill="none" />
+    </g>
+
+    <g transform="translate(70,255)">
+      <path d="M 0 15 L 15 0 L 30 15 L 45 0 L 60 15" stroke="#000" stroke-width="10" fill="none" />
+      <line x1="30" y1="15" x2="30" y2="90" stroke="#000" stroke-width="10" />
+    </g>
+
+    <g transform="translate(490,255)">
+      <line x1="0" y1="0" x2="0" y2="90" stroke="#000" stroke-width="10" />
+      <path d="M 0 65 L 20 45 L 40 75" stroke="#000" stroke-width="10" fill="none" />
+    </g>
+  </g>
+</svg>

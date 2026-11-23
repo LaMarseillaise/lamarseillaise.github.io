@@ -1,0 +1,64 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Playing Cards</title>
+
+  <defs>
+    <mask id="card-cutout">
+      <rect x="0" y="0" width="600" height="600" rx="20" ry="20" fill="white" />
+
+      <g transform="rotate(-15, 300, 300) translate(-90, -45)">
+        <rect x="150" y="90" width="300" height="420" rx="20" ry="20" />
+      </g>
+    </mask>
+  </defs>
+
+  <!-- Spade Card -->
+  <g transform="rotate(-15, 300, 300) translate(-90, -45)">
+    <!-- Card Outline -->
+    <rect x="150" y="90" width="300" height="420" fill="none" stroke="black" stroke-width="10" rx="20" />
+
+    <!-- Symbol -->
+    <g transform="translate(300, 210)">
+      <path fill="black" stroke="black" stroke-width="5" d="
+        M 0,0
+        c 1,0 11,7 23,16
+        c 42,32 56,51 56,75
+        c 0,22 -18,43 -37,43
+        c -9,0 -30,-8 -37,-15
+        c -4,-3 -5,-3 -13,3
+        c -22,15 -43,15 -57,1
+        c -22,-23 -18,-51 12,-80
+        c 16,-15 50,-43 54,-43
+        z
+        M 0,120
+        q -15,45 -45,60
+        h 90
+        q -30,-15 -45,-60
+        z
+      " />
+    </g>
+  </g>
+
+  <!-- Heart Card -->
+  <g mask="url(#card-cutout)">
+    <g transform="rotate(15, 300, 300) translate(90, -15)">
+      <!-- Card Outline -->
+      <rect x="150" y="90" width="300" height="420" fill="none" stroke="black" stroke-width="10" rx="20" />
+
+      <!-- Symbol -->
+      <g transform="translate(300, 360)">
+        <path fill="none" stroke="black" stroke-width="5" d="
+          m 0,0
+          c -1,0 -11,-7 -23,-16
+          c -42,-32 -56,-51 -56,-75
+          c -0,-22 18,-43 37,-43
+          c 9,0 30,8 37,15
+          c 4,3 5,3 13,-3
+          c 22,-15 43,-15 57,-1
+          c 22,23 18,51 -12,80
+          c -16,15 -50,43 -54,43
+          z
+        " />
+      </g>
+    </g>
+  </g>
+</svg>

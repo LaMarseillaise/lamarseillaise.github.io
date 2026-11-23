@@ -1,0 +1,69 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Eye of Providence</title>
+
+  <g>
+    <polygon points="300,30 30,498 570,498" fill="none" stroke="#000" stroke-width="30" />
+  </g>
+
+  <circle cx="300" cy="342" r="240" fill="none" stroke="#000" stroke-width="30" />
+
+  <g id="radiating-lines">
+    <!-- Radiating lines around the triangle -->
+    <g stroke="#000" stroke-width="8" fill="none">
+      <!-- Left side rays (perpendicular to left triangle edge at -30°) -->
+      <path d="
+        M 90 394 l -26 -15
+        M 120 342 l -52 -30
+        M 150 290 l -78 -45
+        M 180 238 l -78 -45
+        M 210 186 l -52 -30
+        M 240 134 l -26 -15
+      " fill="none" stroke="#000" stroke-width="10" />
+
+      <!-- Right side rays (perpendicular to right triangle edge at 30°) -->
+      <path d="
+        M 510 394 l 26 -15
+        M 480 342 l 52 -30
+        M 450 290 l 78 -45
+        M 420 238 l 78 -45
+        M 390 186 l 52 -30
+        M 360 134 l 26 -15
+      " fill="none" stroke="#000" stroke-width="10" />
+
+      <!-- Bottom rays -->
+      <path d="
+        M 150 498 l 0 30
+        M 210 498 l 0 60
+        M 270 498 l 0 90
+        M 330 498 l 0 90
+        M 390 498 l 0 60
+        M 450 498 l 0 30
+      " fill="none" stroke="#000" stroke-width="10" />
+    </g>
+  </g>
+
+  <g id="eye" transform="translate(140,360)">
+    <defs>
+      <mask id="eyelid-cutout">
+        <rect x="0" y="-160" width="600" height="600" fill="#fff" />
+        <path d="
+          M 0,0
+          q 160,-160 320,0
+          q -160,-75 -320,0 Z
+        " fill="#000" />
+      </mask>
+    </defs>
+
+    <path d="
+      M 0,0
+      q 160,-160 320,0
+      q -160,160 -320,0 Z
+      q 160,-75 320,0
+    " fill="none" stroke="#000" stroke-width="15" />
+
+    <g mask="url(#eyelid-cutout)">
+      <circle cx="160" cy="0" r="60" fill="none" stroke="#000" stroke-width="15" />
+      <circle cx="160" cy="0" r="30" fill="#000" />
+    </g>
+  </g>
+</svg>

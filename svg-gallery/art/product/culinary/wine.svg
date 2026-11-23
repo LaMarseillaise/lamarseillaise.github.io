@@ -1,0 +1,22 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Wine</title>
+
+  <g id="wine-glass">
+    <path fill="none" stroke="black" stroke-width="10" stroke-linecap="round" d="
+      M 210,60
+      l -30,180
+      a 120,120 0 1,0 240,0
+      l -30,-180
+      M 300,360 v 210
+      M 210,570 h 180
+    " />
+
+    <path fill="black" stroke="none" d="
+      M 200,210
+      l -5,30
+      a 105,105 0 1 0 210,0
+      l -5,-30
+      z
+    " />
+  </g>
+</svg>

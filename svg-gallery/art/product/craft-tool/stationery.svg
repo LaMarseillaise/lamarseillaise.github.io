@@ -1,0 +1,65 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Quill and Inkpot 🪶</title>
+
+  <!-- Quill -->
+  <g transform="rotate(45 300 300) translate(-50 -50)">
+    <path fill="none" stroke="#000" stroke-width="5" d="
+      M 300,30
+      q 150,180 0,480
+      q -150,-300 0,-480
+      l 0,570
+      Z
+    " />
+
+    <path fill="none" stroke="#000" stroke-width="2" d="
+      M 300,450 q 75,-150 75,-210
+      M 300,400 q 56,-100 72,-210
+      M 300,350 q 30,-50 60,-210
+      M 300,300 q 5,-15 40,-210
+      M 300,450 q -75,-150 -75,-210
+      M 300,400 q -56,-100 -72,-210
+      M 300,350 q -30,-50 -60,-210
+      M 300,300 q -5,-15 -40,-210
+    " />
+  </g>
+
+  <!-- Inkpot -->
+  <g>
+    <path fill="none" stroke="#000" stroke-width="5" d="
+      M 330,360
+      h 90
+      v 30
+      h -15
+      c 0,60 60,60 60,120
+      v 30
+      h -180
+      v -30
+      c 0,-60 60,-60 60,-120
+      h -15
+      v -30
+      z
+    " />
+
+    <!-- Ink -->
+    <path fill="#000" d="
+      M 330,450
+      h 90
+      c 15,10 35,35 35,50
+      v 30
+      h -160
+      v -30
+      c 0,-15 20,-40 35,-50
+    " />
+  </g>
+
+  <!-- Ink droplet -->
+  <g>
+    <path fill="black" stroke="none" stroke-width="0" d="
+      M 88 450
+      c -10,15 -15,20 -15,30
+      a 15,15 0 0 0 30,0
+      c 0,-10 -5,-15 -15,-30
+      Z
+    " />
+  </g>
+</svg>

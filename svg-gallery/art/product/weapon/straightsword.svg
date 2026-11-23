@@ -1,0 +1,36 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Straightsword</title>
+
+  <g transform="rotate(-45,300,300)">
+    <!-- blade -->
+    <path stroke="#000" stroke-width="5" fill="none" d="
+      M 150,275
+      l 420,5
+      l 25,20
+      l -25,20
+      l -420,5
+      M 150,300 h 300
+    " />
+
+    <!-- hand guard -->
+    <path stroke="#000" stroke-width="15" fill="none" d="
+      M 150,255 v 60
+      a 45,50 0 0 1 -100,3
+    " />
+
+    <!-- handle -->
+    <path stroke="#000" stroke-width="5" fill="#000" d="
+      M 50,290
+      l 85,-5
+      v 30
+      l -85,-5
+      l -10,-5
+      v -10
+      l 10,-5
+      z
+    " />
+
+    <!-- pommel -->
+    <circle cx="20" cy="300" r="10" stroke="#000" stroke-width="10" fill="#000" />
+  </g>
+</svg>

@@ -1,0 +1,151 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Chess Set</title>
+
+  <g id="board">
+    <defs>
+      <style>
+        .standard {
+          fill: #000;
+          stroke: none;
+          stroke-width: 0;
+        }
+
+        .inverted {
+          fill: none;
+          stroke: #000;
+          stroke-width: 3;
+        }
+      </style>
+
+      <g id="black-square">
+        <rect x="0" y="0" width="65" height="65" />
+      </g>
+
+      <g id="row">
+        <use href="#black-square" x="10" y="40" />
+        <use href="#black-square" x="140" y="40" />
+        <use href="#black-square" x="270" y="40" />
+        <use href="#black-square" x="400" y="40" />
+      </g>
+
+      <g id="pawn">
+        <circle cx="32.5" cy="25" r="10" />
+        <polygon points="25,35 40,35 50,60 15,60" />
+      </g>
+
+      <g id="bishop">
+        <circle cx="32.5" cy="10" r="5" />
+        <path d="
+          M 32.5,15
+          q 20,15 5,30
+          l 10,15
+          h -30
+          l 10,-15
+          q -15,-15 5,-30
+        " />
+      </g>
+
+      <g id="knight">
+        <path d="
+          M 15,60
+          c 10,-40 0,-60 40,-40
+          c 10,30 -35,-15 -5,40
+          z
+        " />
+      </g>
+
+      <g id="rook">
+        <path d="
+          M 12.5,7.5 h 10 v 10 h 5 v -10 h 10 v 10 h 5 v -10 h 10
+          v 20 h -5 v 20 h 5 v 10 h -40 v -10 h 5 v -20 h -5 v -20
+        " />
+      </g>
+
+      <g id="queen">
+        <circle cx="15" cy="15" r="5" />
+        <circle cx="32.5" cy="10" r="5" />
+        <circle cx="50" cy="15" r="5" />
+        <path d="
+          M 12.5,20
+          q 10,14 20,-3
+          q 10,16 20,3
+          l -10,35
+          h -20
+          l -10,-35
+        " />
+      </g>
+
+      <g id="king">
+        <line x1="32.5" y1="2.5" x2="32.5" y2="17.5" stroke="#000" stroke-width="3" />
+        <line x1="25" y1="10" x2="40" y2="10" stroke="#000" stroke-width="3" />
+        <path d="
+          M 12.5,22.5
+          l 20,-5
+          l 20,5
+          l -10,32.5
+          h -20
+          l -10,-32.5
+        " />
+      </g>
+
+      <mask id="invert-mask">
+        <rect x="30" y="30" width="540" height="540" fill="#fff" />
+
+        <!-- Black -->
+        <use href="#pawn" class="inverted" x="40" y="100" />
+        <use href="#pawn" class="inverted" x="170" y="100" />
+        <use href="#pawn" class="inverted" x="300" y="100" />
+        <use href="#pawn" class="inverted" x="430" y="100" />
+        <use href="#bishop" class="inverted" x="365" y="40" />
+        <use href="#knight" class="inverted" x="105" y="40" />
+        <use href="#rook" class="inverted" x="495" y="40" />
+        <use href="#queen" class="inverted" x="235" y="40" />
+
+        <!-- White -->
+        <use href="#pawn" class="standard" x="105" y="425" />
+        <use href="#pawn" class="standard" x="235" y="425" />
+        <use href="#pawn" class="standard" x="365" y="425" />
+        <use href="#pawn" class="standard" x="495" y="425" />
+        <use href="#bishop" class="standard" x="170" y="495" />
+        <use href="#knight" class="standard" x="430" y="495" />
+        <use href="#rook" class="standard" x="40" y="495" />
+        <use href="#king" class="standard" x="300" y="495" />
+      </mask>
+    </defs>
+
+
+    <g mask="url(#invert-mask)">
+      <rect x="30" y="30" width="540" height="540" fill="none" stroke="#000" stroke-width="10" />
+
+      <use href="#row" x="95" y="0" />
+      <use href="#row" x="95" y="130" />
+      <use href="#row" x="95" y="260" />
+      <use href="#row" x="95" y="390" />
+
+      <use href="#row" x="30" y="65" />
+      <use href="#row" x="30" y="195" />
+      <use href="#row" x="30" y="325" />
+      <use href="#row" x="30" y="455" />
+    </g>
+
+    <!-- Black -->
+    <use href="#pawn" class="standard" x="105" y="100" />
+    <use href="#pawn" class="standard" x="235" y="100" />
+    <use href="#pawn" class="standard" x="365" y="100" />
+    <use href="#pawn" class="standard" x="495" y="100" />
+    <use href="#bishop" class="standard" x="170" y="40" />
+    <use href="#knight" class="standard" x="430" y="40" />
+    <use href="#rook" class="standard" x="40" y="40" />
+    <use href="#king" class="standard" x="300" y="40" />
+
+    <!-- White -->
+    <use href="#pawn" class="inverted" x="40" y="425" />
+    <use href="#pawn" class="inverted" x="170" y="425" />
+    <use href="#pawn" class="inverted" x="300" y="425" />
+    <use href="#pawn" class="inverted" x="430" y="425" />
+    <use href="#bishop" class="inverted" x="365" y="495" />
+    <use href="#knight" class="inverted" x="105" y="495" />
+    <use href="#rook" class="inverted" x="495" y="495" />
+    <use href="#queen" class="inverted" x="235" y="495" />
+  </g>
+</svg>

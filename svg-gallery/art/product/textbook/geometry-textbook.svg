@@ -1,0 +1,27 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Geometry Textbook</title>
+
+  <defs>
+    <mask id="cover-image">
+      <rect x="0" y="0" width="600" height="600" fill="white" />
+
+      <g id="pythagorean-theorem" transform="translate(90,180) scale(0.5)">
+        <rect x="230" y="180" width="250" height="250" fill="none" stroke="#000" stroke-width="20"
+          transform="rotate(-36.87,230,180)" />
+        <rect x="30" y="180" width="200" height="200" fill="none" stroke="#000" stroke-width="20" />
+        <rect x="230" y="380" width="150" height="150" fill="none" stroke="#000" stroke-width="20" />
+      </g>
+    </mask>
+  </defs>
+
+  <g mask="url(#cover-image)">
+    <rect x="30" y="90" width="420" height="480" />
+    <path stroke="#000" stroke-width="10" fill="none" d="
+      M 33,95
+      l 60,-60
+      h 415
+      v 470
+      l -60,60
+    " />
+  </g>
+</svg>

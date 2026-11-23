@@ -1,0 +1,56 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Protestant Cross</title>
+
+  <g id="cross" mask="url(#rosette-cutout)">
+    <line x1="300" y1="0" x2="300" y2="600" stroke="#000" stroke-width="60" />
+    <line x1="100" y1="200" x2="500" y2="200" stroke="#000" stroke-width="60" />
+  </g>
+
+  <g id="luther-rose" mask="url(#cross-cutout)">
+    <circle r="110" cy="200" cx="300" fill="#000000" mask="url(#rosette-cutout)" />
+    <path fill="black" transform="scale(0.8) translate(353, 310)" d="
+      m 0,0
+      c -42,-32 -56,-51 -56,-75
+      c -0,-22 18,-43 37,-43
+      c 9,0 30,8 37,15
+      c 4,3 5,3 13,-3
+      c 22,-15 43,-15 57,-1
+      c 22,23 18,51 -12,80
+      c -16,15 -50,43 -54,43
+      c -1,0 -11,-7 -23,-16
+      l 0,0z
+    " />
+  </g>
+
+  <defs>
+    <path id="petal" d="
+      M 0,0
+      l 0,-78
+      q 20,8 30,23
+      q 5,30 0,30
+      q -10,15 -30,25
+      q -20,-10 -30,-25
+      q -5,-15 0,-30
+      q 10,-15 30,-23 Z
+    " fill="black" />
+
+    <mask id="rosette-cutout">
+      <rect fill="white" height="600" width="600" />
+      <g transform="translate(300,200) scale(1.2)">
+        <use href="#petal" transform="rotate(0)" />
+        <use href="#petal" transform="rotate(72)" />
+        <use href="#petal" transform="rotate(144)" />
+        <use href="#petal" transform="rotate(216)" />
+        <use href="#petal" transform="rotate(288)" />
+      </g>
+    </mask>
+
+    <mask id="cross-cutout">
+      <rect fill="white" height="600" width="600" />
+      <g transform="translate(283, 180)">
+        <rect x="12" y="0" width="12" height="54" fill="black" />
+        <rect x="0" y="12" width="36" height="12" fill="black" />
+      </g>
+    </mask>
+  </defs>
+</svg>

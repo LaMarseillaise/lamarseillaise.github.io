@@ -1,0 +1,40 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Incense</title>
+
+  <defs>
+    <g id="incense-stick">
+      <path fill="none" stroke="black" stroke-width="10" d="
+        M -10,150
+        h 20
+        v 120
+        h -20
+        z
+      " />
+
+      <path fill="black" stroke="none" d="
+        M -15,150
+        v -420
+        h 30
+        v 420
+        z
+      " />
+    </g>
+
+    <path id="smoke-trail" fill="none" stroke="black" stroke-width="10" stroke-linecap="round" d="
+      M 0,0
+      c 60,60 -60,120 0,180
+    " />
+  </defs>
+
+  <g>
+    <use href="#incense-stick" transform="translate(300,360) rotate(60)" />
+    <use href="#smoke-trail" transform="translate(480,30)" />
+    <use href="#smoke-trail" transform="translate(510,15)" />
+
+    <rect x="30" y="480" width="540" height="90" fill="black" />
+    <path fill="none" stroke="black" stroke-width="15" stroke-linecap="round" d="
+      M 450,450
+      a 60,60 0 0 0 90,0
+    " />
+  </g>
+</svg>

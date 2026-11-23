@@ -1,0 +1,47 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Cart</title>
+
+  <defs>
+    <mask id="hub-mask">
+      <rect x="-100" y="-100" width="200" height="200" fill="white" />
+      <circle cx="0" cy="0" r="10" fill="none" stroke="black" stroke-width="5" />
+    </mask>
+
+    <g id="spoke">
+      <line x1="-90" y1="0" x2="90" y2="0" stroke="#000" stroke-width="10" />
+    </g>
+
+    <g id="wheel" mask="url(#hub-mask)">
+      <circle cx="0" cy="0" r="90" fill="none" stroke="#000" stroke-width="10" />
+      <circle cx="0" cy="0" r="20" fill="#000" stroke="none" stroke-width="0" />
+      <use href="#spoke" transform="rotate(0)" />
+      <use href="#spoke" transform="rotate(30)" />
+      <use href="#spoke" transform="rotate(60)" />
+      <use href="#spoke" transform="rotate(90)" />
+      <use href="#spoke" transform="rotate(120)" />
+      <use href="#spoke" transform="rotate(150)" />
+    </g>
+  </defs>
+
+  <g transform="rotate(-15,360,420)">
+    <use href="#wheel" transform="translate(360,420) scale(1.2) rotate(5)" />
+
+    <path fill="black" stroke="none" stroke-width="0" d="
+      M 240,420
+      a 120,120 0 0 1 240,0
+      h 105 v -150 h -450 v 150 z
+    " />
+
+    <line x1="0" y1="435" x2="225" y2="435" stroke="#000" stroke-width="20" stroke-linecap="round" />
+
+    <path fill="none" stroke="black" stroke-width="10" stroke-linecap="round" d="
+      M 135,150 v 105
+      M 285,150 v 105
+      M 435,150 v 105
+      M 585,150 v 105
+      M 150,180 h 120
+      M 300,180 h 120
+      M 450,180 h 120
+    " />
+  </g>
+</svg>

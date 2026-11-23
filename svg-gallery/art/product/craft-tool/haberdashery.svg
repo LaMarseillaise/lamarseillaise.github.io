@@ -1,0 +1,43 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Needle and Thread 🪡</title>
+
+  <!-- thread -->
+  <path fill="none" stroke="#000" stroke-width="10" d="
+    M 120,120
+    c -45,45 -45,90 0,135
+    s 45,100 0,120
+  " />
+
+  <!-- Needle -->
+  <g transform="rotate(-45,180,180)">
+    <path fill="none" stroke="#000" stroke-width="20" d="
+      M 180,180
+      c 0,-45 15,-45 30,-90
+      c 0,0 -30,-90 -60,0
+      c 15,45 30,45 30,90
+      l 0,360
+    " />
+
+    <!-- sharp point -->
+    <polygon fill="#000" points="170,540 190,540 180,600" stroke="#000" stroke-width="1" />
+  </g>
+
+  <!-- Scissors -->
+  <g transform="rotate(45,300,300)">
+    <!-- blades -->
+    <path fill="none" stroke="#000" stroke-width="20" d="
+      M 210,180
+      a 80,90 0 0 1 80,90
+      l 10,285
+      l 10,-285
+      a 80,90 0 0 1 80,-90
+    " />
+
+    <!-- sharp point -->
+    <polygon fill="#000" points="290,555 310,555 300,600" stroke="#000" stroke-width="1" />
+
+    <!-- handles -->
+    <circle cx="210" cy="120" r="60" fill="none" stroke="#000" stroke-width="20" />
+    <circle cx="390" cy="120" r="60" fill="none" stroke="#000" stroke-width="20" />
+  </g>
+</svg>

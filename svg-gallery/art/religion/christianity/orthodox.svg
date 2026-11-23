@@ -1,0 +1,13 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Orthodox Cross</title>
+
+  <g id="cross">
+    <line x1="300" y1="0" x2="300" y2="600" stroke="#000" stroke-width="60" />
+    <line x1="100" y1="200" x2="500" y2="200" stroke="#000" stroke-width="60" />
+  </g>
+
+  <g id="orthodox-decoration">
+    <line id="inscription" x1="215" y1="85" x2="385" y2="85" stroke="#000" stroke-width="60" />
+    <rect id="suppedaneum" height="60" width="170" y="270" x="215" stroke="#000" transform="skewY(20)" />
+  </g>
+</svg>

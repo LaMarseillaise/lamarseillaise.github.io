@@ -1,0 +1,50 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Stethoscope 🩺</title>
+
+  <g transform="translate(300,300) rotate(-45)">
+    <!-- Earpiece -->
+    <path fill="black" stroke="none" stroke-width="0" d="
+      M -300,-5
+      q 60,0 90,-45
+      a 5,5 0 0 1 10,0
+      v 100
+      a 5,5 0 0 1 -10,0
+      q -30,-45 -90,-45
+      z
+    " />
+
+    <!-- Tube -->
+    <path fill="none" stroke="black" stroke-width="5" d="
+      M -195,-45
+      h 420
+      v 90
+      h -420
+      z
+    " />
+
+    <!-- Chest Piece -->
+    <path fill="black" stroke="none" stroke-width="0" d="
+      M 230,-40
+      a 5,5 0,0,0 10,0
+      a 5,5 0,0,1 10,0
+      v 10
+      a 5,5 0,0,0 10,0
+      a 5,5 0,0,1 10,0
+      q 15,30 30,0
+      a 5,5 0,0,1 10,0
+      a 5,5 0,0,0 10,0
+      a 15,15 0,0,1 30,0
+      v 60
+      a 15,15 0,0,1 -30,0
+      a 5,5 0,0,0 -10,0
+      a 5,5 0,0,1 -10,0
+      q -15,-30 -30,0
+      a 5,5 0,0,1 -10,0
+      a 5,5 0,0,0 -10,0
+      v 10
+      a 5,5 0,0,1 -10,0
+      a 5,5 0,0,0 -10,0
+      z
+    " />
+  </g>
+</svg>

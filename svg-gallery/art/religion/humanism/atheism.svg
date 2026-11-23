@@ -1,0 +1,13 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Atheism Symbol</title>
+
+  <g>
+    <polygon points="300,30 30,498 570,498" fill="none" stroke="#000" stroke-width="30" />
+  </g>
+
+  <circle cx="300" cy="342" r="240" fill="none" stroke="#000" stroke-width="30" />
+
+  <g>
+    <line x1="60" y1="300" x2="540" y2="300" stroke-width="30" stroke="#000" />
+  </g>
+</svg>

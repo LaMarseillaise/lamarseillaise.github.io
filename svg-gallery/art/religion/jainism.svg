@@ -1,0 +1,50 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Ahimsa</title>
+
+  <defs>
+    <line id="radial-line" x1="30" y1="0" x2="75" y2="0" stroke="#000" stroke-width="10" stroke-linecap="round" />
+  </defs>
+
+  <g id="ahimsa">
+    <path fill="none" stroke="#000" stroke-width="15" stroke-linecap="round" d="
+      M 330,60 a 30,30 0 0 0 -60,0 v 225
+      m 0,-180 a 30,30 0 0 0 -60,0 v 225
+      m 0,-150 a 30,30 0 0 0 -60,0 v 240
+      a 150,150 0 1 0 300,0
+      v -120
+      c 0 0 0 -45 60 -75 c -15 -15 -60 -45 -120 30
+      m 0,75 v -210
+      a 30,30 0 0 0 -60,0 m 0,165 v -225
+    " />
+
+    <circle cx="300" cy="430" r="90" fill="none" stroke="#000" stroke-width="15" />
+    <circle cx="300" cy="430" r="25" fill="none" stroke="#000" stroke-width="10" />
+
+    <g transform="translate(300 430)">
+      <use href="#radial-line" transform="rotate(0)" />
+      <use href="#radial-line" transform="rotate(15)" />
+      <use href="#radial-line" transform="rotate(30)" />
+      <use href="#radial-line" transform="rotate(45)" />
+      <use href="#radial-line" transform="rotate(60)" />
+      <use href="#radial-line" transform="rotate(75)" />
+      <use href="#radial-line" transform="rotate(90)" />
+      <use href="#radial-line" transform="rotate(105)" />
+      <use href="#radial-line" transform="rotate(120)" />
+      <use href="#radial-line" transform="rotate(135)" />
+      <use href="#radial-line" transform="rotate(150)" />
+      <use href="#radial-line" transform="rotate(165)" />
+      <use href="#radial-line" transform="rotate(180)" />
+      <use href="#radial-line" transform="rotate(195)" />
+      <use href="#radial-line" transform="rotate(210)" />
+      <use href="#radial-line" transform="rotate(225)" />
+      <use href="#radial-line" transform="rotate(240)" />
+      <use href="#radial-line" transform="rotate(255)" />
+      <use href="#radial-line" transform="rotate(270)" />
+      <use href="#radial-line" transform="rotate(285)" />
+      <use href="#radial-line" transform="rotate(300)" />
+      <use href="#radial-line" transform="rotate(315)" />
+      <use href="#radial-line" transform="rotate(330)" />
+      <use href="#radial-line" transform="rotate(345)" />
+    </g>
+  </g>
+</svg>

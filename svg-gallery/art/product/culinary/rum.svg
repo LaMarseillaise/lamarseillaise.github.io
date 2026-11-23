@@ -1,0 +1,61 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Rum</title>
+
+  <defs>
+    <mask id="label-mask">
+      <rect x="0" y="0" width="600" height="600" fill="white" />
+      <path fill="black" d="
+        M 300,240
+        a 150,45 0 0,1 150,45
+        v 60
+        a 150,45 0 0,1 -150,45
+        a 150,45 0 0,1 -150,-45
+        v -60
+        a 150,45 0 0,1 150,-45
+      " />
+    </mask>
+  </defs>
+
+  <g mask="url(#label-mask)">
+    <path fill="none" stroke="black" stroke-width="15" d="
+      M 120,60
+      q -60,180 0,420
+      a 180,60 0 0,0 360,0
+      q 60,-180 0,-420
+      a 180,30 0 0,0 -360,0
+      a 180,30 0 0,0 360,0
+
+      M 95,195
+      a 180,30 0 0,0 410,0
+
+      M 95,345
+      a 180,45 0 0,0 410,0
+    " />
+
+    <path fill="none" stroke="black" stroke-width="5" d="
+      M 150,75 q -40,180 10,440
+      M 450,75 q 40,180 -10,440
+      M 200,90 q -30,160 5,440
+      M 400,90 q 30,160 -5,440
+      M 250,90 q -25,140 0,450
+      M 350,90 q 25,140 0,450
+      M 300,90 v 450
+    " />
+  </g>
+
+  <g id="label" transform="translate(300,300)">
+    <path fill="none" stroke="black" stroke-width="5" d="
+      M 0,-60
+      a 150,45 0 0,1 150,45
+      v 60
+      a 150,45 0 0,1 -150,45
+      a 150,45 0 0,1 -150,-45
+      v -60
+      a 150,45 0 0,1 150,-45
+    " />
+
+    <text y="45" font-family="sans-serif" font-size="90" text-anchor="middle">
+      XXX
+    </text>
+  </g>
+</svg>

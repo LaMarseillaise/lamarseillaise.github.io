@@ -1,0 +1,49 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Rosette and Crescent</title>
+
+  <g id="crescent">
+    <g mask="url(#crescent-cutout)" fill="#000">
+      <circle r="300" cy="300" cx="300" fill="#000000" />
+    </g>
+
+    <defs>
+      <mask id="crescent-cutout">
+        <rect fill="white" height="600" width="600" />
+        <circle fill="black" r="260" cy="240" cx="350" />
+      </mask>
+    </defs>
+  </g>
+
+  <g id="rosette" transform="translate(360,240)">
+    <defs>
+      <g id="petal">
+        <path d="
+          M 0,0
+          L 0,-78
+          Q 20,-70 30,-55
+          Q 35,-40 30,-25
+          Q 20,-10 0,0
+          Q -20,-10 -30,-25
+          Q -35,-40 -30,-55
+          Q -20,-70 0,-78 Z
+        " fill="black" />
+      </g>
+
+      <mask id="ali-mask">
+        <rect width="200" height="200" x="-100" y="-100" fill="white" />
+        <!-- Arabic text for 'Ali' (علي) -->
+        <text x="0" y="15" font-family="Arial, sans-serif" font-size="60" font-weight="bold" text-anchor="middle"
+          fill="black">علي</text>
+      </mask>
+    </defs>
+
+    <!-- Five-pointed rosette petals with Ali mask applied -->
+    <g mask="url(#ali-mask)">
+      <use href="#petal" transform="rotate(0)" />
+      <use href="#petal" transform="rotate(72)" />
+      <use href="#petal" transform="rotate(144)" />
+      <use href="#petal" transform="rotate(216)" />
+      <use href="#petal" transform="rotate(288)" />
+    </g>
+  </g>
+</svg>

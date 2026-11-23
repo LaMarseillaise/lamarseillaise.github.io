@@ -1,0 +1,22 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Yin and Yang</title>
+
+  <defs>
+    <mask id="yin-mask">
+      <rect width="600" height="600" fill="#000" />
+      <path fill="#fff" d="
+        M 300,30
+        a 136,136 0 0 1 0,270
+        a 136,136 0 0 0 0,270
+        a 270,270 0 0 0 0,-540
+      " />
+      <circle cx="300" cy="436" r="42" fill="#000" />
+    </mask>
+  </defs>
+
+  <g id="yin-yang">
+    <circle cx="300" cy="300" r="280" fill="none" stroke="#000" stroke-width="10" />
+    <circle cx="300" cy="300" r="275" fill="#000" mask="url(#yin-mask)" />
+    <circle cx="300" cy="164" r="42" fill="#000" />
+  </g>
+</svg>

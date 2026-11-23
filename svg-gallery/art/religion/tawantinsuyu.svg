@@ -1,0 +1,18 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Chakana</title>
+
+  <g id="chakana">
+    <defs>
+      <mask id="chakana-circle-cutout">
+        <rect height="600" width="600" fill="#fff" stroke="none" />
+        <circle cx="300" cy="300" r="100" fill="#000" />
+      </mask>
+    </defs>
+
+    <g mask="url(#chakana-circle-cutout)">
+      <rect x="100" y="100" width="400" height="400" fill="#000" stroke="#000" />
+      <rect x="35" y="200" width="530" height="200" fill="#000" stroke="#000" />
+      <rect x="200" y="35" width="200" height="530" fill="#000" stroke="#000" />
+    </g>
+  </g>
+</svg>

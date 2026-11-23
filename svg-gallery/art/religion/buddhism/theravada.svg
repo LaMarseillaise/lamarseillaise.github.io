@@ -1,0 +1,41 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Dharmachakra with Bodhi Leaf</title>
+
+  <g id="dharmachakra">
+    <defs>
+      <mask id="dharmachakra-mask">
+        <rect width="600" height="600" fill="#fff" />
+        <circle r="75" cx="300" cy="300" fill="#000" />
+      </mask>
+    </defs>
+
+    <g mask="url(#dharmachakra-mask)">
+      <circle r="240" cx="300" cy="300" stroke="#000000" stroke-width="60" fill="none" />
+
+      <line x1="300" y1="0" x2="300" y2="600" stroke="#000000" stroke-width="30" />
+      <line x1="0" y1="300" x2="600" y2="300" stroke="#000000" stroke-width="30" />
+
+      <line x1="300" y1="0" x2="300" y2="600" stroke="#000000" stroke-width="30" transform="rotate(45 300 300)" />
+      <line x1="0" y1="300" x2="600" y2="300" stroke="#000000" stroke-width="30" transform="rotate(45 300 300)" />
+
+      <circle r="90" cx="300" cy="300" fill="none" stroke="#000" stroke-width="30" />
+    </g>
+  </g>
+
+  <g id="bodhi-leaf" transform=" translate(283, 350)">
+    <path transform="scale(0.8)" d="
+      m 0,0
+      c -42,-32 -56,-51 -56,-75
+      c -0,-22 18,-43 37,-43
+      c 9,0 30,8 37,15
+      c 4,3 5,3 13,-3
+      c 22,-15 43,-15 57,-1
+      c 22,23 18,51 -12,80
+      c -16,15 -50,43 -54,43
+      c -1,22 -11,-7 -23,-16
+      l 0,0z
+    " />
+
+    <path d="M 16 -75 C 16 -75, 24 -120, 32 -100" fill="none" stroke="#000000" stroke-width="5" />
+  </g>
+</svg>

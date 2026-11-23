@@ -20,6 +20,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 - `/latin/`: Latin reading drafts and user-authored word connections, saved only in the browser.
 - `/revolutionary-calendar/`: live Republican date and decimal clock, with history and explicit extrapolation rules.
 - `/sql-join-explorer/`: interactive SQL join examples checked against SQLite.
+- `/svg-gallery/`: 65 RegimeWeb illustrations, with search, enlarged views and individual source credits.
 
 See each project's README for provenance, behavior, and checks. Publishing is
 through the existing GitHub Pages repository; no separate hosting service is needed.

@@ -1,0 +1,14 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Scales ⚖️</title>
+
+  <g transform="translate(300, 300)">
+    <circle cx="0" cy="-240" r="30" fill="#000" />
+    <line x1="0" y1="-240" x2="0" y2="240" stroke="#000" stroke-width="20" />
+    <line x1="-150" y1="240" x2="150" y2="240" stroke="#000" stroke-width="30" />
+
+    <path fill="none" stroke="#000" stroke-width="20" d="
+      M 0,-180 c -90,0 -90,75 -180,75 l -60,150 q 60,30 120,0 l -60,-150
+      M 0,-180 c 90,0 90,75 180,75 l 60,150 q -60,30 -120,0 l 60,-150
+    " />
+  </g>
+</svg>

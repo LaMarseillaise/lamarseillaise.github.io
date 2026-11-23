@@ -1,0 +1,57 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Abacus 🧮</title>
+
+  <g>
+    <defs>
+      <circle id="bead" cx="0" cy="0" r="30" />
+      <g id="rod">
+        <line x1="0" y1="30" x2="0" y2="570" stroke="#000" stroke-width="15" />
+      </g>
+    </defs>
+
+    <rect x="30" y="30" height="540" width="540" fill="none" stroke="#000" stroke-width="30" />
+
+    <line x1="30" y1="210" x2="570" y2="210" stroke="#000" stroke-width="15" />
+
+    <use href="#rod" x="120" />
+    <use href="#rod" x="210" />
+    <use href="#rod" x="300" />
+    <use href="#rod" x="390" />
+    <use href="#rod" x="480" />
+
+    <use href="#bead" x="120" y="75" />
+
+    <use href="#bead" x="120" y="245" />
+    <use href="#bead" x="120" y="305" />
+    <use href="#bead" x="120" y="465" />
+    <use href="#bead" x="120" y="525" />
+
+    <use href="#bead" x="210" y="175" />
+
+    <use href="#bead" x="210" y="245" />
+    <use href="#bead" x="210" y="305" />
+    <use href="#bead" x="210" y="465" />
+    <use href="#bead" x="210" y="525" />
+
+    <use href="#bead" x="300" y="75" />
+
+    <use href="#bead" x="300" y="245" />
+    <use href="#bead" x="300" y="405" />
+    <use href="#bead" x="300" y="465" />
+    <use href="#bead" x="300" y="525" />
+
+    <use href="#bead" x="390" y="175" />
+
+    <use href="#bead" x="390" y="245" />
+    <use href="#bead" x="390" y="305" />
+    <use href="#bead" x="390" y="365" />
+    <use href="#bead" x="390" y="525" />
+
+    <use href="#bead" x="480" y="75" />
+
+    <use href="#bead" x="480" y="245" />
+    <use href="#bead" x="480" y="305" />
+    <use href="#bead" x="480" y="465" />
+    <use href="#bead" x="480" y="525" />
+  </g>
+</svg>

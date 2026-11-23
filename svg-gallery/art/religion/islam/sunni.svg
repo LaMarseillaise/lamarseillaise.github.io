@@ -1,0 +1,22 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Khatim and Crescent</title>
+
+  <g id="crescent">
+    <g mask="url(#crescent-cutout)" fill="#000">
+      <circle r="300" cy="300" cx="300" fill="#000000" />
+    </g>
+
+    <defs>
+      <mask id="crescent-cutout">
+        <rect fill="white" height="600" width="600" />
+        <circle fill="black" r="260" cy="240" cx="350" />
+      </mask>
+    </defs>
+  </g>
+
+  <g id="khatim" transform="translate(300 180)">
+    <rect width="120" height="120" fill="none" stroke="#000" stroke-width="10" />
+    <rect width="120" height="120" fill="none" stroke="#000" stroke-width="10" transform="rotate(45 60 60)" />
+    <circle cx="60" cy="60" r="20" fill="none" stroke="#000" stroke-width="10" />
+  </g>
+</svg>

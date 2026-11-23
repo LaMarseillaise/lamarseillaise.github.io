@@ -1,0 +1,53 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Smithing Tools 🛠️</title>
+
+  <g>
+    <!-- Anvil -->
+    <path fill="#000" stroke="#000" stroke-width="0" d="
+      M 180,300
+      h 360
+      v 30
+      c -60,0 -150,15 -150,90
+      c 0,45 30,60 60,90
+      v 30
+      h -45
+      a 75,15 0 0 0 -150,0
+      h -45
+      v -30
+      c 30,-30 45,-30 45,-60
+      c 0,-60 -60,-60 -75,-60
+      c -60,-15 -90,-15 -150,-85
+      h 150
+    " />
+
+    <!-- Hammer -->
+    <g transform="scale(0.5) rotate(75,300,300) translate(120,-240)">
+      <path fill="none" stroke="#000" stroke-width="5" d="
+        M 255,45
+        h 90 v 15
+        h 60 v -10
+        h 30 v 80
+        h -30 v -10
+        h -60 v 15
+        h -90 v -15
+        l -105,-25
+        v -10
+        l 105,-25
+        v -15
+        z
+      " />
+
+      <path fill="#000" stroke="#000" stroke-width="0" d="
+        M 265,145
+        c 0,30 5,60 15,90
+        v 330
+        a 20,20 0 0 0 40,0
+        v -330
+        c 10,-30 15,-60 15,-90
+        M 270,35
+        a 30,15 0 0 1 60,0
+        z
+      " />
+    </g>
+  </g>
+</svg>

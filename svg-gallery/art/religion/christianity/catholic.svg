@@ -1,0 +1,36 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Cross with Globus and Keys</title>
+
+  <g id="cross" mask="url(#globus-mask)">
+    <line x1="300" y1="0" x2="300" y2="600" stroke="#000" stroke-width="60" />
+    <line x1="100" y1="200" x2="500" y2="200" stroke="#000" stroke-width="60" />
+  </g>
+
+  <g id="globus">
+    <circle cx="300" cy="450" r="135" stroke-width="30" stroke="#000" fill="none" />
+  </g>
+
+  <g id="keys-of-saint-peter">
+    <use href="#key" transform="translate(200 340) rotate(140 75 125)" />
+    <use href="#key" transform="translate(135 245) rotate(220 75 125) scale(-1 1)" />
+  </g>
+
+  <defs>
+    <mask id="globus-mask">
+      <rect fill="white" height="600" width="600" />
+      <circle cx="300" cy="450" r="144" fill="#000" />
+    </mask>
+
+    <mask id="cross-mask">
+      <rect fill="white" height="600" width="600" />
+      <line x1="50" y1="190" x2="105" y2="190" stroke="#000" stroke-width="10" />
+      <line x1="75" y1="170" x2="75" y2="210" stroke="#000" stroke-width="10" />
+    </mask>
+
+    <g id="key">
+      <circle cx="45" cy="45" r="35" fill="none" stroke="#000" stroke-width="15" />
+      <line x1="45" y1="75" x2="45" y2="225" stroke="#000" stroke-width="15" />
+      <rect x="45" y="160" width="60" height="60" fill="#000" mask="url(#cross-mask)" />
+    </g>
+  </defs>
+</svg>

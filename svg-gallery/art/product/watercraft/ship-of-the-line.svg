@@ -1,0 +1,187 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Ship of the Line</title>
+
+  <defs>
+    <g id="gunport">
+      <circle r="2" cx="0" cy="0" fill="none" stroke="black" stroke-width="2" />
+      <rect x="-5" y="-5" width="10" height="10" fill="none" stroke="black" stroke-width="2" />
+    </g>
+
+    <g id="empty-gunport">
+      <rect x="-5" y="-5" width="10" height="10" fill="none" stroke="black" stroke-width="2" />
+    </g>
+
+    <g id="lower-window" transform="skewX(20)">
+      <rect x="-6" y="-10" width="12" height="20" fill="none" stroke="black" stroke-width="2" />
+      <line x1="-6" y1="-3.33" x2="6" y2="-3.33" stroke="black" stroke-width="2" />
+      <line x1="-6" y1="3.33" x2="6" y2="3.33" stroke="black" stroke-width="2" />
+      <line x1="0" y1="-10" x2="0" y2="10" stroke="black" stroke-width="2" />
+    </g>
+
+    <g id="upper-window" transform="skewX(20)">
+      <rect x="-6" y="-6" width="12" height="12" fill="none" stroke="black" stroke-width="2" />
+      <line x1="-6" y1="0" x2="6" y2="0" stroke="black" stroke-width="2" />
+      <line x1="0" y1="-6" x2="0" y2="6" stroke="black" stroke-width="2" />
+    </g>
+
+    <mask id="sail-mask">
+      <rect width="600" height="600" fill="white" />
+      <path fill="black" stroke="none" stroke-width="0" d="
+        M 60,255 l 75,45 v 60 h -90 z
+        M 85,270 q 50,-18 100,0 q 15,-18 -10,-90 h -80 q 12,72 -10,90 z
+        M 95,180 q 40,-12 80,0 q 10,-10 -15,-54 h -50 q 4,44 -15,54 z
+
+        M 190,370 q 75,-24 150,0 q 25,-25 -5,-125 h -140 q 20,100 -5,125 z
+        M 195,245 q 70,-18 140,0 q 20,-21 -15,-105 h -110 q 15,84 -15,105 z
+        M 210,140 q 55,-12 110,0 q 15,-15 -20,-60 h -70 q 5,48 -20,60 z
+
+        M 355,370 q 75,-24 150,0 q 20,-21 -5,-105 h -140 q 15,84 -5,105 z
+        M 365,265 q 65,-18 135,0 q 15,-18 -15,-90 h -110 q 12,72 -15,90 z
+        M 375,175 q 55,-12 110,0 q 10,-12 -20,-60 h -70 q 4,48 -20,60 z
+      " />
+    </mask>
+
+    <mask id="front-sail-mask">
+      <rect width="600" height="600" fill="white" />
+      <path fill="black" stroke="none" stroke-width="0" d="
+        M 570,315 l -115,-120 l 45,150 z
+      " />
+    </mask>
+  </defs>
+
+  <g id="rigging" transform="translate(0,60)">
+    <path fill="none" stroke="black" stroke-width="2" d="
+      M 570,315 l -115,-120 l 45,150 z
+    " />
+
+    <g mask="url(#front-sail-mask)">
+      <path id="masts" fill="black" stroke="none" stroke-width="0" mask="url(#sail-mask)" d="
+        M 135,365 l 3,-270 l 3,270
+        M 265,375 l 3,-345 l 3,345
+        M 435,375 l -3,-315 l -3,315
+        M 495,390 l 105,-105 l -105,115
+      " />
+
+      <path id="crossbars" fill="none" stroke="black" stroke-width="3" d="
+        M 35,360 h 110
+        M 140,305 l -90,-55
+        M 80,270 h 110
+        M 90,180 h 90
+        M 105,125 h 60
+
+        M 190,245 h 150
+        M 205,140 h 120
+        M 225,80 h 80
+
+        M 355,265 h 150
+        M 370,175 h 120
+        M 390,115 h 80
+      " />
+
+      <path id="sails" fill="none" stroke="black" stroke-width="2" d="
+        M 60,255 l 75,45 v 60 h -90 z
+        M 85,270 q 50,-18 100,0 q 15,-18 -10,-90 h -80 q 12,72 -10,90 z
+        M 95,180 q 40,-12 80,0 q 10,-10 -15,-54 h -50 q 4,44 -15,54 z
+
+        M 190,370 q 75,-24 150,0 q 25,-25 -5,-125 h -140 q 20,100 -5,125 z
+        M 195,245 q 70,-18 140,0 q 20,-21 -15,-105 h -110 q 15,84 -15,105 z
+        M 210,140 q 55,-12 110,0 q 15,-15 -20,-60 h -70 q 5,48 -20,60 z
+
+        M 355,370 q 75,-24 150,0 q 20,-21 -5,-105 h -140 q 15,84 -5,105 z
+        M 365,265 q 65,-18 135,0 q 15,-18 -15,-90 h -110 q 12,72 -15,90 z
+        M 375,175 q 55,-12 110,0 q 10,-12 -20,-60 h -70 q 4,48 -20,60 z
+
+        M 600,285 l -75,-80 l 45,105 z
+      " />
+    </g>
+  </g>
+
+  <g id="hull" transform="translate(0,360)">
+    <g transform="translate(20,102)">
+      <use href="#lower-window" x="0" />
+      <use href="#lower-window" x="15" />
+      <use href="#lower-window" x="30" />
+    </g>
+
+    <g transform="translate(14,80)">
+      <use href="#upper-window" x="0" />
+      <use href="#upper-window" x="15" />
+      <use href="#upper-window" x="30" />
+    </g>
+
+    <path fill="none" stroke="black" stroke-width="2" d="
+      M 280,75 v 15 h 20 v -15 h 100 v 15
+    " />
+
+    <path fill="none" stroke="black" stroke-width="5" d="
+      M 0,65 h 174
+      M 0,70 h 172 v 5 h 108
+      M 400,90 v -15 h 95 v 15 q 0,10 10,15
+      M 9,90 h 485
+      M 60,110 h 400 l 45,-5
+      M 55,130 h 405 l 30,-5
+      M 60,135 h 400 l 27,-5
+    " />
+
+    <path fill="black" stroke="none" stroke-width="0" d="
+      M 510,90 l 20,-15 a 8,8 0 0 0 5,10 q -15,30 -50,48 v -10 q 10,-5 15,-30
+    " />
+
+    <g transform="translate(55,80)">
+      <use href="#gunport" transform="translate(0,0) scale(0.64)" />
+      <use href="#gunport" transform="translate(22.5,0) scale(0.64)" />
+      <use href="#empty-gunport" transform="translate(45,0) scale(0.64)" />
+      <use href="#empty-gunport" transform="translate(67.5,0) scale(0.64)" />
+      <use href="#empty-gunport" transform="translate(90,0) scale(0.64)" />
+      <use href="#gunport" transform="translate(112.5,3) scale(0.64)" />
+      <use href="#gunport" transform="translate(135,3) scale(0.64)" />
+      <use href="#gunport" transform="translate(157.5,3) scale(0.64)" />
+      <use href="#gunport" transform="translate(180,3) scale(0.64)" />
+      <use href="#gunport" transform="translate(202.5,3) scale(0.64)" />
+      <use href="#empty-gunport" transform="translate(360,3) scale(0.64)" />
+      <use href="#empty-gunport" transform="translate(382.5,3) scale(0.64)" />
+      <use href="#gunport" transform="translate(405,3) scale(0.64)" />
+      <use href="#gunport" transform="translate(427.5,3) scale(0.64)" />
+    </g>
+
+    <g id="upper-deck" transform="translate(65,100)">
+      <use href="#gunport" transform="translate(0,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(30,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(60,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(90,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(120,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(150,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(180,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(210,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(240,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(270,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(300,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(330,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(360,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(390,0) scale(0.8)" />
+      <use href="#gunport" transform="translate(420,0) scale(0.8)" />
+    </g>
+
+    <g id="main-deck" transform="translate(80,120)">
+      <use href="#gunport" transform="translate(0,0) scale(1)" />
+      <use href="#gunport" transform="translate(30,0) scale(1)" />
+      <use href="#gunport" transform="translate(60,0) scale(1)" />
+      <use href="#gunport" transform="translate(90,0) scale(1)" />
+      <use href="#gunport" transform="translate(120,0) scale(1)" />
+      <use href="#gunport" transform="translate(150,0) scale(1)" />
+      <use href="#gunport" transform="translate(180,0) scale(1)" />
+      <use href="#gunport" transform="translate(210,0) scale(1)" />
+      <use href="#gunport" transform="translate(240,0) scale(1)" />
+      <use href="#gunport" transform="translate(270,0) scale(1)" />
+      <use href="#gunport" transform="translate(300,0) scale(1)" />
+      <use href="#gunport" transform="translate(330,0) scale(1)" />
+      <use href="#gunport" transform="translate(360,0) scale(1)" />
+      <use href="#gunport" transform="translate(390,0) scale(1)" />
+    </g>
+
+    <path stroke="black" stroke-width="3" fill="none" d="
+      M 3,72.5 l 15,41.5 q 5,8 37,16 q 10,-5 8,-16 l -15,-41.5
+      M 58,130 l 5,35 h 410 c 30,-10 20,-40 40,-60
+    " />
+  </g>
+</svg>

@@ -1,0 +1,80 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Dharmachakra with Vishvavajra</title>
+
+  <g id="dharmachakra">
+    <defs>
+      <mask id="dharmachakra-mask">
+        <rect width="600" height="600" fill="#fff" />
+        <circle r="75" cx="300" cy="300" fill="#000" />
+      </mask>
+    </defs>
+
+    <g mask="url(#dharmachakra-mask)">
+      <circle r="240" cx="300" cy="300" stroke="#000000" stroke-width="60" fill="none" />
+
+      <line x1="300" y1="0" x2="300" y2="600" stroke="#000000" stroke-width="30" />
+      <line x1="0" y1="300" x2="600" y2="300" stroke="#000000" stroke-width="30" />
+
+      <line x1="300" y1="0" x2="300" y2="600" stroke="#000000" stroke-width="30" transform="rotate(45 300 300)" />
+      <line x1="0" y1="300" x2="600" y2="300" stroke="#000000" stroke-width="30" transform="rotate(45 300 300)" />
+
+      <circle r="90" cx="300" cy="300" fill="none" stroke="#000" stroke-width="30" />
+    </g>
+  </g>
+
+  <defs>
+    <g id="vajra">
+      <!-- Vajra (thunderbolt/diamond scepter) in center of dharmachakra -->
+      <g transform="translate(300,300)">
+        <!-- Central shaft -->
+        <rect x="-4" y="-40" width="8" height="80" fill="#000" />
+
+        <!-- Central sphere/hub -->
+        <circle cx="0" cy="0" r="12" fill="none" stroke="#000" stroke-width="6" />
+
+        <!-- Top prongs -->
+        <g stroke="#000" fill="none" stroke-width="5">
+          <!-- Center prong -->
+          <line x1="0" y1="-40" x2="0" y2="-55" />
+          <circle cx="0" cy="-55" r="3" fill="#000" />
+
+          <!-- Side prongs -->
+          <path d="M -8,-40 Q -15,-50 -12,-60" />
+          <path d="M 8,-40 Q 15,-50 12,-60" />
+          <circle cx="-12" cy="-60" r="2" fill="#000" />
+          <circle cx="12" cy="-60" r="2" fill="#000" />
+
+          <!-- Outer prongs -->
+          <path d="M -12,-35 Q -25,-45 -20,-58" />
+          <path d="M 12,-35 Q 25,-45 20,-58" />
+          <circle cx="-20" cy="-58" r="2" fill="#000" />
+          <circle cx="20" cy="-58" r="2" fill="#000" />
+        </g>
+
+        <!-- Bottom prongs (mirrored) -->
+        <g stroke="#000" fill="none" stroke-width="5">
+          <!-- Center prong -->
+          <line x1="0" y1="40" x2="0" y2="55" />
+          <circle cx="0" cy="55" r="3" fill="#000" />
+
+          <!-- Side prongs -->
+          <path d="M -8,40 Q -15,50 -12,60" />
+          <path d="M 8,40 Q 15,50 12,60" />
+          <circle cx="-12" cy="60" r="2" fill="#000" />
+          <circle cx="12" cy="60" r="2" fill="#000" />
+
+          <!-- Outer prongs -->
+          <path d="M -12,35 Q -25,45 -20,58" />
+          <path d="M 12,35 Q 25,45 20,58" />
+          <circle cx="-20" cy="58" r="2" fill="#000" />
+          <circle cx="20" cy="58" r="2" fill="#000" />
+        </g>
+      </g>
+    </g>
+  </defs>
+
+  <g>
+    <use href="#vajra" transform="rotate(45,300,300)" />
+    <use href="#vajra" transform="rotate(-45,300,300)" />
+  </g>
+</svg>

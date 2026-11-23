@@ -1,0 +1,30 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Ink</title>
+
+  <g transform="translate(300,300) scale(2)">
+    <path fill="none" stroke="#000" stroke-width="5" d="
+      M -45,-90
+      h 90
+      v 30
+      h -15
+      c 0,60 60,60 60,120
+      v 30
+      h -180
+      v -30
+      c 0,-60 60,-60 60,-120
+      h -15
+      v -30
+      z
+    " />
+
+    <path fill="#000" d="
+      M -45,0
+      h 90
+      c 15,10 35,35 35,50
+      v 30
+      h -160
+      v -30
+      c 0,-15 20,-40 35,-50
+    " />
+  </g>
+</svg>

@@ -1,0 +1,47 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Ollin</title>
+
+  <defs>
+    <g id="cornerstone">
+      <rect width="90" height="90" fill="none" stroke="black" stroke-width="15" />
+      <line x1="45" y1="0" x2="45" y2="60" stroke="black" stroke-width="15" />
+    </g>
+  </defs>
+
+  <g id="ollin" transform="scale(1.2) translate(-50 -50)">
+    <use href="#cornerstone" transform="rotate(-40 300 300) translate(255 400)" />
+    <use href="#cornerstone" transform="rotate(40 300 300) translate(255 400)" />
+    <use href="#cornerstone" transform="rotate(140 300 300) translate(255 400)" />
+    <use href="#cornerstone" transform="rotate(-140 300 300) translate(255 400)" />
+
+    <path d="
+      M 260 180
+      l 40 -90
+      l 40 90
+    " fill="none" stroke="#000" stroke-width="15" />
+
+    <path d="
+      M 250 440
+      c 0 0 50 30 100 0
+    " fill="none" stroke="#000" stroke-width="15" />
+
+    <circle cx="300" cy="300" r="100" fill="none" stroke="black" stroke-width="20" />
+    <circle cx="135" cy="300" r="65" fill="none" stroke="black" stroke-width="20" />
+    <circle cx="465" cy="300" r="65" fill="none" stroke="black" stroke-width="20" />
+
+    <circle cx="300" cy="495" r="30" fill="none" stroke="black" stroke-width="15" />
+
+    <!-- eye -->
+    <g>
+      <!-- eyelid -->
+      <line x1="210" y1="290" x2="390" y2="290" stroke="#000" stroke-width="15" />
+
+      <!-- iris -->
+      <path d="
+        M 255 290
+        c 0 0 0 55 45 55
+        c 0 0 45 0 45 -55
+      " fill="none" stroke="#000" stroke-width="15" />
+    </g>
+  </g>
+</svg>

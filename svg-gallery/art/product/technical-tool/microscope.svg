@@ -1,0 +1,23 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Microscope 🔬</title>
+
+  <g>
+    <g>
+      <rect x="90" y="540" width="420" height="60" />
+
+      <path fill="none" stroke="#000" stroke-width="30" d="
+        M 245,165
+        a 180,180 0 1,0 240,170
+      " />
+
+      <line x1="270" y1="330" x2="570" y2="330" stroke="#000" stroke-width="10" />
+      <rect x="265" y="480" width="70" height="60" />
+    </g>
+
+    <g transform="rotate(-40,150,90)">
+      <rect x="160" y="75" width="55" height="20" rx="10" />
+      <rect x="150" y="105" width="75" height="225" />
+      <rect x="150" y="340" width="75" height="15" rx="10" />
+    </g>
+  </g>
+</svg>

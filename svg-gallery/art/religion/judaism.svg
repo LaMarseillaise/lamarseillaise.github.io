@@ -1,0 +1,9 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <title>Star of David</title>
+
+  <g id="star-of-david">
+    <polygon points="300,30 60,440 540,440" fill="none" stroke="#000" stroke-width="30" />
+    <polygon points="300,30 60,440 540,440" fill="none" stroke="#000" stroke-width="30"
+      transform="rotate(180 300 300)" />
+  </g>
+</svg>
