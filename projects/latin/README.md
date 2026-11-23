@@ -38,7 +38,7 @@ does not offer import or cross-tab merging. No English-word alignment or public
 translation gallery is implemented yet. User prose is inserted using textContent
 or textarea values, never interpreted as HTML.
 
-Serve over HTTP and open `/latin/`. `node latin/check.mjs` validates passage IDs,
+Serve over HTTP and open `/projects/latin/`. `node projects/latin/check.mjs` validates passage IDs,
 link endpoints/types, and directional duplicate handling. Browser checks should
 exercise connecting/removing words, passage switches, reload persistence, hidden
 links, export, wrapped-line geometry, and narrow viewports.
@@ -73,7 +73,7 @@ and links are preserved. JSON exports now use version 2 and include this map.
 Invalid field values, out-of-range indices, and punctuation annotations are
 discarded on load. Notes are rendered as text, never HTML.
 
-Checks: `node latin/check.mjs`, `node latin/grammar-check.mjs`, and
+Checks: `node projects/latin/check.mjs`, `node projects/latin/grammar-check.mjs`, and
 `node --check latin/latin.js`. Browser verification on November 22, 2026 covered
 nominal and verbal tags, partial/uncertain analyses, preservation of drafts and
 connections, reload persistence, passage isolation, hiding/showing tags,

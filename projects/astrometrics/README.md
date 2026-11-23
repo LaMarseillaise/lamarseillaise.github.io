@@ -4,10 +4,10 @@ A browser observatory about finding new facts through observation and reasoning.
 
 ## Run and check
 
-Serve the repository root with an ordinary static HTTP server and open `/astrometrics/`. No build, package installation, account, API, or backend is required. `app.mjs` connects the controls to the independent calculation functions in `model.mjs`. Diagrams are inline SVG; prose and source links remain available without JavaScript.
+Serve the repository root with an ordinary static HTTP server and open `/projects/astrometrics/`. No build, package installation, account, API, or backend is required. `app.mjs` connects the controls to the independent calculation functions in `model.mjs`. Diagrams are inline SVG; prose and source links remain available without JavaScript.
 
 ```sh
-node astrometrics/check.mjs
+node projects/astrometrics/check.mjs
 node --check astrometrics/app.mjs
 ```
 

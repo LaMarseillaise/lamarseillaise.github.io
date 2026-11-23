@@ -38,8 +38,8 @@ Minimax minimizes the largest group of remaining candidates on the next turn. Th
 Run from the repository root:
 
 ```sh
-node mastermind/check.mjs
-node mastermind/session-check.mjs
+node projects/mastermind/check.mjs
+node projects/mastermind/session-check.mjs
 ```
 
 The dependency-free check compares scoring against an independent unmatched-peg oracle for all **1,679,616** secret/guess pairs, explores the complete solver decision tree, independently checks minimax scores at the first two depths, checks game boundaries/defensive copies/invalid input/random-source endpoints, and exercises the shipped worker message protocol in a Node adapter.

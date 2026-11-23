@@ -8,6 +8,8 @@
     <title>Andur Carr — Software Engineer</title>
     <link rel="stylesheet" href="assets/stylesheets/normalize.css">
     <link rel="stylesheet" href="assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/assets/stylesheets/collections.css">
+    <script type="module" src="/components/index.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -15,7 +17,8 @@
       <a class="wordmark" href="#introduction" aria-label="Andur Carr, introduction">AC<span aria-hidden="true">.</span></a>
       <nav aria-label="Main navigation">
         <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
+        <a href="/projects/">Projects</a>
+        <a href="/musings/">Musings</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -31,6 +34,12 @@
         </div>
         <img class="portrait" src="assets/images/andur.jpeg" alt="Portrait of Andur Carr" width="240" height="240">
       </section>
+      <!-- LATEST_MUSING:START -->
+<section id="musings" class="latest-musing page-width section-space" aria-labelledby="musings-title"><div class="section-heading"><p class="eyebrow">Latest writing</p><h2 id="musings-title">Musings.</h2><a href="/musings/">All Musings</a></div><musing-card featured>
+<p slot="meta"><time datetime="2026-11-23">November 23, 2026</time> · Software &amp; responsibility</p>
+<h3 slot="heading">Code as a reviewable receipt</h3>
+<p slot="description">What changes when generating code becomes easier than understanding its consequences? A reflection on legibility, intention, and the behavior nobody asked for.</p><a slot="link" href="/musings/code-as-a-reviewable-receipt/">Read Code as a reviewable receipt</a></musing-card></section>
+      <!-- LATEST_MUSING:END -->
       <section id="experience" class="experience page-width section-space" aria-labelledby="experience-title">
         <div class="section-heading">
           <p class="eyebrow">Selected experience</p>
@@ -63,98 +72,48 @@
           </article>
         </div>
       </section>
-      <section id="projects" class="projects page-width section-space" aria-labelledby="projects-title">
-        <div class="section-heading">
-          <p class="eyebrow">Projects</p>
-          <h2 id="projects-title">Ideas you can explore.</h2>
-        </div>
-        <div class="experience-list">
-          <article class="experience-item">
-            <p class="organization">Browser game</p>
-            <div>
-              <h3>Three Card Monte</h3>
-              <p>A card game I created for a Dungeons &amp; Dragons campaign. Each player encountered it separately during session zero, before meeting the rest of the party.</p>
-              <p>The encounter helped players develop their characters through roleplay and led to an invitation to the event where the party would meet.</p>
-              <p class="focus">HTML · CSS · JavaScript · AI-assisted card artwork</p>
-              <div class="profile-links">
-                <a href="three-card-monte/">Play Three Card Monte <span aria-hidden="true">→</span></a>
-                <a href="https://github.com/LaMarseillaise/lamarseillaise.github.io/tree/master/three-card-monte">View game source <span aria-hidden="true">↗</span></a>
-              </div>
-            </div>
-          </article>
-          <article class="experience-item">
-            <p class="organization">Browser game</p>
-            <div>
-              <h3>Mastermind</h3>
-              <p>Break a hidden code or choose one for the computer to solve. A browser adaptation of my Swift game, preserving its random code generator and minimax strategy.</p>
-              <p>The deterministic solver is checked against all 1,296 possible secrets and solves each in at most five guesses.</p>
-              <p class="focus">JavaScript · Web Workers · Exhaustive verification · Adapted with AI assistance</p>
-              <div class="profile-links">
-                <a href="mastermind/">Play Mastermind</a>
-                <a href="mastermind/#implementation">Explore the solver</a>
-              </div>
-            </div>
-          </article>
-          <article class="experience-item">
-            <p class="organization">Interactive lesson</p>
-            <div>
-              <h3>SQL Join Explorer</h3>
-              <p>Follow a payment through a one-to-many join to see how a plausible query can inflate a total. Change the records, compare three approaches, and discover why DISTINCT is not always a repair.</p>
-              <p>The browser model is checked against the displayed SQL using SQLite across every available combination. Synthetic data, with no backend or account required.</p>
-              <p class="focus">JavaScript · SQL · Reproducible checks · Built with AI assistance</p>
-              <div class="profile-links">
-                <a href="sql-join-explorer/">Explore the SQL example</a>
-                <a href="sql-join-explorer/#verification">Read the implementation notes</a>
-              </div>
-            </div>
-          </article>
-          <article class="experience-item">
-            <p class="organization">Interactive science</p>
-            <div>
-              <h3>Astrometrics</h3>
-              <p>Follow a shadow, a timed echo, and a shift in perspective from the size of Earth to the distance of a star. Change the observations and see what follows from the geometry.</p>
-              <p class="focus">Plain JavaScript · SVG · Scientific reasoning · Built with AI assistance</p>
-              <div class="profile-links"><a href="astrometrics/">Explore Astrometrics</a></div>
-            </div>
-          </article>
-          <article class="experience-item">
-            <p class="organization">Reading notebook</p>
-            <div>
-              <h3>Latin, connected</h3>
-              <p>A workspace for my interest in Latin: write a translation and connect words by reference, agreement, subject, and object. Colors and lines make those relationships visible across a sentence.</p>
-              <p class="focus">Plain JavaScript · SVG · Local drafts · Built with AI assistance</p>
-              <div class="profile-links"><a href="latin/">Open the Latin notebook</a></div>
-            </div>
-          </article>
-          <article class="experience-item">
-            <p class="organization">Time &amp; history</p>
-            <div>
-              <h3>Revolutionary Calendar &amp; Clock</h3>
-              <p>A live French Republican date and decimal clock, adapted from my Ruby and JavaScript implementations. Explore a different way to divide the day, and the revolutionary ambition behind it.</p>
-              <p class="focus">Plain JavaScript · Time zones · Calendar verification · Adapted with AI assistance</p>
-              <div class="profile-links"><a href="revolutionary-calendar/">Explore revolutionary time</a></div>
-            </div>
-          </article>
-          <article class="experience-item">
-            <p class="organization">Vector illustration</p>
-            <div>
-              <h3>RegimeWeb SVG Gallery</h3>
-              <p>A selection of 65 symbols, instruments, and objects from my RegimeWeb project, from religious symbols to the rigging of a ship. Browse the collection and enlarge each drawing.</p>
-              <p class="focus">SVG · Illustration · Public-domain sources credited</p>
-              <div class="profile-links"><a href="svg-gallery/">View the SVG gallery</a></div>
-            </div>
-          </article>
-          <article class="experience-item">
-            <p class="organization">Reusable component</p>
-            <div>
-              <h3>Calculator</h3>
-              <p>My original React keypad calculator, adapted into a native web component. Drop one element into a page for an independent, keyboard-accessible calculator.</p>
-              <p class="focus">Plain JavaScript · Shadow DOM · Adapted with AI assistance</p>
-              <div class="profile-links"><a href="native-calculator/">Use the calculator</a></div>
-            </div>
-          </article>
-        </div>
-      </section>
+      <!-- PROJECTS:START -->
+<section id="projects" class="projects page-width section-space" aria-labelledby="projects-title"><div class="collection-heading"><div><p class="eyebrow">Projects</p><h2 id="projects-title">Ideas you can explore.</h2></div><a href="/projects/">Browse all 8 projects</a></div><project-carousel aria-label="Selected projects"><project-card>
+<img slot="preview" src="/assets/images/projects/astrometrics.svg" alt="" width="600" height="300" loading="lazy">
+<p slot="category">Observation &amp; reason</p><h3 slot="heading">Astrometrics</h3>
+<p slot="description">Follow a shadow, a timed echo, and a shift in perspective from Earth&#x27;s circumference to the distance of a star.</p><p slot="meta">JavaScript · SVG · Interactive geometry</p>
+<a slot="link" href="/projects/astrometrics/">Explore Astrometrics</a></project-card>
+<project-card>
+<img slot="preview" src="/assets/images/projects/mastermind.svg" alt="" width="600" height="300" loading="lazy">
+<p slot="category">Browser game</p><h3 slot="heading">Mastermind</h3>
+<p slot="description">Break a hidden code or set one for the computer. A wooden game board and a minimax solver adapted from my Swift implementation.</p><p slot="meta">JavaScript · Web Workers · Exhaustive checks</p>
+<a slot="link" href="/projects/mastermind/">Play Mastermind</a></project-card>
+<project-card>
+<img slot="preview" src="/assets/images/projects/latin.svg" alt="" width="600" height="300" loading="lazy">
+<p slot="category">Language &amp; meaning</p><h3 slot="heading">Latin, connected</h3>
+<p slot="description">Translate a passage, connect related words, and annotate their grammar. Make the structure of a sentence visible.</p><p slot="meta">JavaScript · SVG · Browser-local drafts</p>
+<a slot="link" href="/projects/latin/">Open the Latin notebook</a></project-card>
+<project-card>
+<img slot="preview" src="/assets/images/projects/sql-join-explorer.svg" alt="" width="600" height="300" loading="lazy">
+<p slot="category">Interactive lesson</p><h3 slot="heading">SQL Join Explorer</h3>
+<p slot="description">See how a one-to-many join can inflate a payment total. Change the records and compare three approaches.</p><p slot="meta">JavaScript · SQL · SQLite verification</p>
+<a slot="link" href="/projects/sql-join-explorer/">Explore SQL joins</a></project-card>
+<project-card>
+<img slot="preview" src="/assets/images/projects/revolutionary-calendar.svg" alt="" width="600" height="300" loading="lazy">
+<p slot="category">Time &amp; history</p><h3 slot="heading">Revolutionary time</h3>
+<p slot="description">A live French Republican calendar and decimal clock, adapted from my Ruby and JavaScript implementations.</p><p slot="meta">JavaScript · Time zones · Calendar checks</p>
+<a slot="link" href="/projects/revolutionary-calendar/">Explore the calendar</a></project-card>
+<project-card>
+<img slot="preview" src="/assets/images/projects/svg-gallery.svg" alt="" width="600" height="300" loading="lazy">
+<p slot="category">Vector illustration</p><h3 slot="heading">RegimeWeb SVG Gallery</h3>
+<p slot="description">Sixty-five symbols, instruments, and objects from RegimeWeb, with individual source credits and enlarged views.</p><p slot="meta">SVG · Illustration · Credited sources</p>
+<a slot="link" href="/projects/svg-gallery/">Visit the gallery</a></project-card>
+<project-card>
+<img slot="preview" src="/assets/images/projects/three-card-monte.svg" alt="" width="600" height="300" loading="lazy">
+<p slot="category">A roleplaying encounter</p><h3 slot="heading">Three Card Monte</h3>
+<p slot="description">A card game made for a Dungeons &amp; Dragons campaign. Follow the queen of hearts and see how you respond to the dealer.</p><p slot="meta">JavaScript · Roleplay · AI-assisted artwork</p>
+<a slot="link" href="/projects/three-card-monte/">Play Three Card Monte</a></project-card>
+<project-card>
+<img slot="preview" src="/assets/images/projects/native-calculator.svg" alt="" width="600" height="300" loading="lazy">
+<p slot="category">Reusable component</p><h3 slot="heading">Calculator</h3>
+<p slot="description">My original keypad calculator, adapted into an independent, keyboard-accessible native web component.</p><p slot="meta">JavaScript · Shadow DOM · Keyboard controls</p>
+<a slot="link" href="/projects/native-calculator/">Use the calculator</a></project-card></project-carousel></section>
+      <!-- PROJECTS:END -->
       <section id="about" class="about page-width section-space" aria-labelledby="about-title">
         <div class="section-heading">
           <p class="eyebrow">About</p>

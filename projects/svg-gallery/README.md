@@ -32,8 +32,8 @@ modified clicks and the direct SVG link retain normal browser navigation.
 Search matches names, symbol titles and parent traditions, ignoring case and
 diacritics. Empty results and reset are explicit.
 
-Serve the site root and open `/svg-gallery/`. Verify with:
+Serve the site root and open `/projects/svg-gallery/`. Verify with:
 
 ```sh
-python3 svg-gallery/check.py
+python3 projects/svg-gallery/check.py
 ```

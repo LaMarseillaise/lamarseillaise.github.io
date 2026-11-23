@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Three Card Monte</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: #2c3e50;
+            color: white;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .game-container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cards {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem auto;
+            aspect-ratio: 22 / 9;
+            position: relative;
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .card {
+            width: 27.272727%;
+            height: 100%;
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.3s, left 0.5s ease;
+            transform-style: preserve-3d;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            border-radius: 10px;
+            background: transparent;
+        }
+
+        .card:hover:not(:disabled) {
+            transform: translateY(-10px);
+        }
+
+        .card:disabled { cursor: default; }
+
+        button:focus-visible {
+            outline: 3px solid #ffdc73;
+            outline-offset: 7px;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 2px solid #fff;
+        }
+
+        .card-front {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transform: rotateY(180deg);
+        }
+
+        .card-back {
+            background-image: url("./cards/card-back.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        #queen .card-front {
+            background-image: url('./cards/queen-of-hearts.png');
+        }
+
+        #jack .card-front {
+            background-image: url('./cards/jack-of-diamonds.png');
+        }
+
+        #king .card-front {
+            background-image: url('./cards/king-of-clubs.png');
+        }
+
+        #joker .card-front {
+            background-image: url('./cards/joker.png') !important;
+        }
+
+        #startGame {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background: #3498db;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            margin: 1rem;
+        }
+
+        #startGame:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        #startGame:hover:not(:disabled) {
+            background: #2980b9;
+        }
+
+        .score {
+            font-size: 1.2rem;
+            margin: 1rem;
+        }
+
+        .instructions {
+            color: #bdc3c7;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+    </style>
+<link rel="canonical" href="https://andurcarr.com/projects/three-card-monte/">
+</head>
+<body>
+    <div class="game-container">
+        <p class="instructions">Find the Lady, double your coin!</p>
+        <p class="instructions">Use Tab to move between controls and Enter or Space to choose.</p>
+        <div class="score">Score: <span id="wins">0</span> wins - <span id="losses">0</span> losses</div>
+        <div class="cards" id="cards">
+            <button type="button" class="card" id="jack" style="left: 0%" aria-label="Left card" disabled>
+                <span class="card-face card-back" aria-hidden="true"></span>
+                <span class="card-face card-front" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="card" id="queen" style="left: 36.363636%" aria-label="Middle card" disabled>
+                <span class="card-face card-back" aria-hidden="true"></span>
+                <span class="card-face card-front" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="card" id="king" style="left: 72.727273%" aria-label="Right card" disabled>
+                <span class="card-face card-back" aria-hidden="true"></span>
+                <span class="card-face card-front" aria-hidden="true"></span>
+            </button>
+        </div>
+        <button id="startGame">Shuffle!</button>
+        <p id="status" role="status">Press Shuffle to begin.</p>
+    </div>
+
+    <script>
+        let wins = 0
+        let losses = 0
+        let phase = 'ready'
+
+        let wonLastGame = false
+        let cheat = wonLastGame
+
+        const startButton = document.getElementById('startGame')
+        const status = document.getElementById('status')
+        const cardsContainer = document.getElementById('cards')
+
+        const cards = document.querySelectorAll('.card')
+
+        let queen = document.getElementById('queen')
+        let jack = document.getElementById('jack')
+        let king = document.getElementById('king')
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms))
+        }
+
+        function setPhase(nextPhase, message) {
+            phase = nextPhase
+            startButton.disabled = phase === 'shuffling' || phase === 'revealing'
+            cards.forEach(card => { card.disabled = phase !== 'choosing' })
+            status.textContent = message
+        }
+
+        function orderCardControls() {
+            // Keep the tab order and labels aligned with the visible positions.
+            const orderedCards = [...cards].sort((a, b) => parseFloat(a.style.left) - parseFloat(b.style.left))
+            orderedCards.forEach((card, index) => {
+                card.setAttribute('aria-label', ['Left card', 'Middle card', 'Right card'][index])
+                cardsContainer.append(card)
+            })
+            return orderedCards
+        }
+
+        function randomPosition() {
+            return Math.floor(Math.random() * 3)
+        }
+
+        function swapCards(card1, card2) {
+            const temp = card1.style.left
+            card1.style.left = card2.style.left
+            card2.style.left = temp
+        }
+
+        function resetCards() {
+            jack.style.left = '0%'
+            queen.style.left = '36.363636%'
+            king.style.left = '72.727273%'
+
+            queen.id = 'queen'
+
+            cards.forEach(card => card.classList.remove('flipped'))
+            orderCardControls()
+        }
+
+        async function showQueen() {
+            queen.classList.add('flipped')
+            await sleep(500)
+            queen.classList.remove('flipped')
+        }
+
+        async function shuffle(numShuffles = 12) {
+            await showQueen()
+
+            for (let i = 0; i < numShuffles; i++) {
+                let j = randomPosition()
+                let k = randomPosition()
+                while (k === j) { k = randomPosition() }
+
+                swapCards(cards[j], cards[k])
+
+                // Add some randomness to the shuffle timing
+                await sleep(500 + Math.random() * 250)
+            }
+
+            if(cheat) { queen.id = 'joker' }
+        }
+
+        startButton.addEventListener('click', async event => {
+            if (phase !== 'ready' && phase !== 'choosing') return
+            const keyboardStart = event.detail === 0
+
+            // Lock before the first delay so rapid clicks cannot overlap rounds.
+            setPhase('shuffling', 'Watch the queen, then follow the shuffle.')
+            resetCards()
+            await sleep(500)
+            await shuffle()
+            const orderedCards = orderCardControls()
+            setPhase('choosing', 'Choose a card, or press Shuffle to try again.')
+            if (keyboardStart) orderedCards[0].focus()
+        })
+
+        cards.forEach(card => {
+            card.addEventListener('click', async event => {
+                if (phase !== 'choosing') return
+                const keyboardChoice = event.detail === 0
+
+                setPhase('revealing', 'Revealing your card…')
+                card.classList.add('flipped')
+
+                await sleep(500)
+                if (card.id === 'queen') {
+                    wins++
+                    document.getElementById('wins').textContent = wins
+                    status.textContent = 'You found the queen!'
+
+                    cheat = wonLastGame
+                    wonLastGame = true
+                } else {
+                    losses++
+                    document.getElementById('losses').textContent = losses
+                    status.textContent = 'That was not the queen.'
+                    wonLastGame = cheat
+                }
+
+                await sleep(1500)
+                resetCards()
+                setPhase('ready', 'Press Shuffle to play again.')
+                if (keyboardChoice) startButton.focus()
+            })
+        })
+    </script>
+</body>

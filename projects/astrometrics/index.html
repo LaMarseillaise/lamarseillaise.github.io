@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101e2a">
+  <meta name="description" content="From a shadow to a star: explore how observation, geometry, and a few known quantities reveal the scale of our world and beyond.">
+  <title>Astrometrics · Andur Carr</title>
+  <link rel="stylesheet" href="/assets/stylesheets/main.css"><link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+<link rel="canonical" href="https://andurcarr.com/projects/astrometrics/">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header page-width"><a class="wordmark" href="/">AC<span>.</span></a><a href="/projects/">All projects</a></header>
+<main id="main" class="page-width">
+  <section class="hero" aria-labelledby="title">
+    <div><p class="eyebrow">An observatory for the curious</p><h1 id="title">Astrometrics<span class="title-dot">.</span></h1><p class="lead">How far can a little reasoning take you?</p><p class="intro">A shadow, a clock, a change in perspective. Start with something you can observe, then follow the reasoning from the size of Earth to the distance of a star.</p></div>
+    <svg class="hero-art" viewBox="0 0 320 280" aria-hidden="true"><circle cx="160" cy="140" r="105" class="orbit"/><ellipse cx="160" cy="140" rx="140" ry="55" class="orbit" transform="rotate(-25 160 140)"/><path d="M35 240 275 45 160 140Z" class="sight"/><circle cx="160" cy="140" r="28" class="earth"/><circle cx="275" cy="45" r="5" class="gold-fill"/><circle cx="35" cy="240" r="5" class="teal-fill"/><path d="M265 45h20m-10-10v20" class="gold-line"/><text x="35" y="269">OBSERVE · REASON · INFER</text></svg>
+  </section>
+  <nav class="chapter-nav" aria-label="Experiments"><a href="#two-facts">Two facts</a><a href="#shadows">A shadow</a><a href="#metric">A measure</a><a href="#sun">The Sun</a><a href="#stars">A star</a><a href="#units">Compare units</a></nav>
+  <noscript><p class="notice">The explanations and sources work without JavaScript. Enable it to change the experiments and calculate results.</p></noscript>
+
+  <section class="chapter" id="two-facts" aria-labelledby="facts-title">
+    <div class="chapter-heading"><p class="eyebrow">01 / Combine what you know</p><h2 id="facts-title">Around the world in a fraction of a second.</h2></div>
+    <div class="experiment">
+      <div class="story"><p>When I was a kid, I was told that light could travel around Earth seven times in one second. Separately, I heard that light traveled about 186,000 miles per second—I remember Gary saying it in an episode of <cite>Pokémon</cite>.</p><p>I put those facts together and worked out that Earth must be about 26,000 miles around.</p><p class="insight">A new fact can be hiding between two things you already know.</p><details><summary>What are we assuming?</summary><p>“Seven times around Earth” is a distance comparison, not the actual path of a beam of light. These are remembered, rounded figures. This is a deduction from supplied facts, rather than an independent measurement of Earth.</p><p>Changing seven to seven and a half gives a noticeably different estimate. The arithmetic can be sound while its inputs remain approximate.</p></details></div>
+      <div class="instrument">
+        <div class="instrument-top"><span>Try the childhood calculation</span><button type="button" data-reset="light" aria-label="Reset light calculation">Reset</button></div>
+        <label for="laps">Circuits of Earth per second <output id="laps-label" for="laps">7</output></label><input id="laps" type="range" min="6" max="9" step="0.1" value="7">
+        <div class="equation" id="light-equation">186,000 miles/s ÷ 7 circuits/s</div>
+        <output id="light-result" class="big-result" for="laps" aria-live="polite">≈ 26,600 miles per circuit</output>
+        <svg viewBox="0 0 480 170" role="img" aria-labelledby="light-diagram-title"><title id="light-diagram-title">Earth and a circumference representing one complete circuit</title><circle cx="240" cy="85" r="58" class="earth"/><ellipse cx="240" cy="85" rx="58" ry="20" class="orbit"/><ellipse cx="240" cy="85" rx="22" ry="58" class="orbit"/><circle cx="240" cy="85" r="69" class="gold-line" fill="none" stroke-dasharray="5 5"/><text x="335" y="90">one circuit</text></svg>
+        <p class="caption">Change an input. See how much the conclusion changes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="shadows" aria-labelledby="shadow-title">
+    <div class="chapter-heading"><p class="eyebrow">02 / Measure a part, infer the whole</p><h2 id="shadow-title">A shadow can measure a planet.</h2><p>Eratosthenes compared sunlight at two places. A difference in the Sun’s angle, combined with the distance between the places, revealed Earth’s curvature.</p></div>
+    <div class="experiment">
+      <div class="instrument diagram-panel">
+        <svg id="shadow-diagram" viewBox="0 0 480 330" role="img" aria-labelledby="shadow-svg-title"><title id="shadow-svg-title">A curved Earth with two observation sites and parallel sunlight</title><defs><marker id="ray-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="m0 0 10 5-10 5" fill="#edc880"/></marker></defs><circle cx="240" cy="215" r="94" class="earth"/><path id="earth-radii" class="sight"/><path id="earth-arc" class="gold-line" fill="none" stroke-width="4"/><g id="sun-rays"></g><g id="site-points"></g><text x="30" y="25">Parallel sunlight</text><text x="255" y="243">Earth’s center</text><text x="22" y="321" id="earth-angle-label">Angular difference: 7.2°</text></svg>
+        <p class="caption">Angles in this globe sketch are enlarged for legibility. The calculation uses the measured angle.</p>
+        <svg id="stick-diagram" viewBox="0 0 480 180" role="img" aria-labelledby="stick-svg-title"><title id="stick-svg-title">A vertical stick, its shadow, and the triangle made by a sun ray</title><path d="M55 143H425" class="orbit"/><path d="M160 143V30" class="teal-line" stroke-width="5"/><path id="stick-ray" class="gold-line"/><path id="stick-shadow" class="shadow-line"/><text x="65" y="85">100 cm</text><text x="180" y="167" id="shadow-length-label">shadow: 12.6 cm</text><text x="180" y="24">Ray from the Sun</text></svg>
+      </div>
+      <div class="story controls">
+        <p><strong>Observe:</strong> in our simplified experiment, the Sun is overhead at site A. At site B, a vertical stick casts a shadow. Measure that shadow and the north–south surface distance between the sites.</p>
+        <label for="shadow-length">Shadow of a 100 cm stick <output id="shadow-readout" for="shadow-length">12.6 cm</output></label><input id="shadow-length" type="range" min="2" max="50" step="0.1" value="12.6">
+        <label for="separation">Distance between sites <output id="separation-readout" for="separation">800 km</output></label><input id="separation" type="range" min="100" max="2000" step="10" value="800">
+        <div class="result-box"><span>Inferred circumference</span><output class="big-result" id="earth-result" for="shadow-length separation" aria-live="polite">≈ 40,100 km</output><p id="earth-reason">The angle is about 7.2°. Roughly 50 copies of this arc make a complete circle.</p></div>
+        <button type="button" data-reset="earth">Reset shadow experiment</button>
+        <details><summary>Follow the geometry</summary><p>The ratio of shadow length to stick height gives the tangent of the Sun’s angle from vertical:</p><p class="formula">θ = arctan(shadow ÷ height)</p><p>With parallel sunlight and a spherical Earth, that same angle separates the sites at Earth’s center:</p><p class="formula">circumference = distance × 360° ÷ θ</p><p id="earth-working"></p></details>
+        <details><summary>Assumptions and historical context</summary><p>The sites lie on the same meridian, Earth is treated as a sphere, the sunlight is effectively parallel, and the Sun is directly overhead at A. Use a surface distance between sites, not a straight line through Earth.</p><p>This is an adjustable reconstruction of the idea, not a claim about Eratosthenes’ exact observations. Ancient distance units and surviving accounts introduce uncertainty. The separation is shown in modern kilometers for convenience; the reasoning works equally well in stadia, miles, or another consistently measured unit.</p><p><a href="https://oceanservice.noaa.gov/education/tutorial_geodesy/geo02_hist.html">NOAA: the history of geodesy</a></p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="metric-note" id="metric" aria-labelledby="metric-title">
+    <p class="eyebrow">03 / Agree on a measure</p><h2 id="metric-title">Make the world the ruler.</h2>
+    <p>Revolutionary France proposed a meter as one ten-millionth of the distance from the equator to the North Pole along the Paris meridian. In that scheme, a kilometer was one ten-thousandth of that quarter-meridian—or one forty-thousandth of the full meridional circumference.</p>
+    <div class="metric-scale" aria-label="Four quarter-meridians, each intended to measure ten thousand kilometers"><span>Equator</span><span>North Pole</span><span>Equator</span><span>South Pole</span><span>Equator</span><div></div><p>4 × 10,000 km = 40,000 km around a meridian</p></div>
+    <p>It was an agreement about a unit, followed by the difficult work of measuring and making a standard. It used a pole-to-pole meridian, rather than the circumference around the equator.</p>
+    <details><summary>What changed?</summary><p>Earth is not a perfect sphere, and the original survey was imperfect. Today the meter is defined using the speed of light and the second; Earth’s circumference is something we measure in meters, not what defines them.</p><p><a href="https://www.nist.gov/si-redefinition/meter">NIST: the history of the meter</a> · <a href="../revolutionary-calendar/">Explore another revolutionary measurement: time</a></p></details>
+  </section>
+
+  <section class="chapter" id="sun" aria-labelledby="sun-title">
+    <div class="chapter-heading"><p class="eyebrow">04 / Give an orbit a scale</p><h2 id="sun-title">How far away is the Sun?</h2><p>An orbit’s proportions do not tell us its size in kilometers. A timed echo can supply the missing scale.</p></div>
+    <div class="experiment">
+      <div class="story controls">
+        <p><strong>Observe:</strong> repeated observations reveal orbital periods. Kepler’s third law turns a ratio of periods into a ratio of orbital sizes. In this model, an inner planet takes 224.7 days to orbit; Earth takes 365.25.</p>
+        <p><strong>Measure:</strong> time a radar pulse traveling from Earth to the inner planet and back. Use an ideal alignment with the inner planet directly between Earth and the Sun.</p>
+        <label for="echo">Round-trip echo time <output id="echo-label" for="echo">276 seconds</output></label><input id="echo" type="range" min="100" max="500" step="1" value="276">
+        <div class="result-box"><span>Inferred Earth–Sun distance</span><output class="big-result" id="au-result" for="echo" aria-live="polite">≈ 150 million km</output><p id="au-reason"></p></div>
+        <button type="button" data-reset="solar">Reset echo time</button>
+        <details><summary>Follow the reasoning</summary><p class="formula">orbital size ratio r = (224.7 ÷ 365.25)<sup>2/3</sup> ≈ 0.723</p><p>The Earth–planet gap is therefore about 0.277 of the Earth–Sun distance. The echo measures that gap:</p><p class="formula">gap = light speed × echo time ÷ 2<br>Earth–Sun distance = gap ÷ (1 − r)</p><p>Dividing by two matters: the pulse had to make the return journey.</p></details>
+        <details><summary>What is simplified?</summary><p>These are hypothetical observations in a circular, coplanar, aligned model with negligible planetary motion during the echo. Actual measurements account for eccentric orbits, alignment, motion and where the reflection occurs. Planetary radar needs powerful transmitters and sensitive receivers; a simple principle does not imply simple equipment.</p><p>We use an independently established light speed here. Modern SI fixes its value at 299,792.458 km/s; historical measurements established light speed using other length standards. This experiment does not derive everything from scratch.</p><p>The astronomical unit is now exactly 149,597,870.7 km. Our inferred distance can differ from that fixed unit when you change the mock observation.</p><p><a href="https://astro.unl.edu/naap/distance/radar.html">Radar ranging</a> · <a href="https://science.nasa.gov/solar-system/orbits-and-keplers-laws/">NASA: Kepler’s laws</a> · <a href="https://cneos.jpl.nasa.gov/glossary/au.html">NASA: the astronomical unit</a></p></details>
+      </div>
+      <div class="instrument diagram-panel">
+        <svg viewBox="0 0 480 400" role="img" aria-labelledby="orbit-title"><title id="orbit-title">Ideal circular orbits: the inner planet lies between the Sun and Earth, with a radar echo crossing the gap</title><circle cx="235" cy="205" r="150" class="orbit"/><circle cx="235" cy="205" r="108.5" class="orbit"/><circle cx="235" cy="205" r="19" class="sun"/><circle cx="343.5" cy="205" r="7" class="gold-fill"/><circle cx="385" cy="205" r="9" class="earth"/><path d="M235 205H385" class="sight"/><path d="M350 186H379m0 38h-29" class="gold-line" marker-end="url(#ray-arrow)"/><text x="213" y="250">Sun</text><text x="290" y="170">Inner planet</text><text x="378" y="255">Earth</text><text x="200" y="30">One orbit, two scales</text><text x="65" y="380" id="orbit-gap">Radar measures the gap, not the whole radius.</text></svg>
+        <p class="caption">Orbital radii are in proportion in this idealized sketch. Planet sizes are enlarged. Adjusting echo time changes the scale in kilometers, while the proportions stay the same.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="stars" aria-labelledby="star-title">
+    <div class="chapter-heading"><p class="eyebrow">05 / Change your point of view</p><h2 id="star-title">A small shift. An enormous distance.</h2><p>Hold up a finger and look past it with one eye, then the other. Your finger seems to move against the background. That is parallax.</p></div>
+    <div class="experiment">
+      <div class="instrument diagram-panel">
+        <svg id="parallax-diagram" viewBox="0 0 480 390" role="img" aria-labelledby="parallax-title"><title id="parallax-title">A stellar parallax triangle: two Earth positions, the Sun between them, and a distant star</title><g class="background-stars"><path d="M50 20h8m-4-4v8M416 26h8m-4-4v8M100 45h8m-4-4v8M363 35h8m-4-4v8"/></g><path id="parallax-rays" class="sight"/><path id="parallax-center" class="orbit"/><circle id="target-star" cx="240" cy="80" r="7" class="gold-fill"/><text id="p-label" x="250" y="120">p</text><circle cx="240" cy="310" r="13" class="sun"/><circle cx="100" cy="310" r="8" class="earth"/><circle cx="380" cy="310" r="8" class="earth"/><path d="M100 340H240" class="teal-line"/><text x="147" y="365">1 au</text><text x="46" y="290">Earth: visit 1</text><text x="324" y="290">visit 2</text><text x="271" y="345">Sun</text><text x="35" y="388">Two visits six months apart: a 2 au baseline.</text></svg>
+        <p class="caption">The depth is compressed and the angle exaggerated. Real stellar parallax is far too small to draw at this scale. The marker moves qualitatively; the readout uses the formula.</p>
+      </div>
+      <div class="story controls">
+        <p><strong>Observe:</strong> a nearby star shifts against more distant stars as Earth orbits the Sun. Two visits six months apart provide a baseline of roughly two astronomical units.</p><p><strong>Reason:</strong> use half that shift, the angle <em>p</em>, with a one-au baseline. A smaller angle means a more distant star.</p>
+        <label for="parallax">Parallax p <output id="parallax-label" for="parallax">1.00 arcsecond</output></label><input id="parallax" type="range" min="0.05" max="2" step="0.05" value="1">
+        <div class="result-box"><span>Inferred stellar distance</span><output class="big-result" id="star-result" for="parallax" aria-live="polite">1 parsec</output><p id="star-equivalents"></p><p id="star-shift"></p></div>
+        <button type="button" data-reset="star">Reset parallax</button>
+        <details><summary>Build the triangle</summary><p>An arcsecond is 1/3,600 of a degree. In a right triangle with the Sun at the right angle, a star at distance d, and Earth one au to the side:</p><p class="formula">tan(p) = 1 au ÷ d<br>d = 1 au ÷ tan(p)</p><p>For very small angles in radians, tan(p) ≈ p. One arcsecond is π/648,000 radians. This gives about 206,265 au for a one-arcsecond parallax—the idea behind the <strong>parsec</strong>.</p><p class="formula">distance in parsecs ≈ 1 ÷ p in arcseconds</p><p>The modern parsec is defined as exactly 648,000/π au. The readouts use that definition and the small-angle distance convention. The exact right-triangle result differs negligibly at these angles.</p></details>
+        <details><summary>What is assumed?</summary><p>This sketch puts the star perpendicular to the baseline and treats Earth’s orbit as circular. A real observation fits the parallax motion over time and accounts for the star’s own motion and observational error. These sliders are hypothetical observations, not measurements of a named star.</p><p><a href="https://astro.unl.edu/naap/distance/parallax.html">University of Nebraska: parallax</a> · <a href="https://pdg.lbl.gov/2024/reviews/rpp2024-rev-astrophysical-constants.pdf">Particle Data Group: astronomical units and constants</a></p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="unit-panel" id="units" aria-labelledby="units-title"><p class="eyebrow">One distance, different rulers</p><h2 id="units-title">Kilometers. au. Lightyears. Parsecs.</h2><p>A lightyear is a distance: how far light travels in a year. A parsec describes distance through an angle. The units emphasize different ways of thinking about the same space.</p>
+    <div class="unit-controls"><div><label for="distance">Distance</label><input id="distance" type="number" min="0" max="1000000000000000000" step="any" value="1" inputmode="decimal"></div><div><label for="unit">Unit</label><select id="unit"><option value="pc">Parsecs</option><option value="ly">Lightyears</option><option value="au">Astronomical units</option><option value="km">Kilometers</option></select></div><button type="button" id="use-star">Use the star experiment</button></div>
+    <p id="conversion-error" role="status"></p><dl id="conversions" class="conversions" aria-live="polite"><div><dt>Kilometers</dt><dd id="in-km">—</dd></div><div><dt>Astronomical units</dt><dd id="in-au">—</dd></div><div><dt>Lightyears</dt><dd id="in-ly">—</dd></div><div><dt>Parsecs</dt><dd id="in-pc">—</dd></div></dl>
+    <details><summary>Definitions behind these conversions</summary><p>1 au = 149,597,870.7 km. One lightyear uses a Julian year of exactly 365.25 days, each 86,400 seconds, with light speed 299,792.458 km/s. One parsec = (648,000/π) au ≈ 3.26 lightyears. Displayed values are rounded; changing an experimental estimate does not redefine a unit.</p></details>
+  </section>
+  <section class="closing" aria-labelledby="geometry-title"><p class="eyebrow">Keep looking</p><h2 id="geometry-title">The same sky, more geometry.</h2><div class="closing-grid"><div><h3>Why seasons change</h3><p>Earth’s tilted axis changes the Sun’s height and the length of the day through the year. Opposite hemispheres have opposite seasons. <a href="https://science.nasa.gov/earth/facts/">Explore the geometry with NASA.</a></p></div><div><h3>Why the Moon changes shape</h3><p>Sunlight illuminates half the Moon; its phases show how much of that lit half we see. Earth’s shadow belongs to the separate story of lunar eclipses. <a href="https://science.nasa.gov/moon/moon-phases/">Explore Moon phases with NASA.</a></p></div></div></section>
+  <section class="about-experiment" id="implementation"><h2>About this observatory</h2><p>Created from Andur Carr’s idea and childhood recollection, with AI assistance. The aim is to make reasoning visible. The diagrams are explanatory models, with assumptions stated beside each experiment. Nothing is measured by your device.</p><p>Plain JavaScript and SVG; no account, backend, external fonts, or model downloads. <a href="README.md">Sources and implementation notes</a> · <a href="check.mjs">Calculation checks</a></p></section>
+</main><footer class="site-footer page-width"><a href="/projects/">Back to projects</a><span>Observe something. Follow the consequences.</span></footer>
+</body></html>

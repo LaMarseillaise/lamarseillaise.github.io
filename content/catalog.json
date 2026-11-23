@@ -1,0 +1,16 @@
+{
+  "projects": [
+    {"slug":"astrometrics","title":"Astrometrics","category":"Observation & reason","description":"Follow a shadow, a timed echo, and a shift in perspective from Earth's circumference to the distance of a star.","meta":"JavaScript · SVG · Interactive geometry","link":"Explore Astrometrics"},
+    {"slug":"mastermind","title":"Mastermind","category":"Browser game","description":"Break a hidden code or set one for the computer. A wooden game board and a minimax solver adapted from my Swift implementation.","meta":"JavaScript · Web Workers · Exhaustive checks","link":"Play Mastermind"},
+    {"slug":"latin","title":"Latin, connected","category":"Language & meaning","description":"Translate a passage, connect related words, and annotate their grammar. Make the structure of a sentence visible.","meta":"JavaScript · SVG · Browser-local drafts","link":"Open the Latin notebook"},
+    {"slug":"sql-join-explorer","title":"SQL Join Explorer","category":"Interactive lesson","description":"See how a one-to-many join can inflate a payment total. Change the records and compare three approaches.","meta":"JavaScript · SQL · SQLite verification","link":"Explore SQL joins"},
+    {"slug":"revolutionary-calendar","title":"Revolutionary time","category":"Time & history","description":"A live French Republican calendar and decimal clock, adapted from my Ruby and JavaScript implementations.","meta":"JavaScript · Time zones · Calendar checks","link":"Explore the calendar"},
+    {"slug":"svg-gallery","title":"RegimeWeb SVG Gallery","category":"Vector illustration","description":"Sixty-five symbols, instruments, and objects from RegimeWeb, with individual source credits and enlarged views.","meta":"SVG · Illustration · Credited sources","link":"Visit the gallery"},
+    {"slug":"three-card-monte","title":"Three Card Monte","category":"A roleplaying encounter","description":"A card game made for a Dungeons & Dragons campaign. Follow the queen of hearts and see how you respond to the dealer.","meta":"JavaScript · Roleplay · AI-assisted artwork","link":"Play Three Card Monte"},
+    {"slug":"native-calculator","title":"Calculator","category":"Reusable component","description":"My original keypad calculator, adapted into an independent, keyboard-accessible native web component.","meta":"JavaScript · Shadow DOM · Keyboard controls","link":"Use the calculator"}
+  ],
+  "articles": [
+    {"slug":"code-as-a-reviewable-receipt","title":"Code as a reviewable receipt","date":"2026-11-23","category":"Software & responsibility","description":"What changes when generating code becomes easier than understanding its consequences? A reflection on legibility, intention, and the behavior nobody asked for.","origin":"Adapted from my conversation about AI-generated code and reviewable receipts."},
+    {"slug":"being-shown-and-understanding","title":"Being shown is not understanding","date":"2026-11-23","category":"Curiosity & knowledge","description":"If I could be shown everything, I would first want to become capable of understanding it. A thought experiment about information, learning, and the next question.","origin":"Adapted from my conversation about cosmic horror, curiosity, and the wish to understand."}
+  ]
+}

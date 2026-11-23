@@ -1,7 +1,7 @@
 # Revolutionary calendar & clock
 
 A buildless, plain-JavaScript adaptation of my calendar projects. Serve the
-repository over HTTP and visit `/revolutionary-calendar/`. No account, backend,
+repository over HTTP and visit `/projects/revolutionary-calendar/`. No account, backend,
 external fonts, runtime libraries, or paid services are required.
 
 ## Provenance and conventions
@@ -31,7 +31,7 @@ Adapted with AI assistance from my Ruby calendar in
 ## Checks
 
 ```sh
-node revolutionary-calendar/check.mjs
+node projects/revolutionary-calendar/check.mjs
 ```
 
 Checks seven historical anchors, every date in a 400-year arithmetic cycle,

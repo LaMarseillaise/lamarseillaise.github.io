@@ -30,7 +30,7 @@ Shadow DOM; the host sets its own responsive width.
 
 ## Checks
 
-`node native-calculator/check.mjs` exercises arithmetic, decimals, chained/replaced
+`node projects/native-calculator/check.mjs` exercises arithmetic, decimals, chained/replaced
 operators, error recovery, new entries, repeated equals, clearing/deleting,
 sign changes, input limits, scientific-notation editing and independent model instances.
 `component-check.html` is a manual browser fixture for two independent instances,
@@ -45,6 +45,6 @@ physical-device or screen-reader audit. The browser automation reported two
 MutationObserver errors during selector actions; the app source does not use a
 MutationObserver, and the same interactions worked using native input controls.
 
-The site uses `/native-calculator/` because `/calculator/` is served by the
+The site uses `/projects/native-calculator/` because `/calculator/` is served by the
 separate original calculator repository’s GitHub Pages deployment. That original
 project and its hosting remain unchanged.

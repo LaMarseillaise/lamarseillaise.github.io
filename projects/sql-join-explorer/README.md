@@ -17,7 +17,7 @@ Open http://127.0.0.1:8765/sql-join-explorer/ . JavaScript modules require HTTP 
 With Python 3 and Node.js installed, from the repository root:
 
 ```sh
-python3 sql-join-explorer/check.py
+python3 projects/sql-join-explorer/check.py
 ```
 
 The check extracts the exact three queries displayed in the HTML and executes them in an in-memory SQLite database. It compares their results to the JavaScript model for all 12 control combinations (36 totals), compares every intermediate joined row, and checks a separate arithmetic oracle. Two hand-calculated counterexamples and seven invalid-input rejections are also checked. It requires no third-party packages or network access.

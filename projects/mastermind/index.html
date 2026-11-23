@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#263e35">
+  <meta name="description" content="Play Mastermind or set a code for a minimax solver. A JavaScript adaptation of Andur Carr's Swift game.">
+  <title>Mastermind · Andur Carr</title>
+  <link rel="stylesheet" href="game.css">
+<link rel="canonical" href="https://andurcarr.com/projects/mastermind/">
+</head>
+<body>
+  <a class="skip-link" href="#controls">Skip to game controls</a>
+  <header>
+    <a href="/projects/">Andur Carr / Projects</a>
+    <span class="edition">A game of deduction</span>
+  </header>
+  <main>
+    <div class="game-title"><h1>Mastermind</h1><p>Four pegs. Six colors. Twelve guesses.</p></div>
+    <section class="game" aria-label="Mastermind game">
+      <div class="toolbar" id="controls" tabindex="-1">
+        <div class="roles" role="group" aria-label="Choose your role"><button id="break" type="button" aria-pressed="true">Break</button><button id="make" type="button" aria-pressed="false">Make</button></div>
+        <div class="actions"><button id="new" class="icon" type="button" aria-label="New round" title="New round" disabled>↻</button><button id="end" class="icon" type="button" aria-label="End round" title="End round" disabled>🏳️</button></div>
+      </div>
+      <div class="wood-board" id="board">
+        <div id="palette" class="palette" role="group" aria-label="Choose a numbered peg"></div>
+        <div class="board-labels"><span id="code-label">The code</span><span id="counter" aria-label="Guesses used">0 / 12</span></div>
+        <div class="board-row code-row" id="code-row"><div id="secret" class="guess" aria-label="Secret code hidden"></div></div>
+        <ol id="history" aria-label="Twelve guess rows"></ol>
+        <div class="board-key" aria-label="Red means exact; white means partial"><span><i class="grade-peg exact" aria-hidden="true"></i> Exact</span><span><i class="grade-peg partial" aria-hidden="true"></i> Partial</span></div>
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite" aria-atomic="true">Loading the game…</p>
+      <p id="analysis" class="analysis"></p>
+    </section>
+    <details class="rules">
+      <summary>How to play</summary>
+      <p>In <strong>Break</strong>, tap the numbered pegs at the top to fill the highlighted guess row. The fourth peg submits automatically. Repeats are allowed. In <strong>Make</strong>, fill the code row instead; the computer then plays its guesses automatically.</p>
+      <p>Tap any peg in an unfinished guess or code to remove it. Later pegs slide left. Once four pegs are submitted, that row is fixed. You can also type <kbd>1</kbd>–<kbd>6</kbd> and use <kbd>Backspace</kbd> to remove the last peg.</p>
+      <p>Each red grading peg means a correct color in the correct position. Each white peg means a correct color elsewhere. Grading pegs are grouped together and do not identify individual positions.</p>
+      <p><strong>↻</strong> starts a new round; <strong>🏳️</strong> ends the round and reveals the code. The <strong>🛟</strong> beside your current guess chooses and immediately submits a minimax guess, replacing any unfinished pegs in that row.</p>
+    </details>
+    <details class="implementation" id="implementation">
+      <summary>From Swift to the browser</summary>
+      <p>This version adapts Andur Carr’s <a href="https://github.com/LaMarseillaise/mastermind-swift">original Swift implementation</a>, including its code generator, duplicate-aware scoring, twelve-turn game, and Knuth-style minimax solver. The JavaScript translation and browser interface were built with AI assistance. The oak board texture comes from the procedural wood generator in my RegimeWeb project.</p>
+      <p>The solver begins with two pairs, then keeps every code consistent with the feedback. It considers all 1,296 guesses and picks the one that leaves the smallest possible worst-case set of answers. Ties favor a possible answer. This version uses a fixed color order to make ties reproducible, where the Swift version chooses randomly.</p>
+      <p>“Minimax” describes the next-guess objective, not a claim of globally optimal average play. The included exhaustive check tests every possible secret. The solver runs in a Web Worker and receives only previous guesses and their feedback—not the secret.</p>
+      <p>Everything runs in your browser. No account, backend, or AI API is used. A new round or page reload starts fresh.</p>
+      <p><a href="README.md">Implementation notes (Markdown)</a> · <a href="check.mjs">Verification script (JavaScript)</a></p>
+    </details>
+    <noscript><p class="status">Mastermind needs JavaScript to run. Enable it in your browser, then reload this page.</p></noscript>
+  </main>
+  <footer><a href="/projects/">Back to projects</a><span>Built for curiosity.</span></footer>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>
