@@ -1,6 +1,7 @@
 {
   "projects": [
     {"slug":"astrometrics","title":"Astrometrics","category":"Observation & reason","description":"Follow a shadow, a timed echo, and a shift in perspective from Earth's circumference to the distance of a star.","meta":"JavaScript · SVG · Interactive geometry","link":"Explore Astrometrics"},
+    {"slug":"calendars-and-clocks","title":"Calendars & clocks","category":"Time & convention","description":"Compare clocks, cross a daylight saving boundary, explore my seasonal calendar, and learn Conway’s Doomsday Rule.","meta":"Web Components · Calendar arithmetic · Historical sources","link":"Explore timekeeping"},
     {"slug":"mastermind","title":"Mastermind","category":"Browser game","description":"Break a hidden code or set one for the computer. A wooden game board and a minimax solver adapted from my Swift implementation.","meta":"JavaScript · Web Workers · Exhaustive checks","link":"Play Mastermind"},
     {"slug":"latin","title":"Latin, connected","category":"Language & meaning","description":"Translate a passage, connect related words, and annotate their grammar. Make the structure of a sentence visible.","meta":"JavaScript · SVG · Browser-local drafts","link":"Open the Latin notebook"},
     {"slug":"sql-join-explorer","title":"SQL Join Explorer","category":"Interactive lesson","description":"See how a one-to-many join can inflate a payment total. Change the records and compare three approaches.","meta":"JavaScript · SQL · SQLite verification","link":"Explore SQL joins"},

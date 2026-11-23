@@ -43,11 +43,14 @@ catalog = json.loads((ROOT/'content/catalog.json').read_text())
 for kind in ['projects','articles']:
     slugs = [item['slug'] for item in catalog[kind]]
     assert len(slugs)==len(set(slugs)), f'Duplicate {kind} slugs'
-for item in catalog['projects']:
-    slug=item['slug']; old=(ROOT/slug/'index.html').read_text()
+legacy_slugs = ['astrometrics','mastermind','latin','sql-join-explorer','revolutionary-calendar','svg-gallery','three-card-monte','native-calculator']
+for slug in legacy_slugs:
+    old=(ROOT/slug/'index.html').read_text()
     assert f'href="/projects/{slug}/"' in old
     assert '/components/legacy-redirect.js' in old
     assert (ROOT/'projects'/slug/'index.html').exists()
+for item in catalog['projects']:
+    assert (ROOT/'projects'/item['slug']/'index.html').exists()
 home = (ROOT/'index.html').read_text()
 latest = sorted(catalog['articles'],key=lambda item:item['date'],reverse=True)[0]
 assert f'/musings/{latest["slug"]}/' in home

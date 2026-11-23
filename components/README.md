@@ -12,3 +12,7 @@ The full project directory uses the same cards as the carousel. `collections.css
 ## Checks
 
 `check.html` is a browser fixture for independent carousel instances, keyboard endpoints, style isolation, and disconnect/reconnect behavior. These checks passed on November 23, 2026. The landing page and article layout were also inspected at 375 px; the landing page had no horizontal overflow at 320 px. A preview with module scripts removed confirmed that all eight project links and their content remain available. A legacy Astrometrics URL preserved its query and `#stars` fragment. After relocation, the Mastermind worker returned and submitted a guess successfully, and the calendar and gallery loaded. This is a browser smoke check, not a complete accessibility or cross-browser audit.
+
+## Timekeeping instruments
+
+The [Calendars & clocks components](../projects/calendars-and-clocks/README.md) live in `timekeeping/` and are loaded only by that project. Four independent custom elements provide clocks, a DST timeline, the seasonal calendar and a Doomsday walkthrough. `timekeeping/check.html` exercises multiple instances and reconnect behavior. Their shared arithmetic has an independent exhaustive oracle; see the project README for actual verification results.
