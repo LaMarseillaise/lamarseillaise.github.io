@@ -1,0 +1,101 @@
+:root{color-scheme:light;--ink:#182b35;--paper:#f7f4e9;--gold:#d8b980;--muted:#b6c4c8;font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--paper)}
+
+*{box-sizing:border-box}
+body{margin:0}
+a{color:inherit;text-underline-offset:.22em}
+a:hover{text-decoration-thickness:2px}
+button,select{font:inherit}
+button,a,select{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid #c77938;outline-offset:5px}
+.wrap{width:min(1120px,calc(100% - 64px));margin-inline:auto}
+.masthead{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:25px;font-size:.95rem}
+.masthead>a:first-child{font-size:1.2rem;text-decoration:none}
+.masthead span{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase}
+.skip{position:absolute;top:-100px;left:16px;padding:12px;background:white;z-index:2}
+.skip:focus{top:12px}
+.observatory{background:var(--ink);color:var(--paper);padding:32px 0 36px}
+.pediment{height:48px;display:flex;align-items:center;gap:20px;color:var(--gold);border-top:1px solid #70818a}
+.pediment:before,.pediment:after{content:'';height:1px;flex:1;background:#70818a}
+.pediment span{font-size:1.4rem}
+.live-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;padding-block:24px 40px}
+.eyebrow{text-transform:uppercase;font: .72rem/1.6 system-ui,sans-serif;letter-spacing:.17em;margin:0 0 18px}
+.observatory .eyebrow{color:var(--gold)}
+h1{font-weight:normal;font-size:clamp(2.4rem,4.2vw,3.75rem);line-height:1.05;margin:0 0 35px;letter-spacing:-.035em}
+.live-date p{margin:0}
+#day-name{font-style:italic;color:var(--gold);font-size:1.1rem}
+#republican-date{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.4}
+#republican-year{font-size:1.15rem;letter-spacing:.12em;margin-top:2px}
+.digital{margin-top:24px}
+.digital>span{display:block}
+#decimal-clock{font-size:clamp(2.6rem,5vw,4rem);font-variant-numeric:tabular-nums;letter-spacing:.035em;line-height:1.1}
+.units{font:.75rem/1.6 system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.civil{font:.8rem/1.7 system-ui,sans-serif;color:var(--muted);min-height:2.8em;margin:16px 0}
+.controls{display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap}
+.controls label{display:grid;gap:6px;font:.875rem/1.4 system-ui,sans-serif;color:var(--muted)}
+select,button{border:1px solid #83959d;border-radius:0;padding:10px 12px;background:transparent;color:var(--paper);font:.8rem/1.3 system-ui,sans-serif;min-height:40px}
+select{appearance:none;padding-right:32px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23f7f4e9' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+select option{background:var(--ink)}
+button{cursor:pointer}
+button:hover{background:#314550}
+.status{font:.875rem/1.5 system-ui,sans-serif;color:var(--muted);margin:12px 0}
+.convention{font-size:.8rem;line-height:1.6;margin:18px 0 0;color:var(--muted)}
+.clock-figure{margin:0;text-align:center;align-self:center}
+.clock-figure svg{display:block;width:100%;max-width:450px;margin:auto;filter:drop-shadow(0 12px 20px #0003)}
+.rim{fill:var(--paper);stroke:var(--gold);stroke-width:4}
+.ring{fill:none;stroke:#9a875f;stroke-width:1}
+.faint{stroke-opacity:.3}
+.tick{stroke:#43525a;stroke-width:1}
+.tick.major{stroke-width:2}
+.numeral{text-anchor:middle;dominant-baseline:middle;fill:var(--ink);font-size:24px}
+.dial-inscription,.dial-motto{text-anchor:middle;fill:#59656b;font-size:8px;letter-spacing:1.8px}
+.dial-motto{font-size:7px;letter-spacing:1px}
+.hand{stroke:var(--ink);stroke-linecap:round}
+.hour{stroke-width:7}
+.minute{stroke-width:4}
+.second{stroke:#a74433;stroke-width:1.4}
+.pin{fill:var(--gold);stroke:var(--ink);stroke-width:2}
+.clock-figure figcaption{font-size:.85rem;line-height:1.6;color:var(--muted);margin-top:22px}
+.tabular{font-variant-numeric:tabular-nums}
+.day-band{border-top:1px solid #70818a;padding-top:20px}
+#decade-label{font:.72rem/1.6 system-ui,sans-serif;letter-spacing:.08em;color:var(--gold)}
+#decade{list-style:none;display:grid;grid-template-columns:repeat(10,1fr);gap:2px;padding:0;margin:12px 0 0}
+#decade li{text-align:center;padding:12px 2px;border-top:1px solid #70818a}
+#decade li[aria-current]{background:var(--paper);color:var(--ink);border-color:var(--gold)}
+#decade strong{display:block;font-size:1.3rem;font-weight:normal;font-variant-numeric:tabular-nums}
+#decade span{display:block;font-size:.75rem;margin-top:7px}
+#decade.festivals{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
+.history,.metric{display:grid;grid-template-columns:1fr 1.65fr;gap:70px;padding-block:75px;border-bottom:1px solid #c7c3b6}
+h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:normal;line-height:1.12;letter-spacing:-.025em;margin:0}
+.history-copy p,.interpretation p{font-size:1.03rem;line-height:1.85;margin:0 0 20px}
+.history-copy p:last-child,.interpretation p:last-child{margin-bottom:0}
+.history-copy .lede{font-size:1.45rem;line-height:1.55;margin-bottom:26px}
+.history-copy a,.interpretation a{font-size:.92em}
+.ratio{display:flex;gap:40px;border-block:1px solid #c7c3b6;padding:20px 0 24px;margin-bottom:26px}
+.ratio strong{display:block;font-size:3.1rem;font-weight:normal}
+.ratio span{font:.875rem/1.5 system-ui,sans-serif;color:#4b5a61}
+.interpretation{padding-block:65px;max-width:800px}
+.interpretation h2{margin-bottom:26px}
+.interpretation .eyebrow{font-size:.72rem}
+footer{display:flex;gap:20px;justify-content:space-between;padding-block:30px;border-top:1px solid #c7c3b6;font-size:.85rem}
+footer span{font-style:italic;color:#4b5a61}
+
+@media(max-width:760px){.wrap{width:calc(100% - 36px)}
+.masthead span{display:none}
+.observatory{padding-top:14px}
+.live-layout{grid-template-columns:1fr;gap:38px;padding-top:12px}
+.clock-figure svg{max-width:350px}
+.date-panel{max-width:500px;margin:auto;width:100%}
+h1{margin-bottom:28px}
+.live-date{margin-top:20px}
+#decade{grid-template-columns:repeat(5,1fr);gap:8px 2px}
+.history,.metric{grid-template-columns:1fr;gap:28px;padding-block:45px}
+.ratio{gap:0;justify-content:space-between}
+.ratio strong{font-size:2.7rem}
+.interpretation{padding-block:45px}
+footer{flex-direction:column;font-size:.8rem}
+.civil{min-height:0}
+.clock-figure figcaption{margin-top:16px}
+}
+
+@media(prefers-reduced-motion:reduce){.second{display:none}
+}

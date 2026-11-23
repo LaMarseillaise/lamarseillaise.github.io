@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore how SQL joins can multiply payment rows, and why summing distinct amounts is not a reliable repair.">
+  <title>SQL Join Explorer · Andur Carr</title>
+  <link rel="stylesheet" href="../assets/stylesheets/normalize.css">
+  <link rel="stylesheet" href="../assets/stylesheets/main.css">
+  <link rel="stylesheet" href="demo.css">
+  <script type="module" src="demo.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to explorer</a>
+  <header class="site-header page-width"><a href="../">← Andur Carr</a><span class="demo-label">Interactive SQL lesson</span></header>
+  <main id="main" class="page-width" tabindex="-1">
+    <section class="demo-intro" aria-labelledby="title">
+      <p class="eyebrow">Follow the rows</p>
+      <h1 id="title">One payment.<br>Counted twice.</h1>
+      <p class="lead">A join can look right and still inflate a total. Change the records below, then follow each payment into the joined rows.</p>
+      <p class="intro-detail">One synthetic account. Each payment is $10. Refunds of $1, $2, and $3 attach to the first payment. All events are posted; this example leaves out dates and currencies.</p>
+    </section>
+    <noscript><p>Enable JavaScript to use the explorer. The SQL and explanation below remain available.</p></noscript>
+    <fieldset class="controls" disabled id="controls">
+      <legend>1. Choose the records</legend>
+      <div class="control-row">
+        <label>Payments <select id="payments"><option value="1">1 payment</option><option value="2">2 payments</option><option value="3">3 payments</option></select></label>
+        <label>Refunds on P1 <select id="refunds"><option value="0">No refunds</option><option value="1">1 refund</option><option value="2" selected>2 refunds</option><option value="3">3 refunds</option></select></label>
+        <button id="reset" type="button">Reset example</button>
+      </div>
+      <p class="hint">Try two payments with two refunds. Both payments are $10, but they are different events.</p>
+    </fieldset>
+    <div id="interactive" hidden>
+      <div class="source-grid">
+        <div><table><caption>Original payments</caption><thead><tr><th scope="col">ID</th><th scope="col">Amount</th></tr></thead><tbody id="payment-rows"></tbody></table></div>
+        <div><table><caption>Original refunds</caption><thead><tr><th scope="col">ID</th><th scope="col">Payment</th><th scope="col">Amount</th></tr></thead><tbody id="refund-rows"></tbody></table></div>
+      </div>
+      <section class="lesson-section" aria-labelledby="joined-title">
+        <h2 id="joined-title">2. Inspect the join</h2>
+        <p>Each refund matches its parent payment. Multiple matches repeat that payment in the result.</p>
+        <div class="table-scroll" role="region" aria-label="Joined rows" tabindex="0">
+          <table><caption>payments LEFT JOIN refunds ON payments.id = refunds.payment_id</caption><thead><tr><th scope="col">Payment</th><th scope="col">Payment amount</th><th scope="col">Refund</th><th scope="col">Refund amount</th></tr></thead><tbody id="joined-rows"></tbody></table>
+        </div>
+        <p id="row-note" class="hint"></p>
+      </section>
+      <section class="lesson-section" aria-labelledby="totals-title">
+        <h2 id="totals-title">3. Compare the totals</h2>
+        <div class="results" aria-live="polite" aria-atomic="true">
+          <article><h3>Sum after joining</h3><p class="amount" id="joined-total"></p><p id="joined-explanation"></p></article>
+          <article><h3>DISTINCT payment amounts</h3><p class="amount" id="distinct-total"></p><p id="distinct-explanation"></p></article>
+          <article class="correct"><h3>Count each event once</h3><p class="amount" id="event-total"></p><p>Payments add; refunds subtract. Separate events keep separate identities.</p></article>
+        </div>
+        <details><summary>See the signed events</summary><table><caption>One row for every payment or refund</caption><thead><tr><th scope="col">Event</th><th scope="col">Change</th></tr></thead><tbody id="event-rows"></tbody></table></details>
+      </section>
+    </div>
+    <section class="lesson-section" aria-labelledby="sql-title">
+      <h2 id="sql-title">Why the repair works</h2>
+      <p><code>DISTINCT</code> removes duplicate values. Two legitimate $10 payments are the same value, so it can discard a real payment. Combine events with <code>UNION ALL</code> instead: it preserves both.</p>
+      <details><summary>Compare the three SQL queries</summary>
+        <p>These queries use <code>payments(id, amount_cents)</code> and <code>refunds(id, payment_id, amount_cents)</code>. All amounts are integer cents.</p>
+        <h3>The inflated join</h3><pre tabindex="0"><code id="sql-joined">SELECT COALESCE(SUM(p.amount_cents), 0)
+     - COALESCE(SUM(r.amount_cents), 0) AS net_cents
+FROM payments AS p
+LEFT JOIN refunds AS r ON r.payment_id = p.id;</code></pre>
+        <h3>The incomplete DISTINCT patch</h3><pre tabindex="0"><code id="sql-distinct">SELECT COALESCE(SUM(DISTINCT p.amount_cents), 0)
+     - COALESCE(SUM(r.amount_cents), 0) AS net_cents
+FROM payments AS p
+LEFT JOIN refunds AS r ON r.payment_id = p.id;</code></pre>
+        <h3>One row per event</h3><pre tabindex="0"><code id="sql-events">WITH events AS (
+  SELECT amount_cents AS delta_cents FROM payments
+  UNION ALL
+  SELECT -amount_cents AS delta_cents FROM refunds
+)
+SELECT COALESCE(SUM(delta_cents), 0) AS net_cents
+FROM events;</code></pre>
+      </details>
+      <p class="hint">This is a JavaScript illustration of the displayed SQL, not a live SQL editor. It assumes valid event IDs and parent relationships. It does not handle reporting windows, currencies, duplicate ingestion, or a complete accounting ledger.</p>
+      <h2 id="verification">Implementation and verification</h2>
+      <p>The calculation lives in a separate JavaScript model. A Python check runs the exact SQL shown above in SQLite and compares the results with that model: all 12 examples, 36 totals, and every intermediate joined row.</p>
+      <p>From the repository root, with Python 3 and Node.js installed, run:</p>
+      <pre tabindex="0"><code>python3 sql-join-explorer/check.py</code></pre>
+      <p>The check also covers seven invalid inputs and two hand-calculated examples. It uses no third-party packages or network calls.</p>
+      <p><a href="check.py" download>Download the check script</a> · <a href="README.md" download>Download the implementation notes</a></p>
+    </section>
+  </main>
+  <footer class="site-footer page-width"><p>Synthetic teaching demo · Built with AI assistance</p><a href="../">Back to personal site</a></footer>
+</body>
+</html>

@@ -18,6 +18,8 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 - `/native-calculator/`: native `<andur-calculator>` component, adapted from the original React project.
 - `/latin/`: Latin reading drafts and user-authored word connections, saved only in the browser.
+- `/revolutionary-calendar/`: live Republican date and decimal clock, with history and explicit extrapolation rules.
+- `/sql-join-explorer/`: interactive SQL join examples checked against SQLite.
 
 See each project's README for provenance, behavior, and checks. Publishing is
 through the existing GitHub Pages repository; no separate hosting service is needed.
