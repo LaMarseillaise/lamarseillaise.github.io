@@ -3,6 +3,15 @@ import {Session} from './session.mjs';
 
 const $ = id => document.getElementById(id);
 let worker, pending, requestId = 0, previouslyOver = false;
+const parameters = new URL(location.href);
+let engine = parameters.searchParams.get('engine') === 'swift' ? 'swift' : 'javascript';
+$('engine').value = engine;
+function engineStatus() {
+  $('engine-status').textContent = engine === 'swift'
+    ? 'Swift / WebAssembly · loads when the computer first guesses.'
+    : 'JavaScript · the original browser solver.';
+}
+engineStatus();
 function cancel() {
   worker?.terminate(); worker = null;
   if (pending) { pending.reject(new Error('Round changed.')); pending = null; }
@@ -10,14 +19,26 @@ function cancel() {
 function solve(turns) {
   return new Promise((resolve,reject) => {
     if (!worker) {
-      worker = new Worker(new URL('./solver-worker.mjs',import.meta.url),{type:'module'});
+      worker = new Worker(new URL(engine === 'swift' ? './swift-worker.mjs' : './solver-worker.mjs',import.meta.url),{type:'module'});
       worker.onmessage = ({data}) => {
         if (!pending || pending.id !== data.id) return;
         const request = pending; pending = null;
-        if (data.error) request.reject(new Error(data.error)); else request.resolve(data.result);
+        if (data.error) {
+          $('engine-status').textContent = 'Solver unavailable. Retry or choose the other solver.';
+          request.reject(new Error(data.error));
+        } else {
+          const timing = data.timing;
+          const name = engine === 'swift' ? 'Swift / WebAssembly' : 'JavaScript';
+          // A cached pre-Wasm worker can return valid results without telemetry.
+          $('engine-status').textContent = Number.isFinite(timing?.solveMs)
+            ? `${name} · last solver call ${timing.solveMs.toFixed(1)} ms${timing.setupMs >= 1 ? ` · load/init ${timing.setupMs.toFixed(1)} ms` : ''}.`
+            : `${name} · guess complete.`;
+          request.resolve(data.result);
+        }
       };
       worker.onerror = () => {
         const request = pending; pending = null; worker?.terminate(); worker = null;
+        $('engine-status').textContent = 'Solver unavailable. Retry or choose the other solver.';
         request?.reject(new Error('The solver could not load.'));
       };
     }
@@ -111,6 +132,13 @@ $('board').addEventListener('click',event => {
 });
 for (const mode of ['break','make']) $(mode).addEventListener('click',()=>session.start(mode));
 $('new').addEventListener('click',()=>session.start());
+$('engine').addEventListener('change',() => {
+  engine = $('engine').value;
+  const url = new URL(location.href);
+  if (engine === 'swift') url.searchParams.set('engine','swift'); else url.searchParams.delete('engine');
+  history.replaceState(null,'',url);
+  session.start(); engineStatus();
+});
 $('end').addEventListener('click',()=>session.end());
 document.addEventListener('keydown',event => {
   if (event.ctrlKey || event.metaKey || event.altKey || event.target.closest('input,textarea,select,[contenteditable]')) return;

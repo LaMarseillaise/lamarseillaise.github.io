@@ -71,3 +71,10 @@ footer { margin-top:24px; border-top:1px solid #a9c0b433; }
   .hole { width:20px; height:20px; }.cover { width:30px; height:30px; }.grade-peg { width:13px; height:13px; }
   .hint { width:32px; min-height:32px; height:32px; font-size:1.2rem; }.roles button { min-width:68px; padding-inline:12px; }
 }
+
+.engine-picker { display:flex; flex-wrap:wrap; align-items:center; gap:6px 12px; padding:0 6px 14px; }
+.engine-picker label { font-size:.9rem; }
+.engine-picker select { appearance:none; border:1px solid #adbcaf; border-radius:5px; padding:8px 34px 8px 12px; font:inherit; font-size:.9rem; color:#f2eddf; background-color:#172b23; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%23f2eddf' stroke-width='2'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; min-height:44px; max-width:100%; }
+.engine-picker select:focus-visible { outline:3px solid #fff2a9; outline-offset:3px; }
+.engine-picker small { flex-basis:100%; color:#c8d6ce; font-size:.875rem; }
+.engine-status { font-variant-numeric:tabular-nums; }

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#263e35">
-  <meta name="description" content="Play Mastermind or set a code for a minimax solver. A JavaScript adaptation of Andur Carr's Swift game.">
+  <meta name="description" content="Play Mastermind or set a code for the computer. Choose JavaScript or Swift/WebAssembly minimax solvers.">
   <title>Mastermind · Andur Carr</title>
   <link rel="stylesheet" href="game.css">
 <link rel="canonical" href="https://andurcarr.com/projects/mastermind/">
@@ -22,6 +22,7 @@
         <div class="roles" role="group" aria-label="Choose your role"><button id="break" type="button" aria-pressed="true">Break</button><button id="make" type="button" aria-pressed="false">Make</button></div>
         <div class="actions"><button id="new" class="icon" type="button" aria-label="New round" title="New round" disabled>↻</button><button id="end" class="icon" type="button" aria-label="End round" title="End round" disabled>🏳️</button></div>
       </div>
+      <div class="engine-picker"><label for="engine">Computer solver</label><select id="engine" aria-describedby="engine-note"><option value="javascript">JavaScript</option><option value="swift">Swift / WebAssembly</option></select><small id="engine-note">Changing solver starts a new round.</small></div>
       <div class="wood-board" id="board">
         <div id="palette" class="palette" role="group" aria-label="Choose a numbered peg"></div>
         <div class="board-labels"><span id="code-label">The code</span><span id="counter" aria-label="Guesses used">0 / 12</span></div>
@@ -42,10 +43,13 @@
     <details class="implementation" id="implementation">
       <summary>From Swift to the browser</summary>
       <p>This version adapts Andur Carr’s <a href="https://github.com/LaMarseillaise/mastermind-swift">original Swift implementation</a>, including its code generator, duplicate-aware scoring, twelve-turn game, and Knuth-style minimax solver. The JavaScript translation and browser interface were built with AI assistance. The oak board texture comes from the procedural wood generator in my RegimeWeb project.</p>
-      <p>The solver begins with two pairs, then keeps every code consistent with the feedback. It considers all 1,296 guesses and picks the one that leaves the smallest possible worst-case set of answers. Ties favor a possible answer. This version uses a fixed color order to make ties reproducible, where the Swift version chooses randomly.</p>
+      <p>The solver begins with two pairs, then keeps every code consistent with the feedback. It considers all 1,296 guesses and picks the one that leaves the smallest possible worst-case set of answers. Ties favor a possible answer. This version uses a fixed color order to make ties reproducible, where the original command-line Swift version chooses randomly.</p>
       <p>“Minimax” describes the next-guess objective, not a claim of globally optimal average play. The included exhaustive check tests every possible secret. The solver runs in a Web Worker and receives only previous guesses and their feedback—not the secret.</p>
+      <p>The <strong>Swift / WebAssembly</strong> option runs a newly adapted Swift solver compiled to a 20 KB module. The board, random code generator and round management remain JavaScript. Both solvers use the same fixed opening and tie order; the Swift source is also a standalone package for a future native app. This browser demo does not emulate iOS.</p>
+      <p id="engine-status" class="engine-status" aria-live="off"></p>
+      <p>Timings describe the last call on your device, not a controlled speed comparison. Swift load/init includes download, compilation and its feedback-table setup; JavaScript builds its table within its first solver call. Later calls reuse each worker’s table. New rounds and engine changes discard the worker.</p>
       <p>Everything runs in your browser. No account, backend, or AI API is used. A new round or page reload starts fresh.</p>
-      <p><a href="README.md">Implementation notes (Markdown)</a> · <a href="check.mjs">Verification script (JavaScript)</a></p>
+      <p><a href="README.md">Implementation notes (Markdown)</a> · <a href="check.mjs">JavaScript checks</a> · <a href="wasm-check.mjs">Swift/Wasm parity checks</a> · <a href="swift/Sources/MastermindCore/MastermindSolver.swift">Swift source</a></p>
     </details>
     <noscript><p class="status">Mastermind needs JavaScript to run. Enable it in your browser, then reload this page.</p></noscript>
   </main>
