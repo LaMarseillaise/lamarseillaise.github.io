@@ -79,6 +79,23 @@ dd { margin: .25rem 0 0; font: clamp(1.25rem, 2.2vw, 1.65rem)/1.4 Georgia, serif
 .about-experiment h2 { font-size: 1.65rem; }
 .site-footer { border-top: 1px solid var(--rule); font-size: .9rem; }
 .notice { padding: 1rem; border: 1px solid var(--gold); }
+.season-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.5rem; }
+figure.instrument { margin: 0; }
+.instrument img { display: block; width: 100%; height: auto; }
+.instrument h3 { margin-bottom: 0; color: var(--gold); }
+figcaption { color: var(--muted); font-size: .95rem; line-height: 1.6; margin-top: .75rem; }
+.diagram-key { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font-size: .9rem; color: var(--muted); }
+.equator-key { color: var(--gold); }
+.season-reasoning { margin-top: 2.5rem; }
+.phase-strip { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1.5rem 1rem; margin-block: 2.5rem 1rem; }
+.phase-strip li { display: grid; justify-items: center; align-content: start; gap: .6rem; text-align: center; font-size: .95rem; }
+.phase-strip img { width: 80px; height: 80px; }
+.eclipse-figure { margin-block: 1rem !important; padding: 1rem; }
+.eclipse-note { border-left: 2px solid var(--gold); padding: .5rem 0 .5rem 1.5rem; margin-block: 2.5rem; max-width: 48rem; }
+.eclipse-note p { color: var(--muted); }
+.lunar-view { align-items: center; }
+.lunar-view figure { max-width: 25rem; justify-self: center; width: 100%; }
+@media(max-width: 700px) { .season-grid { grid-template-columns: 1fr; } .season-grid figure { max-width: 30rem; justify-self: center; width: 100%; } .phase-strip { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media(max-width: 850px) { .experiment { gap: 2rem; } .instrument { padding: 1rem; } }
 @media(max-width: 700px) { .hero { grid-template-columns: 1fr; padding-top: 3rem; gap: 0; } .hero-art { width: 200px; justify-self: center; } .experiment, .closing-grid { grid-template-columns: 1fr; } .chapter { padding-block: 3rem; } .diagram-panel { max-width: 34rem; width: 100%; justify-self: center; } .hero .lead { margin-top: 1rem; } }
 @media(max-width: 400px) { .page-width { width: calc(100% - 2rem); } .conversions { grid-template-columns: 1fr; } .metric-scale { font-size: .8rem; } .chapter-nav { gap: .3rem 1rem; } }

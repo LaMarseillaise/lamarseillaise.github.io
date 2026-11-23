@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 155" role="img" aria-labelledby="title">
+<title id="title">Solar eclipse: Sun, Moon, Earth</title>
+<style>text{font:16px system-ui,sans-serif;fill:#edf2f4}.small{font-size:13px}.large{font-size:24px}.muted{fill:#b6c7d1}</style>
+<circle cx="32" cy="75" r="25" fill="#edc880" /><text x="32" y="130" text-anchor="middle" class="">Sun</text><path d="M150 66L310 75L150 84Z" fill="#080e17" stroke="#7293a8"/><circle cx="150" cy="75" r="9" fill="#b6c7d1" /><text x="150" y="130" text-anchor="middle" class="">New Moon</text><circle cx="300" cy="75" r="21" fill="#39768c" stroke="#8bd8cc"/><text x="300" y="130" text-anchor="middle" class="">Earth</text><circle cx="280" cy="75" r="3" fill="#0b1823" /><text x="235" y="35" text-anchor="middle" class="small">Moon’s shadow</text></svg>

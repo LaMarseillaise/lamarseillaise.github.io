@@ -8,7 +8,8 @@ Serve the repository root with an ordinary static HTTP server and open `/project
 
 ```sh
 node projects/astrometrics/check.mjs
-node --check astrometrics/app.mjs
+node --check projects/astrometrics/app.mjs
+python3 scripts/render-sky-diagrams.py
 ```
 
 ## Models and limits
@@ -19,6 +20,11 @@ node --check astrometrics/app.mjs
 - **Solar scale:** an inner planet's 224.7-day period compared with Earth's 365.25 days yields an orbital-radius ratio through Kepler's third law. Round-trip radar gives a gap `c × time / 2`; dividing that by `1 − radius ratio` gives the ideal Earth–Sun distance. Assumes circular, aligned, coplanar orbits and negligible motion during the echo. The values are hypothetical observations; real planetary radar needs specialized equipment and a more complete orbital model. Light speed is supplied independently.
 - **Stellar parallax:** a two-au baseline gives a full shift of 2p; p is the half-angle paired with one au. The exact right triangle gives `d = au / tan(p)`. At small angles the conventional parsec relation is `d(pc) = 1 / p(arcseconds)`. The screen diagram compresses depth qualitatively; its drawn angle is not a scale measurement. Real observations must also fit stellar motion and measurement error.
 - **Conversion:** uses fixed au = 149,597,870.7 km, c = 299,792.458 km/s, a Julian year of 365.25 × 86,400 seconds, and pc = 648,000/π au. Outputs are rounded. Experiment sliders do not change these definitions. Converter inputs must be finite, nonnegative, and no larger than 10¹⁸.
+- **Seasons:** four fixed-axis Earths with a 23.44° obliquity and one orthographic camera, projected from a circular orbit. Gold equators are calculated in the plane normal to the axis; rear segments are dashed. Daylight is the projection of the sunward hemisphere. Orbital locators share the camera. This is explanatory geometry, not an ephemeris. Temperature lag is explained qualitatively, not predicted for a location.
+- **Moon phases:** eight orbital positions from above Earth's north pole, counterclockwise, with sunlight from the left. Corresponding Earth-view discs use illuminated fraction `(1 − cos(elongation)) / 2`, lunar north up. The orbit view suppresses the roughly 5° inclination; this simplification must not imply monthly eclipses. Real apparent orientation varies.
+- **Eclipses:** side-view alignment diagrams show central umbras only; sizes, distances and shadow widths are schematic. The lunar viewpoint's red rim and ground are illustrations, not a photometric simulation. “Terran eclipse” is Andur's preferred descriptive label for a solar eclipse by Earth seen from the Moon, not a claim of standard nomenclature.
+
+`scripts/render-sky-diagrams.py` regenerates the 16 original SVG assets in `diagrams/` using only Python's standard library. They are committed assets and require no build or JavaScript to view. The existing interactive calculator code is unchanged by this extension.
 
 ## Sources
 
@@ -33,6 +39,13 @@ Consulted 23 November 2026. These support the explanations and constants; the ad
 - [Particle Data Group: astrophysical constants and units, 2024](https://pdg.lbl.gov/2024/reviews/rpp2024-rev-astrophysical-constants.pdf)
 - [NASA: Earth facts and seasons](https://science.nasa.gov/earth/facts/)
 - [NASA: Moon phases](https://science.nasa.gov/moon/moon-phases/)
+- [National Weather Service: seasons and seasonal temperature lag](https://www.weather.gov/cle/seasons)
+- [NASA: eclipse geometry](https://science.nasa.gov/eclipses/geometry/)
+- [NASA: types of eclipses](https://science.nasa.gov/eclipses/types/)
+- [NASA: lunar eclipses and atmospheric filtering](https://science.nasa.gov/moon/eclipses/)
+- [NASA: eclipses observed from space and the Moon](https://www.nasa.gov/history/eclipses-near-and-far/)
+- [NASA: visual appearance of lunar eclipses](https://eclipse.gsfc.nasa.gov/LEcat5/appearance.html)
+- [NASA: solar eclipse viewing safety](https://science.nasa.gov/eclipses/safety/)
 
 ## Validation performed
 
@@ -43,4 +56,12 @@ Consulted 23 November 2026. These support the explanations and constants; the ad
 - Browser checks covered slider updates and resets, parallax transfer to the converter, zero/negative/empty conversion inputs, unit changes, and keyboard opening of the geometry disclosure. No browser warning or error logs were captured during these checks.
 - Inspected desktop and 375 px layouts, and checked the page at 320 px for horizontal overflow (none). This is a responsive smoke check, not a complete browser or assistive-technology audit.
 
-Potential later additions: interactive seasons and lunar-phase geometry, measured observation entry, and a more detailed angular diagram. The current page includes short seasons and Moon explanations with links for further reading.
+Potential later additions: adjustable seasons and lunar-phase geometry, measured observation entry, and a more detailed angular diagram. The related [calendars-and-clocks project outline](../../docs/calendars-and-clocks-plan.md) records the proposed timekeeping project and unresolved alternative-calendar definitions.
+
+### Seasons, phases and eclipses extension — 23 November 2026
+
+- Re-ran the existing calculation checks and JavaScript syntax check successfully.
+- Parsed all 16 generated SVGs as XML and verified accessible titles. Measured the eight phase paths' areas against the analytic illuminated fractions (within 0.2 percentage points); checked the quarter phases' left/right orientation. Regeneration produced identical file hashes.
+- The site checker passed 23 HTML pages and 358 local links/assets/fragments, including legacy routes and deterministic content rendering. `git diff --check` passed.
+- Visually inspected seasons, phases and eclipse sections at desktop and 375 px; checked eclipse labels and absence of page overflow at 320 px. Confirmed new images loaded when scrolled into view, and keyboard activation of the Seasons link. No browser warning/error logs were captured. This is a responsive smoke check, not a full accessibility or cross-browser audit.
+- Independently checked the planning document's 23 November 2026 Doomsday example with Python's date implementation: Monday. The future calendar project itself is not yet implemented.
