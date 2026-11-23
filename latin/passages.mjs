@@ -19,6 +19,24 @@ export const passages = [
     text: 'Et creavit Deus hominem ad imaginem suam : ad imaginem Dei creavit illum, masculum et feminam creavit eos.',
     note: 'The Latin text follows the edition at DRBO. This workspace leaves both translation and interpretation to the reader.',
   },
+  {
+    id: '3-regum-3-16-21', title: 'Vulgata · Solomon’s judgment · 3:16–21 (1 of 3)',
+    source: 'https://www.drbo.org/lvb/chapter/11003.htm',
+    text: 'Tunc venerunt duae mulieres meretrices ad regem, steteruntque coram eo, quarum una ait : Obsecro, mi domine : ego et mulier haec habitabamus in domo una, et peperi apud eam in cubiculo. Tertia autem die postquam ego peperi, peperit et haec : et eramus simul, nullusque alius nobiscum in domo, exceptis nobis duabus. Mortuus est autem filius mulieris hujus nocte. Dormiens quippe oppressit eum. Et consurgens intempestae noctis silentio, tulit filium meum de latere meo, ancillae tuae dormientis, et collocavit in sinu suo : suum autem filium, qui erat mortuus, posuit in sinu meo. Cumque surrexissem mane ut darem lac filio meo, apparuit mortuus : quem diligentius intuens clara luce, deprehendi non esse meum quem genueram.',
+    note: 'III Regum 3:16–21 (1 Kings in modern numbering). The complete episode, verses 16–28, is divided into three consecutive readings. Wording and punctuation follow DRBO; verse numbers are omitted. Each reading keeps its own draft and connections.',
+  },
+  {
+    id: '3-regum-3-22-25', title: 'Vulgata · Solomon’s judgment · 3:22–25 (2 of 3)',
+    source: 'https://www.drbo.org/lvb/chapter/11003.htm',
+    text: 'Responditque altera mulier : Non est ita ut dicis, sed filius tuus mortuus est, meum autem vivit. E contrario illa dicebat : Mentiris : filius quippe meus vivit, et filius tuus mortuus est. Atque in hunc modum contendebant coram rege. Tunc rex ait : Haec dicit : Filius meus vivit, et filius tuus mortuus est : et ista respondit : Non, sed filius tuus mortuus est, meus autem vivit. Dixit ergo rex : Afferte mihi gladium. Cumque attulissent gladium coram rege, Dividite, inquit, infantem vivum in duas partes, et date dimidiam partem uni, et dimidiam partem alteri.',
+    note: 'III Regum 3:22–25 (1 Kings in modern numbering), the second of three consecutive readings. The text retains DRBO’s wording, including “meum autem vivit” in verse 22. Translation and annotations are left to you.',
+  },
+  {
+    id: '3-regum-3-26-28', title: 'Vulgata · Solomon’s judgment · 3:26–28 (3 of 3)',
+    source: 'https://www.drbo.org/lvb/chapter/11003.htm',
+    text: 'Dixit autem mulier, cujus filius erat vivus, ad regem ( commota sunt quippe viscera ejus super filio suo) : Obsecro, domine, date illi infantem vivum, et nolite interficere eum. E contrario illa dicebat : Nec mihi, nec tibi sit, sed dividatur. Respondit rex, et ait : Date huic infantem vivum, et non occidatur : haec est enim mater ejus. Audivit itaque omnis Israel judicium quod judicasset rex, et timuerunt regem, videntes sapientiam Dei esse in eo ad faciendum judicium.',
+    note: 'III Regum 3:26–28 (1 Kings in modern numbering), the final reading in the episode. The Latin follows DRBO. No translation or pre-solved connections are supplied.',
+  },
 ];
 
 export const relations = {

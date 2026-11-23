@@ -10,6 +10,11 @@ Public-domain Latin excerpts checked November 22, 2026:
 
 - Cicero, *Laelius de amicitia* §80: https://www.thelatinlibrary.com/cicero/amic.shtml
 - Vulgata, Genesis 1:27, the edition at https://www.drbo.org/lvb/chapter/01001.htm
+- Vulgata, III Regum 3:16–28 (modern 1 Kings), at
+  https://www.drbo.org/lvb/chapter/11003.htm — the full episode in three
+  consecutive excerpts (16–21, 22–25, 26–28), with separate drafts. Verse numbers
+  are omitted; DRBO's unusual “meum autem vivit” in verse 22 is retained and
+  identified in the source note rather than silently corrected.
 
 `passages.mjs` holds text, source, and stable passage IDs. These editions' wording
 and punctuation are retained. Token indices are zero-based whitespace positions;
@@ -53,6 +58,8 @@ or import round-trip is claimed.
 
 The page explains the user's reported Latin/attention intuition while distinguishing
 explicit grammatical and reference links from learned numerical attention weights.
+The user's stand-up/Soviet Union anecdote illustrates contextual ambiguity;
+it is not presented as evidence that attention weights explain interpretation.
 Technical sources checked November 22, 2026:
 
 - Vaswani et al., https://arxiv.org/html/1706.03762v7#S3.SS2
