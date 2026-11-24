@@ -68,7 +68,7 @@ function cells(code, editable, hidden = false) {
   });
 }
 function grades(turn) {
-  const grade = document.createElement('div'); grade.className = 'grade';
+  const grade = document.createElement('div'); grade.className = 'grade'; grade.setAttribute('role','group');
   if (turn) grade.setAttribute('aria-label',`${turn.exact} exact, ${turn.partial} partial`);
   else grade.setAttribute('aria-hidden','true');
   for (let i=0;i<4;i++) {

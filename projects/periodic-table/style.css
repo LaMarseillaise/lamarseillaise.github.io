@@ -37,3 +37,6 @@ periodic-explorer[data-roomy] .element strong{font-size:1.1rem}periodic-explorer
 .detail-heading{position:relative}.detail-heading .eyebrow{display:none}.detail-heading>div:last-child{min-width:0;flex:1}@media(min-width:701px){.detail-heading>div:last-child{padding-right:8rem}.detail-heading a{position:absolute;right:0;top:0}}
 
 @media(max-width:480px){.series-label .series-name,.series-label br{display:none}}
+
+/* Standalone reference links need more than a text-line-sized hit area. */
+.panel>.small>a{display:inline-block;min-height:24px;padding-block:3px}

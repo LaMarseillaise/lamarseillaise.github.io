@@ -9,6 +9,7 @@ catalog = json.loads((ROOT / 'content/catalog.json').read_text())
 projects = catalog['projects']
 articles = sorted(catalog['articles'], key=lambda item: item['date'], reverse=True)
 e = escape
+favicon_head = (ROOT / 'content/favicon-head.html').read_text()
 
 def date_label(value):
     day = date.fromisoformat(value)
@@ -20,6 +21,7 @@ def page(title, description, path, body, current):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)} · Andur Carr</title><meta name="description" content="{e(description)}"><meta name="theme-color" content="#eefaff">
 <link rel="canonical" href="https://andurcarr.com{path}">
+{favicon_head}
 <link rel="stylesheet" href="/assets/stylesheets/normalize.css"><link rel="stylesheet" href="/assets/stylesheets/main.css"><link rel="stylesheet" href="/assets/stylesheets/collections.css">
 <script type="module" src="/components/index.js"></script></head><body>
 <a class="skip-link" href="#main">Skip to content</a><header class="site-header page-width"><a class="wordmark" href="/" aria-label="Andur Carr, home">AC<span>.</span></a><nav aria-label="Main navigation">{nav}<a href="/#about">About</a><a href="/#contact">Contact</a></nav></header>

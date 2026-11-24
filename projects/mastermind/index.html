@@ -8,6 +8,12 @@
   <title>Mastermind · Andur Carr</title>
   <link rel="stylesheet" href="game.css">
 <link rel="canonical" href="https://andurcarr.com/projects/mastermind/">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/blue-32.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/black-32.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/blue-180.png">
+<link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
   <a class="skip-link" href="#controls">Skip to game controls</a>
@@ -26,7 +32,7 @@
       <div class="wood-board" id="board">
         <div id="palette" class="palette" role="group" aria-label="Choose a numbered peg"></div>
         <div class="board-labels"><span id="code-label">The code</span><span id="counter" aria-label="Guesses used">0 / 12</span></div>
-        <div class="board-row code-row" id="code-row"><div id="secret" class="guess" aria-label="Secret code hidden"></div></div>
+        <div class="board-row code-row" id="code-row"><div id="secret" class="guess" role="group" aria-label="Secret code hidden"></div></div>
         <ol id="history" aria-label="Twelve guess rows"></ol>
         <div class="board-key" aria-label="Red means exact; white means partial"><span><i class="grade-peg exact" aria-hidden="true"></i> Exact</span><span><i class="grade-peg partial" aria-hidden="true"></i> Partial</span></div>
       </div>
@@ -54,6 +60,6 @@
     <noscript><p class="status">Mastermind needs JavaScript to run. Enable it in your browser, then reload this page.</p></noscript>
   </main>
   <footer><a href="/projects/">Back to projects</a><span>Built for curiosity.</span></footer>
-  <script type="module" src="app.mjs"></script>
+  <script type="module" src="app.mjs?v=20261124-accessibility"></script>
 </body>
 </html>
