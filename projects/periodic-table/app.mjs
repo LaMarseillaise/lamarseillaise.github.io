@@ -37,17 +37,18 @@ class PeriodicExplorer extends HTMLElement {
   }
   render() {
     this.innerHTML = `<section class="table-section" id="table-controls" aria-label="Periodic table">
-      <div class="table-toolbar"><form role="search"><label for="element-search">Find an element</label><input id="element-search" type="search" placeholder="Name, symbol, or number" autocomplete="off" maxlength="40"><button class="plain-button" type="submit">Find</button></form><p class="table-status" role="status" id="search-status">118 elements · Start anywhere</p></div>
+      <div class="table-toolbar"><form role="search"><label for="element-search">Find an element</label><input id="element-search" type="search" placeholder="Name, symbol, or number" autocomplete="off" maxlength="40"><button class="plain-button" type="submit">Find</button></form><label class="tile-size"><input id="larger-tiles" type="checkbox">Larger tiles (scroll if needed)</label><p class="table-status" role="status" id="search-status"></p></div>
       <div class="table-scroll" tabindex="0" role="region" aria-label="Periodic table; scroll horizontally on small screens"><div class="element-grid">
         ${this.elements.map(e=>{
           const narrow=position(e.z), wide=position(e.z,true);
-          return `<button type="button" class="element" data-z="${e.z}" style="--col:${narrow.col};--row:${narrow.row};--wide-col:${wide.col};--wide-row:${wide.row};--family:${families[e.category]}" aria-label="${e.z}, ${e.name}, ${e.symbol}, ${e.category}" aria-pressed="false" tabindex="-1"><span class="number">${e.z}</span><strong>${e.symbol}</strong><span class="element-name">${e.name}</span></button>`;
+          return `<button type="button" class="element" data-z="${e.z}" style="--col:${narrow.col};--row:${narrow.row};--wide-col:${wide.col};--wide-row:${wide.row};--family:${families[e.category]}" title="${e.name} · ${e.z}" aria-label="${e.z}, ${e.name}, ${e.symbol}, ${e.category}" aria-pressed="false" tabindex="-1"><span class="number">${e.z}</span><strong>${e.symbol}</strong><span class="element-name">${e.name}</span></button>`;
         }).join('')}
-        <span class="series-marker" style="grid-row:6" aria-hidden="true">57–71</span><span class="series-marker" style="grid-row:7" aria-hidden="true">89–103</span><span class="series-label" style="grid-row:9">Lanthanides<br>57–71</span><span class="series-label" style="grid-row:10">Actinides<br>89–103</span>
+        <span class="series-marker" style="grid-row:6" aria-hidden="true">57–71</span><span class="series-marker" style="grid-row:7" aria-hidden="true">89–103</span><span class="series-label" style="grid-row:9" aria-label="Lanthanides, elements 57 to 71"><span class="series-name">Lanthanides</span><br>57–71</span><span class="series-label" style="grid-row:10" aria-label="Actinides, elements 89 to 103"><span class="series-name">Actinides</span><br>89–103</span>
       </div></div>
-      <div class="table-caption"><p><span class="wide-caption">Continuous 32-column view.</span><span class="compact-caption">18-column view with inset series. Swipe the table if needed.</span> Use arrow keys to explore; Enter to select.</p><a href="#element-detail">Selected element details</a></div>
-      <div class="legend" aria-label="Element categories">${Object.entries(families).map(([name,color])=>`<span style="--family:${color}"><i aria-hidden="true"></i>${name}</span>`).join('')}</div>
+      <div class="table-caption"><p><span class="wide-caption">Continuous 32-column view.</span><span class="compact-caption">18-column view with inset series.</span> Use arrow keys to explore; Enter to select.</p><a href="#element-detail">Selected element details</a></div>
+      <details class="legend-wrap"><summary>Element categories</summary><div class="legend" aria-label="Element categories">${Object.entries(families).map(([name,color])=>`<span style="--family:${color}"><i aria-hidden="true"></i>${name}</span>`).join('')}</div></details>
       </section><section class="detail page-width" id="element-detail" aria-labelledby="element-title"></section>`;
+    this.querySelector('#larger-tiles').addEventListener('change',event=>this.toggleAttribute('data-roomy',event.target.checked));
     this.querySelector('form').addEventListener('submit', event=>{
       event.preventDefault();
       const element = findElement(this.querySelector('input').value,this.elements);
