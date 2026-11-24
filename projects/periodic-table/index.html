@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Elements & isotopes · Andur Carr</title>
+  <meta name="description" content="Explore the periodic table, electron configurations, naturally abundant isotopes, half-lives, and nuclear binding energies.">
+  <meta name="theme-color" content="#f3f7f5">
+  <link rel="canonical" href="https://andurcarr.com/projects/periodic-table/">
+  <link rel="stylesheet" href="/assets/stylesheets/main.css"><link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header page-width"><a class="wordmark" href="/">AC<span>.</span></a><a href="/projects/">All projects</a></header>
+<main id="main">
+  <section class="intro page-width">
+    <p class="eyebrow">A field guide to matter</p><h1>Elements <span>& isotopes.</span></h1>
+    <p class="lead">Change the protons: a different element.<br>Change the neutrons: a different isotope.</p>
+    <p>Select an element to look inside a neutral atom, then compare its nuclei.</p>
+  </section>
+  <periodic-explorer>
+    <p class="loading page-width" role="status">Loading the element collection…</p>
+  </periodic-explorer>
+  <noscript><p class="page-width">This explorer needs JavaScript. You can also browse the <a href="https://pubchem.ncbi.nlm.nih.gov/ptable/">PubChem periodic table</a> and <a href="https://nds.iaea.org/relnsd/vcharthtml/VChartHTML.html">IAEA LiveChart</a> directly.</p></noscript>
+  <section class="reading page-width" aria-labelledby="reading-title">
+    <p class="eyebrow">Beyond the square</p><h2 id="reading-title">One element. Many questions.</h2>
+    <div class="reading-grid">
+      <article><h3>Electrons shape chemistry</h3><p>A neutral atom has as many electrons as protons. Its configuration describes how those electrons occupy subshells. The brackets abbreviate the configuration of an earlier noble gas. Ions and excited atoms can have different configurations.</p><p>The rings here count electrons by principal shell. They do not depict literal orbits, orbital shapes, sizes, or energies.</p></article>
+      <article><h3>A nucleus has its own story</h3><p>The mass number, A, counts protons plus neutrons. Isotopes share an atomic number, Z, but differ in neutron count. Natural abundance varies with the sample; a missing abundance is not a measured zero.</p><p>Half-life describes an ensemble: after one half-life, about half the original radioactive nuclei remain. It is not an appointment for one atom to decay.</p></article>
+      <article><h3>Binding, not chemical bonding</h3><p>Nuclear binding energy is the energy needed to separate a nucleus into free protons and neutrons. Dividing by the number of nucleons makes nuclei of different sizes easier to compare. Here it is shown in MeV per nucleon.</p><p>A larger value does not by itself prove stability against every decay. Nuclear binding and electron binding are different quantities.</p></article>
+      <article><h3>Cross-sections need context</h3><p>There is no single interaction cross-section for an element. Specify the target isotope, incident particle, reaction (such as capture or scattering), and particle energy. A cross-section expresses an interaction’s effective area, commonly in barns: 1 b = 10<sup>−28</sup> m<sup>2</sup>.</p><p>A useful next layer would plot a chosen reaction against energy. For now, explore evaluated curves with <a href="https://www.nndc.bnl.gov/sigma/">NNDC Sigma</a> and its <a href="https://www.nndc.bnl.gov/endf/help.html">reaction-data guide</a>.</p></article>
+    </div>
+  </section>
+  <section class="sources page-width" aria-labelledby="sources-title">
+    <h2 id="sources-title">Sources & scope</h2>
+    <p>This educational explorer uses a local data snapshot retrieved on <strong>24 November 2026</strong>. It makes no live data requests as you browse. Created with AI assistance.</p>
+    <ul>
+      <li><a href="https://pubchem.ncbi.nlm.nih.gov/ptable/">PubChem</a>: element names, categories, configurations and physical-state labels. Predicted and calculated configuration labels are retained. <a href="https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?context=frames&amp;element=103">NIST</a> supplies the lawrencium configuration, correcting the older value in the downloaded PubChem table.</li>
+      <li><a href="https://nds.iaea.org/relnsd/vcharthtml/VChartHTML.html">IAEA LiveChart</a>: selected ground-state nuclides, abundances, half-lives and binding energies. The downloaded rows carry an <strong>18 October 2023</strong> extraction date. Recent retrieval does not make the underlying evaluations new. <a href="https://nds.iaea.org/relnsd/vcharthtml/api_v0_guide.html">API documentation and evaluation sources</a> · <a href="https://nucleus.iaea.org/Pages/Others/Terms-Of-Use.aspx">IAEA terms</a>. No IAEA endorsement is implied.</li>
+    </ul>
+    <p>Included: nuclides with a positive abundance in the source, a few additional radioactive examples, and one radioactive example for other elements. This is not a complete isotope catalog; metastable states are not included. Natural occurrence does not imply stability. “Stable” reflects the source evaluation, not a claim that decay is impossible.</p>
+    <p>Half-life parentheses preserve the source’s uncertainty in its final digits: 5700 (30) years means 5700 ± 30 years. Bound and approximate qualifiers are retained. Binding energies are rounded for display; estimated mass values are flagged. Categories and series placement are a navigation convention, not a resolution of periodic-table classification debates.</p>
+    <p><a href="data.json">Download this data snapshot</a> · <a href="README.md">Implementation and verification notes</a></p>
+  </section>
+</main>
+<footer class="site-footer page-width"><p>Andur Carr · A workshop for curiosity</p><a href="/projects/">All projects</a></footer>
+</body>
+</html>

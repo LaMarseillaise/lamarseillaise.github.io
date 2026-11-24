@@ -1,6 +1,7 @@
 {
   "projects": [
     {"slug":"astrometrics","title":"Astrometrics","category":"Observation & reason","description":"Follow a shadow, a timed echo, and a shift in perspective from Earth's circumference to the distance of a star.","meta":"JavaScript · SVG · Interactive geometry","link":"Explore Astrometrics"},
+    {"slug":"periodic-table","title":"Elements & isotopes","category":"A field guide to matter","description":"Explore electron structure, naturally abundant isotopes, radioactive examples, and the energy binding a nucleus together.","meta":"JavaScript · Web Components · Evaluated nuclear data","link":"Explore the periodic table"},
     {"slug":"calendars-and-clocks","title":"Calendars & clocks","category":"Time & convention","description":"Compare clocks, cross a daylight saving boundary, explore my seasonal calendar, and learn Conway’s Doomsday Rule.","meta":"Web Components · Calendar arithmetic · Historical sources","link":"Explore timekeeping"},
     {"slug":"mastermind","title":"Mastermind","category":"Browser game","description":"Break a hidden code or set one for the computer. A wooden game board with matching JavaScript and Swift/WebAssembly minimax solvers.","meta":"Swift / WebAssembly · JavaScript · Exhaustive checks","link":"Play Mastermind"},
     {"slug":"latin","title":"Latin, connected","category":"Language & meaning","description":"Translate a passage, connect related words, and annotate their grammar. Make the structure of a sentence visible.","meta":"JavaScript · SVG · Browser-local drafts","link":"Open the Latin notebook"},
