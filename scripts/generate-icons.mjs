@@ -6,8 +6,9 @@ import {resolve} from 'node:path';
 const {Resvg}=await import(pathToFileURL(resolve(process.argv[2])).href);
 const root=new URL('../',import.meta.url),icons=new URL('assets/icons/',root);
 await mkdir(icons,{recursive:true});
-const artwork='<g fill="#fff"><path d="M32 9 43 20 32 29 21 20Z"/><path d="M55 32 44 43 35 32 44 21Z"/><path d="M32 55 21 44 32 35 43 44Z"/><path d="M9 32 20 21 29 32 20 43Z"/></g>';
-function svg(color,adaptive=false){return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><title>Andur Carr — four facets</title>${adaptive?'<style>@media(prefers-color-scheme:dark){.tile{fill:#11151c}}</style>':''}<rect class="tile" width="64" height="64" rx="13" fill="${color}"/>${artwork}</svg>\n`;}
+// A rises above an open, chamfered C. Broad strokes keep the initials legible at 16px.
+const artwork='<g fill="#fff"><path fill-rule="evenodd" d="M16 13h8l9 36h-7l-2-9h-9l-2 9H6Zm1 20h5l-2.5-11Z"/><path d="M58 19H43l-8 8v14l8 8h15v-7H46l-4-4v-8l4-4h12Z"/></g>';
+function svg(color,adaptive=false){return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><title>Andur Carr — AC monogram</title>${adaptive?'<style>@media(prefers-color-scheme:dark){.tile{fill:#11151c}}</style>':''}<rect class="tile" width="64" height="64" rx="13" fill="${color}"/>${artwork}</svg>\n`;}
 function ico(images){const header=Buffer.alloc(6+16*images.length);header.writeUInt16LE(1,2);header.writeUInt16LE(images.length,4);let offset=header.length;images.forEach(({size,png},i)=>{const at=6+16*i;header[at]=size;header[at+1]=size;header.writeUInt16LE(1,at+4);header.writeUInt16LE(32,at+6);header.writeUInt32LE(png.length,at+8);header.writeUInt32LE(offset,at+12);offset+=png.length;});return Buffer.concat([header,...images.map(i=>i.png)]);}
 for(const [variant,color] of Object.entries({blue:'#173e86',black:'#11151c'})){
  const source=svg(color);await writeFile(new URL(`mark-${variant}.svg`,icons),source);const icoImages=[];

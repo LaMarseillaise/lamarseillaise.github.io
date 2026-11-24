@@ -1,6 +1,6 @@
-# Four facets
+# AC monogram
 
-Original geometric favicon artwork: four white facets around a central opening, contained in a rounded square. Drawn as SVG, rather than generated bitmap artwork. No font, initials, or third-party logo assets.
+Original geometric AC monogram: a taller triangular A beside an open, chamfered C, contained in a rounded square. Drawn directly as SVG paths, with broad strokes for small sizes. No font or third-party logo assets.
 
 - Blue: `#173e86`; black: `#11151c`.
 - `mark-blue.svg`, `mark-black.svg`: static vector variants.
