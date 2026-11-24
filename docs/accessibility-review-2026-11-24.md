@@ -34,6 +34,37 @@ The site has a good accessibility foundation, but this is a preliminary engineer
 4. **Three Card Monte structure and motion.** Review/publish the existing heading/main/navigation work separately. Verify reduced-motion behavior and assess what meaningful nonvisual play would require for a game whose mechanic is tracking moving cards. Native buttons alone do not make that mechanic equivalent for a blind player.
 5. **Repeatable checks.** Add an opt-in development/CI accessibility audit with representative interactive states and a manual checklist. Keep axe out of production. Add regression cases for issues actually found rather than treating a zero-violation result as a completion certificate.
 
+## Follow-up interaction and enlargement checks
+
+After the favicon publication was approved, GitHub Pages reported commit `5a32b7e` built successfully. The follow-up below used the in-app WebKit browser and a separate loopback origin for disposable test annotations. No production Latin drafts were changed. The audit scripts and axe dependency remain outside the repository.
+
+### Confirmed interactions
+
+- **Gallery:** Enter on “Enlarge Geometry Textbook” opens a named native dialog and places focus on Close. Escape closes it and restores focus to the exact opening link. Tab/Shift+Tab boundary probes returned document-body focus in this browser configuration; focus containment was not established and needs testing with a normal browser keyboard-navigation configuration. This is not recorded as a pass or a confirmed application defect.
+- **Latin:** Enter can create a connection with a textual description. The grammar dialog receives focus on its labeled form control; saving a partial markup returns focus to the same word, whose accessible name includes the saved grammatical labels. Removing a connection retains focus on the next removal button when one exists.
+- **Mastermind:** In Make mode, keyboard activation of pegs 1, 2, 3, 4 submits the code and the computer solves it automatically in three guesses. An axe scan of the completed round reports no automatic violations. This complements the earlier Break-mode submitted-guess check; it is not an exhaustive keyboard or screen-reader review of every game state.
+- **Clocks:** Keyboard activation of Pause clock changes the status to Paused; the UTC readout remained identical across subsequent inspection and layout testing. Source confirms live readouts have `aria-live="off"`.
+
+### Two further repairs
+
+1. **Latin focus after deleting the final connection in grammar mode.** Reproduced focus falling to BODY because the handler tried to focus the hidden Clear selection button. The handler now uses the visible Mark grammar button in that mode. Repeated the failing sequence and verified `document.activeElement.id === 'grammar-mode'`; also verified next-connection focus and the existing Clear selection fallback in Connect mode. The entry module reference is versioned.
+2. **Calendar reform comparison at enlarged text.** At a 768-pixel viewport, doubling computed font sizes increased document width to 865 pixels. The two comparison columns had implicit minimum sizes, and date labels could not wrap. Using `minmax(0,1fr)` columns and wrapping date groups reduced document width to 768 in the same test. The stylesheet reference is versioned. No calendar arithmetic changed.
+
+Both repaired pages were rescanned at the ordinary viewport with zero automatic axe violations. Their existing incomplete contrast and ARIA checks still require review.
+
+### Text enlargement and spacing
+
+Tested home, Latin, Mastermind, periodic table, and Calendars & Clocks at a 768 × 1024 CSS-pixel viewport. A temporary development control applied either twice each element’s computed font size (including open shadow roots), or line height 1.5, letter spacing 0.12em, word spacing 0.16em and paragraph bottom margin 2em. These are CSS stress tests, not actual browser zoom or operating-system accessibility settings.
+
+- After the calendar repair, all five document widths remained at 768 pixels with doubled text alone.
+- All five document widths remained at 768 pixels with spacing alone.
+- Combining both before the repair exposed additional overflow on home (800 pixels), Mastermind (808), and calendars (987). The combined condition has not been fully resolved or retested after the repair. It remains a useful resilience target.
+- These width checks do not establish that every label, diagram, table cell or interactive state remains readable. The periodic-table detail columns became very tall with both changes; density and discoverability remain design concerns. Internal scrolling tables need their own keyboard review.
+
+### Remaining limits
+
+No actual VoiceOver/NVDA session, forced-colors test, browser zoom test, or operating-system reduced-motion test was performed. Source inspection confirms the carousel uses instant scrolling when `prefers-reduced-motion: reduce` matches, while Three Card Monte currently has animated card transitions without a reduced-motion branch. Its visual tracking mechanic needs deliberate accessibility design, not merely shorter transitions. No complete WCAG conformance claim is made.
+
 ## Reference criteria
 
 - [WCAG 2.2 contrast minimum](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html): normally 4.5:1 for text and 3:1 for qualifying large text.

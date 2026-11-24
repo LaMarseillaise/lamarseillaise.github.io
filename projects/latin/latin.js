@@ -184,7 +184,8 @@ function renderConnections() {
       const at = draft().connections.indexOf(link);
       draft().connections.splice(at, 1); active = null; save(); renderConnections();
       const next = $('#connections').querySelectorAll('button')[Math.min(at, draft().connections.length - 1)];
-      (next || $('#clear-selection')).focus();
+      // The clear-selection control is hidden while marking grammar.
+      (next || $(mode === 'grammar' ? '#grammar-mode' : '#clear-selection')).focus();
       $('#selection').textContent = 'Connection removed.';
     });
     row.addEventListener('pointerenter', () => { active = connectionKey(link); draw(); });
