@@ -1,0 +1,26 @@
+fibonacci-lab,memo-walkthrough {display:block; margin-block:1.5rem; padding:clamp(1rem,3vw,2rem);border:1px solid var(--rule);border-radius:1rem;background:#fff;min-width:0}
+.lab-controls,.actions {display:flex;flex-wrap:wrap;align-items:end;gap:.8rem;margin-bottom:1rem}
+.lab-controls label {display:flex;flex-direction:column;gap:.3rem;flex:1 1 9rem;font-weight:600}
+.lab-controls input,.lab-controls select {width:100%;min-width:0;padding:.55rem;border:1px solid #738d98;background:#fff;color:var(--ink);border-radius:.3rem;min-height:44px}
+.lab-controls select {appearance:none;padding-right:2rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10' viewBox='0 0 14 10'%3E%3Cpath d='m2 2 5 5 5-5' fill='none' stroke='%2316313d' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .65rem center}
+.project-main button {border:1px solid #738d98;border-radius:.4rem;background:white;color:var(--ink);padding:.55rem 1rem;min-height:44px}
+.project-main button[data-run],.project-main button[data-step] {background:var(--ink);color:white}
+.project-main button:disabled {opacity:.55;cursor:default}
+.editor-label {display:block;font-weight:600}
+fibonacci-lab textarea {display:block;width:100%;min-height:21rem;resize:vertical;padding:1rem;margin-block:.5rem;border:1px solid #738d98;border-radius:.5rem;background:#122a35;color:#e6f4fa;font: .95rem/1.65 ui-monospace,SFMono-Regular,Consolas,monospace!important;tab-size:4;white-space:pre;overflow:auto}
+fibonacci-lab textarea[readonly] {background:#253b45}
+.hint {font-size:.9rem;color:var(--muted)}
+.result-panel {border-top:1px solid var(--rule);padding-top:1rem}
+.result-panel pre {white-space:pre-wrap;overflow-wrap:anywhere;font:1.2rem/1.6 ui-monospace,monospace;max-height:16rem;overflow:auto}
+.sequence {display:flex;flex-wrap:wrap;gap:.5rem;margin:2rem 0}
+.sequence span {border-bottom:3px solid var(--accent);padding:.4rem .8rem;font:1.5rem Georgia,serif}
+.cache {display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));list-style:none;padding:0;gap:.5rem}
+.cache li {padding:.6rem;border:1px dashed #738d98;border-radius:.35rem;font-family:ui-monospace,monospace}
+.cache .filled {border-style:solid;background:#e6f4fa}
+.cache .active {outline:3px solid var(--accent);outline-offset:1px;font-weight:700}
+.project-main section {margin-top:3rem}
+.project-main section > p {max-width:50rem}
+.project-main summary {cursor:pointer;padding:.6rem 0;min-height:44px}
+[data-log] {max-height:20rem;overflow:auto}
+[hidden] {display:none!important}
+@media(max-width:500px){fibonacci-lab,memo-walkthrough{padding:1rem}.lab-controls label{flex-basis:100%}.actions button{flex:1 1 auto}fibonacci-lab textarea{font-size:1rem!important}}

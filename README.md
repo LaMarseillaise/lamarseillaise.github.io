@@ -16,7 +16,8 @@ Serve the repository over HTTP (ES modules require it):
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-- `/projects/`: all eight browser projects, with reusable native project cards.
+- `/projects/`: the browser project collection, with reusable native project cards.
+- `/projects/fibonacci/`: editable JavaScript, Ruby/WASM and Python/WASM, a cache walkthrough, and Swift/Rust/C#/Go references.
 - `/projects/mastermind/` and `/projects/three-card-monte/`: browser games.
 - `/projects/native-calculator/`: native `<andur-calculator>` component, adapted from the original React project.
 - `/projects/latin/`: Latin reading drafts and user-authored word connections, saved only in the browser.

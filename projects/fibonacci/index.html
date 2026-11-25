@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One problem, many languages · Andur Carr</title>
+<meta name="description" content="Explore Fibonacci recursion, watch a memoization cache fill, and edit and run JavaScript, Ruby, and Python in your browser. With Swift, Rust, C#, and Go reference examples.">
+<link rel="canonical" href="https://andurcarr.com/projects/fibonacci/">
+<link rel="icon" href="/favicon.ico?v=ac-20261124" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=ac-20261124">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/blue-32.png?v=ac-20261124" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/black-32.png?v=ac-20261124" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/blue-180.png?v=ac-20261124">
+<link rel="manifest" href="/site.webmanifest?v=ac-20261124">
+
+<link rel="stylesheet" href="/assets/stylesheets/main.css"><link rel="stylesheet" href="/assets/stylesheets/project.css"><link rel="stylesheet" href="fibonacci.css">
+<script type="module" src="fibonacci.js"></script></head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header page-width"><a class="wordmark" href="/" aria-label="Andur Carr, home">AC<span>.</span></a><a href="/projects/">All projects</a></header>
+<main id="main" tabindex="-1" class="page-width project-main">
+<p class="eyebrow">A language-learning ritual</p><h1>One problem,<br>many languages.</h1>
+<p class="project-intro">Finding the nth Fibonacci number is my go-to exercise when trying a new programming language. A tiny problem opens up questions about recursion, memory, numbers, and what a language makes easy.</p>
+<div class="sequence" aria-label="The first eight Fibonacci numbers"><span>0</span><span>1</span><span>1</span><span>2</span><span>3</span><span>5</span><span>8</span><span>13</span></div>
+<p>Start with <strong>F(0) = 0</strong> and <strong>F(1) = 1</strong>. Every later term is the sum of the two before it: <strong>F(n) = F(n − 1) + F(n − 2)</strong>. Here, n is the zero-based index, so F(10) is 55.</p>
+<section aria-labelledby="try"><h2 id="try">Change it. Run it. Compare.</h2>
+<p>Start with simple recursion, then select memoization. Try n = 10, then 35. How much work can you avoid by remembering an answer? Iteration offers a third approach: keep just the two preceding values.</p>
+<fibonacci-lab></fibonacci-lab><noscript>Enable JavaScript to use the source editor and cache walkthrough.</noscript>
+<p class="hint">JavaScript runs natively. Ruby and Python download WebAssembly runtimes from jsDelivr only when you press Run; the first download can be substantial. Your source is executed locally, not sent to a compilation service. Each run starts in a fresh, isolated worker and stops after four seconds of execution. Inputs are limited to 0–500; deeply recursive edits may reach runtime stack limits.</p></section>
+<section aria-labelledby="remember"><h2 id="remember">Remember the answer.</h2>
+<p>Simple recursion asks for F(n − 1) and F(n − 2), but the first branch already needs the second. Those overlapping branches repeat the same work. Memoization stores each computed term; the next request reads it from the cache. Step through the unedited memoized algorithm below.</p>
+<memo-walkthrough></memo-walkthrough>
+<p>Simple recursion takes exponentially many calls. Memoization takes a linear number of calls and stores a linear number of integers; iteration takes a linear number of additions and retains a constant number of integers. These are operation and integer counts: the integers themselves grow with n, so big-integer arithmetic and storage are not constant-cost.</p></section>
+<section class="notes" aria-labelledby="idioms"><h2 id="idioms">Same idea. Different idioms.</h2>
+<p>JavaScript and Ruby evaluate a default cache argument when a call omits it. Passing that same cache into recursive calls is essential. Ruby treats zero as truthy, so <code>memo[n] ||= …</code> also works for the cached F(0).</p>
+<p>Python evaluates default arguments when the function is defined. A dictionary default would survive across top-level calls. This sample uses <code>None</code> to make each top-level call start fresh. Go has no default arguments: a closure over a map makes the shared cache explicit instead.</p>
+<p>JavaScript uses <code>BigInt</code>; ordinary <code>Number</code> stops representing every integer above 2⁵³ − 1. Ruby, Python, C#, and Go examples use growing integers. The Swift and Rust references use fixed-width unsigned integers with explicit limits. Memoization does not prevent numeric overflow.</p>
+<p>The C# example adapts my existing implementation, correcting its example comments and rejecting negative inputs explicitly. The other examples are new teaching implementations prepared with AI assistance, rather than recovered copies of my earlier solutions. Swift, Rust, C#, and Go are readable references here; this page does not compile or execute those languages yet.</p>
+<p>Runtime documentation: <a href="https://github.com/ruby/ruby.wasm">ruby.wasm</a> and <a href="https://pyodide.org/en/stable/usage/webworker.html">Pyodide workers</a>. The runner compares each returned value with an independent iterative calculation. Passing one input does not establish correctness for every input.</p>
+</section></main><footer class="site-footer page-width"><p>Andur Carr · An experiment in learning languages</p><a href="/projects/">All projects</a></footer></body></html>

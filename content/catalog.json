@@ -1,5 +1,6 @@
 {
   "projects": [
+    {"slug":"fibonacci","title":"One problem, many languages","category":"Fibonacci & memoization","description":"Edit and run JavaScript, Ruby, and Python. Watch a cache fill, then compare Swift, Rust, C#, and Go reference implementations.","meta":"WebAssembly · Native Web Components · Exact integers","link":"Explore Fibonacci"},
     {"slug":"astrometrics","title":"Astrometrics","category":"Observation & reason","description":"Follow a shadow, a timed echo, and a shift in perspective from Earth's circumference to the distance of a star.","meta":"JavaScript · SVG · Interactive geometry","link":"Explore Astrometrics"},
     {"slug":"periodic-table","title":"Elements & isotopes","category":"A field guide to matter","description":"Explore electron structure, naturally abundant isotopes, radioactive examples, and the energy binding a nucleus together.","meta":"JavaScript · Web Components · Evaluated nuclear data","link":"Explore the periodic table"},
     {"slug":"calendars-and-clocks","title":"Calendars & clocks","category":"Time & convention","description":"Compare clocks, cross a daylight saving boundary, explore my seasonal calendar, and learn Conway’s Doomsday Rule.","meta":"Web Components · Calendar arithmetic · Historical sources","link":"Explore timekeeping"},
