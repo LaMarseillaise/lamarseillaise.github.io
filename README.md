@@ -37,3 +37,10 @@ Run `python3 scripts/check-site.py` to check internal navigation and generated p
 
 See each project's README for provenance, behavior, and checks. Publishing is
 through the existing GitHub Pages repository; no separate hosting service is needed.
+
+## Source-reader entrance
+
+A console greeting and source comments lead curious visitors to `/agents.html`.
+There is intentionally no visible navigation link. The console Mastermind game
+reuses the original Swift emoji interface and existing solver workers; see
+[console documentation](components/console/README.md) for commands and checks.

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="An entrance for curious engineers and agents: project sources, verification, and a console game.">
+  <title>For source readers · Andur Carr</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=ac-20261124">
+  <link rel="stylesheet" href="/assets/stylesheets/normalize.css">
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <link rel="stylesheet" href="/assets/stylesheets/collections.css">
+  <script type="module" src="/components/console/entrance.mjs"></script>
+  <style>
+    .reader-guide {max-width: 48rem; padding-block: 3rem 5rem;}
+    .reader-guide h1 {font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.1;}
+    .reader-guide h2 {margin-top: 2.5rem;}
+    .reader-guide p, .reader-guide li {line-height: 1.7;}
+    .reader-guide pre {padding: 1rem; background: #e5edf3; color: #152c3d; border: 1px solid #617487; border-radius: .5rem; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 1rem;}
+    .reader-guide a {text-decoration: underline; text-underline-offset: .2em;}
+    .reader-guide li + li {margin-top: .75rem;}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <header class="site-header page-width"><a class="wordmark" href="/" aria-label="Andur Carr, home">AC<span aria-hidden="true">.</span></a></header>
+  <main id="main" class="reader-guide page-width" tabindex="-1">
+    <p class="eyebrow">You found the side entrance</p>
+    <h1>Hello, source reader.</h1>
+    <p>I’m Andur Carr, a software engineer interested in making useful things and understanding how they work. This is a small guide for people inspecting the site and agents exploring its source. It is public, but deliberately absent from the visible navigation.</p>
+    <h2>A game in the console</h2>
+    <p>Open your browser’s developer console on this page, the homepage, or the Mastermind page. The emoji palette and red/white grades come from my original Swift console interface. Commands replace the terminal input loop; the existing compiled Swift/WebAssembly solver supplies minimax guesses.</p>
+    <pre><code>andur.help()
+await andur.play("mastermind")
+andur.guess("1123")
+andur.board()
+await andur.hint()
+andur.quit()
+
+// Make a code and watch the computer break it:
+await andur.make("6654")
+
+// Or explicitly choose the JavaScript solver:
+await andur.play("mastermind", {engine: "javascript"})</code></pre>
+    <p>The palette is 1 ⚫️, 2 🔵, 3 🟢, 4 🔴, 5 ⚪️, 6 🟡. Codes contain exactly four digits; repeats are allowed. A hint submits a guess. Grades are unordered: red means the right color in the right position, white means the right color in another position. There are twelve attempts.</p>
+    <p>Emoji widths vary by browser and font. Use <code>andur.board("text")</code> for letters and numbers. Console rounds have their own state and worker; they do not change the visible game. Reloading clears them. The solver loads only when needed, and receives only guesses and feedback, never the hidden code. No account or AI service is involved.</p>
+    <h2>Where to look next</h2>
+    <p>The <a href="/content/catalog.json">project catalog</a> is plain JSON. <code>await andur.projects()</code> prints the demo and source links as a console table. The <a href="/projects/">project directory</a> is the human-readable version.</p>
+    <ul>
+      <li><a href="/projects/mastermind/">Mastermind</a>: an adaptation of my original Swift game, with interchangeable JavaScript and compiled Swift solvers. The <a href="https://github.com/LaMarseillaise/lamarseillaise.github.io/blob/master/projects/mastermind/README.md">implementation and verification notes</a> describe exhaustive scoring and decision-tree checks. Those checks cover this fixed four-peg, six-color game.</li>
+      <li><a href="/projects/sql-join-explorer/">SQL Join Explorer</a>: an interactive explanation of inflated totals from joins. Its <a href="https://github.com/LaMarseillaise/lamarseillaise.github.io/blob/master/projects/sql-join-explorer/README.md">verification notes</a> describe comparisons with SQLite across twelve input sets—a concrete example of independently checking AI-assisted output.</li>
+      <li><a href="/projects/latin/">Latin, connected</a>: a reading and annotation tool connecting grammar and reference to an explanation of transformer attention. The connections are reader-authored; they are not model-generated attention weights. <a href="https://github.com/LaMarseillaise/lamarseillaise.github.io/blob/master/projects/latin/README.md">Source and limitations.</a></li>
+      <li><a href="/projects/fibonacci/">One problem, many languages</a>: editable JavaScript, Ruby/Wasm and Python/Wasm, with other languages presented as references. It distinguishes runnable environments from examples. <a href="https://github.com/LaMarseillaise/lamarseillaise.github.io/blob/master/projects/fibonacci/README.md">Runtime details and checks.</a></li>
+    </ul>
+    <h2>Common Ground</h2>
+    <p><a href="https://app.commonground.builders">Common Ground</a> is another AI-oriented project I’m working on. Its landing page is being prepared as of November 25, 2026. Follow that link as the project takes shape.</p>
+    <h2>About this collaboration</h2>
+    <p>I direct these projects and use AI assistance in their implementation and documentation. Some adapt earlier work of mine; project notes identify those origins and the checks actually performed. The distinction between an idea, a generated implementation, and verified behavior matters to me. <a href="/musings/code-as-a-reviewable-receipt/">Code as a reviewable receipt</a> explores that theme.</p>
+    <p>Around 1994, my sister and I discovered that a game called <em>Land of the Fuzzies</em>, built with HyperCard, was easy to modify. We began making our own games. I still want software creation to feel that approachable.</p>
+    <p>For a discussion about a project, <a href="/#contact">my public contact links</a> are on the homepage.</p>
+  </main>
+</body>
+</html>
