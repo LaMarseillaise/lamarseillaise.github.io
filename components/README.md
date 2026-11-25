@@ -16,3 +16,7 @@ The full project directory uses the same cards as the carousel. `collections.css
 ## Timekeeping instruments
 
 The [Calendars & clocks components](../projects/calendars-and-clocks/README.md) live in `timekeeping/` and are loaded only by that project. Four independent custom elements provide clocks, a DST timeline, the seasonal calendar and a Doomsday walkthrough. `timekeeping/check.html` exercises multiple instances and reconnect behavior. Their shared arithmetic has an independent exhaustive oracle; see the project README for actual verification results.
+
+## Transit components
+
+`transit/stop-card.js`, `transit/stop-map.js`, and `transit/explorer.js` register independent stop-card, map, and explorer elements. They use Shadow DOM; provider data arrives through properties and selection through composed events. Import only the smallest element you need. See [the transit project](../projects/transit/README.md) for property contracts, provider boundaries, source attribution, and the browser check fixture. They are not imported by the homepage.

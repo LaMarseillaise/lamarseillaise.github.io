@@ -17,6 +17,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
 - `/projects/`: the browser project collection, with reusable native project cards.
+- `/projects/transit/`: MBTA bus arrival cards with a stop map, synchronized list view, optional local location matching, and a recorded example.
 - `/projects/fibonacci/`: editable JavaScript, Ruby/WASM and Python/WASM, a cache walkthrough, and Swift/Rust/C#/Go references.
 - `/projects/mastermind/` and `/projects/three-card-monte/`: browser games.
 - `/projects/native-calculator/`: native `<andur-calculator>` component, adapted from the original React project.

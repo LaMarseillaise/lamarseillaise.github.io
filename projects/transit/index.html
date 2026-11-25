@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Next stop · Andur Carr</title><meta name="description" content="Explore nearby Boston bus stops on a map or in a list, with live MBTA arrival cards and optional on-device location matching.">
+<link rel="canonical" href="https://andurcarr.com/projects/transit/">
+<link rel="icon" href="/favicon.ico?v=ac-20261124" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=ac-20261124">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/blue-32.png?v=ac-20261124" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/black-32.png?v=ac-20261124" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/blue-180.png?v=ac-20261124">
+<link rel="manifest" href="/site.webmanifest?v=ac-20261124">
+
+<link rel="stylesheet" href="/assets/stylesheets/main.css"><link rel="stylesheet" href="/assets/stylesheets/project.css">
+<script type="module" src="/components/transit/explorer.js"></script>
+<style>.project-main{max-width:76rem}.project-main h1{margin-bottom:1rem}.coverage-note{padding:.8rem 1rem;border-left:3px solid var(--accent);max-width:55rem;margin:1.5rem 0 2rem}transit-explorer{display:block;margin:1.5rem 0}.notes pre{white-space:pre-wrap;overflow-wrap:anywhere;background:white;border:1px solid var(--rule);padding:1rem}.notes li{margin:.5rem 0}</style>
+</head><body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header page-width"><a class="wordmark" href="/" aria-label="Andur Carr, home">AC<span>.</span></a><a href="/projects/">All projects</a></header>
+<main id="main" tabindex="-1" class="page-width project-main"><p class="eyebrow">Open data · A small everyday tool</p><h1>Next stop.</h1><p class="project-intro">A few nearby stops. The next buses. One view of the neighborhood, or a card for every stop.</p><p class="coverage-note"><strong>First live provider: MBTA buses in Greater Boston.</strong> Start at Harvard Square, choose another area, or use your location. This version does not yet have Eugene/LTD arrivals.</p>
+<transit-explorer></transit-explorer><noscript>This explorer needs JavaScript. You can find current services on <a href="https://www.mbta.com/">MBTA’s website</a>.</noscript>
+<section class="notes" aria-labelledby="read"><h2 id="read">Read the estimate, not a promise.</h2>
+<p>Each card identifies the bus route and destination. Most times are live predictions. A <em>schedule-based estimate</em> is labeled separately; it may be adjusted using historical travel times, without a current vehicle prediction. Cancelled trips and skipped stops are labeled, and arrival-only trips are not presented as departures you can board.</p>
+<p>A missing prediction does not mean a stop has no service. Times become stale after two minutes without a successful retrieval; use Refresh arrivals or the official stop link. This example does not include every service alert or replace the agency’s trip planner. The recorded example is a dated snapshot, never a substitute for live travel information.</p></section>
+<section class="notes" aria-labelledby="privacy"><h2 id="privacy">Location is a choice.</h2>
+<p>“Use my location” asks your browser for permission. Coordinates stay in this tab and are compared with the stop directory on your device. If permission is declined, lookup times out, or you are outside the supported area, you can choose a Boston area or search by stop name or ID. There is no automatic IP-location lookup and no saved location history.</p>
+<p>The live directory and predictions come directly from MBTA. Requests for predictions identify the selected public stops, not your precise coordinates. OpenStreetMap supplies visible map tiles and receives your IP address and the map area requested. No map tiles are downloaded for offline use.</p></section>
+<section class="notes" aria-labelledby="components"><h2 id="components">Three pieces, one explorer.</h2>
+<ul><li><code>&lt;transit-stop-card&gt;</code> displays one stop and its normalized arrivals, without fetching data itself.</li><li><code>&lt;transit-stop-map&gt;</code> plots stops, separates overlapping pins, and opens a card when a stop is selected.</li><li><code>&lt;transit-explorer&gt;</code> coordinates location, stop searches, feed requests, and the map/list switch.</li></ul>
+<p>All three use native Web Components and plain JavaScript. The map uses a small Web Mercator tile renderer; no mapping framework or account is required. The provider adapter is separate from the components so another agency can be added without rewriting the cards.</p>
+<pre><code>&lt;script type="module"
+  src="/components/transit/explorer.js"&gt;&lt;/script&gt;
+&lt;transit-explorer&gt;&lt;/transit-explorer&gt;</code></pre>
+<p>This project revisits my interest in transit data from an earlier Uber take-home exercise; it is a new implementation prepared with AI assistance, not recovered source from that project.</p>
+<p>Sources: <a href="https://api-v3.mbta.com/docs/swagger/index.html">MBTA V3 API documentation</a>, <a href="https://www.mbta.com/developers">MBTA developer resources</a>, and <a href="https://operations.osmfoundation.org/policies/tiles/">OpenStreetMap tile policy</a>. Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>. This is an independent project, not affiliated with MBTA or OpenStreetMap.</p></section>
+</main><footer class="site-footer page-width"><p>Andur Carr · Open data, useful interfaces</p><a href="/projects/">All projects</a></footer></body></html>

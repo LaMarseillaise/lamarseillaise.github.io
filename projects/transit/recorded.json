@@ -1,0 +1,358 @@
+{
+  "source": "https://api-v3.mbta.com",
+  "capturedAt": "2026-11-25T21:17:49.294Z",
+  "stops": [
+    {
+      "id": "76121",
+      "name": "Harvard - Upper Busway Berth B1",
+      "lat": 42.37372,
+      "lon": -71.119121,
+      "distance": 16.638669699226792
+    },
+    {
+      "id": "76122",
+      "name": "Harvard - Upper Busway Berth B2",
+      "lat": 42.373604,
+      "lon": -71.119242,
+      "distance": 19.884554854919248
+    },
+    {
+      "id": "76129",
+      "name": "Harvard - Lower Busway Berth A3",
+      "lat": 42.373612,
+      "lon": -71.119323,
+      "distance": 26.56701706164258
+    },
+    {
+      "id": "76123",
+      "name": "Harvard - Upper Busway Berth B3",
+      "lat": 42.373516,
+      "lon": -71.119582,
+      "distance": 48.71345370835107
+    },
+    {
+      "id": "76124",
+      "name": "Harvard - Upper Busway Berth B4",
+      "lat": 42.373483,
+      "lon": -71.119771,
+      "distance": 64.6577918159499
+    },
+    {
+      "id": "76125",
+      "name": "Harvard - Upper Busway Berth B5",
+      "lat": 42.373448,
+      "lon": -71.119959,
+      "distance": 80.57177345412286
+    }
+  ],
+  "cards": [
+    {
+      "stop": {
+        "id": "76121",
+        "name": "Harvard - Upper Busway Berth B1",
+        "lat": 42.37372,
+        "lon": -71.119121,
+        "distance": 16.638669699226792
+      },
+      "index": 1,
+      "rows": [
+        {
+          "id": "prediction-78477823-76121-1-77",
+          "route": "77",
+          "destination": "Arlington Heights",
+          "time": 1795642140000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        },
+        {
+          "id": "prediction-78477774-76121-1-77",
+          "route": "77",
+          "destination": "Arlington Heights",
+          "time": 1795642860000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        },
+        {
+          "id": "prediction-78477755-76121-1-77",
+          "route": "77",
+          "destination": "Arlington Heights",
+          "time": 1795643580000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        },
+        {
+          "id": "prediction-78477734-76121-1-77",
+          "route": "77",
+          "destination": "Arlington Heights",
+          "time": 1795644300000,
+          "kind": "Schedule-based estimate",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        }
+      ],
+      "fetchedAt": 1795641469294
+    },
+    {
+      "stop": {
+        "id": "76122",
+        "name": "Harvard - Upper Busway Berth B2",
+        "lat": 42.373604,
+        "lon": -71.119242,
+        "distance": 19.884554854919248
+      },
+      "index": 2,
+      "rows": [
+        {
+          "id": "prediction-78267321-76122-1-96",
+          "route": "96",
+          "destination": "Medford Square",
+          "time": 1795642260000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        },
+        {
+          "id": "prediction-78267324-76122-1-96",
+          "route": "96",
+          "destination": "Medford Square",
+          "time": 1795643460000,
+          "kind": "Schedule-based estimate",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        },
+        {
+          "id": "prediction-78260891-76122-1-96",
+          "route": "96",
+          "destination": "Medford Square",
+          "time": 1795644660000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        }
+      ],
+      "fetchedAt": 1795641469294
+    },
+    {
+      "stop": {
+        "id": "76129",
+        "name": "Harvard - Lower Busway Berth A3",
+        "lat": 42.373612,
+        "lon": -71.119323,
+        "distance": 26.56701706164258
+      },
+      "index": 3,
+      "rows": [
+        {
+          "id": "prediction-78267318-76129-27-96",
+          "route": "96",
+          "destination": "Harvard",
+          "time": 1795641507000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        },
+        {
+          "id": "prediction-78477818-76129-33-77",
+          "route": "77",
+          "destination": "Harvard",
+          "time": 1795641710000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        },
+        {
+          "id": "prediction-78475993-76129-22-74",
+          "route": "74",
+          "destination": "Harvard",
+          "time": 1795641795000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        },
+        {
+          "id": "prediction-78475999-76129-44-78",
+          "route": "78",
+          "destination": "Harvard",
+          "time": 1795641828000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        }
+      ],
+      "fetchedAt": 1795641469294
+    },
+    {
+      "stop": {
+        "id": "76123",
+        "name": "Harvard - Upper Busway Berth B3",
+        "lat": 42.373516,
+        "lon": -71.119582,
+        "distance": 48.71345370835107
+      },
+      "index": 4,
+      "rows": [
+        {
+          "id": "prediction-78476303-76123-24-86",
+          "route": "86",
+          "destination": "Harvard",
+          "time": 1795641865000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": true,
+          "description": ""
+        },
+        {
+          "id": "prediction-78174801-76123-33-66",
+          "route": "66",
+          "destination": "Harvard via Allston",
+          "time": 1795641958000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": true,
+          "description": ""
+        },
+        {
+          "id": "prediction-78174802-76123-33-66",
+          "route": "66",
+          "destination": "Harvard via Allston",
+          "time": 1795642310000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": true,
+          "description": ""
+        },
+        {
+          "id": "prediction-78476282-76123-24-86",
+          "route": "86",
+          "destination": "Harvard",
+          "time": 1795642652000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": true,
+          "description": ""
+        }
+      ],
+      "fetchedAt": 1795641469294
+    },
+    {
+      "stop": {
+        "id": "76124",
+        "name": "Harvard - Upper Busway Berth B4",
+        "lat": 42.373483,
+        "lon": -71.119771,
+        "distance": 64.6577918159499
+      },
+      "index": 5,
+      "rows": [
+        {
+          "id": "prediction-78476872-76124-1-73",
+          "route": "73",
+          "destination": "Waverley",
+          "time": 1795641776000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        },
+        {
+          "id": "prediction-78476869-76124-22-71",
+          "route": "71",
+          "destination": "Harvard",
+          "time": 1795641776000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": true,
+          "description": ""
+        },
+        {
+          "id": "prediction-78476792-76124-1-73",
+          "route": "73",
+          "destination": "Waverley",
+          "time": 1795642130000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        },
+        {
+          "id": "prediction-78476784-76124-23-73",
+          "route": "73",
+          "destination": "Harvard",
+          "time": 1795642130000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": true,
+          "description": ""
+        }
+      ],
+      "fetchedAt": 1795641469294
+    },
+    {
+      "stop": {
+        "id": "76125",
+        "name": "Harvard - Upper Busway Berth B5",
+        "lat": 42.373448,
+        "lon": -71.119959,
+        "distance": 80.57177345412286
+      },
+      "index": 6,
+      "rows": [
+        {
+          "id": "prediction-78266408-76125-1-109",
+          "route": "109",
+          "destination": "Linden Square via Sullivan",
+          "time": 1795641960000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        },
+        {
+          "id": "prediction-78266419-76125-1-109",
+          "route": "109",
+          "destination": "Linden Square via Sullivan",
+          "time": 1795642560000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        },
+        {
+          "id": "prediction-78266429-76125-1-109",
+          "route": "109",
+          "destination": "Linden Square via Sullivan",
+          "time": 1795643160000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        },
+        {
+          "id": "prediction-78266548-76125-1-109",
+          "route": "109",
+          "destination": "Linden Square via Sullivan",
+          "time": 1795643760000,
+          "kind": "Live prediction",
+          "cancelled": false,
+          "arrivalOnly": false,
+          "description": ""
+        }
+      ],
+      "fetchedAt": 1795641469294
+    }
+  ]
+}
